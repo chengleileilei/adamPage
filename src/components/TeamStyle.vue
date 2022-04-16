@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>This  团队风采!</h1>
+    <h1>This is 团队风采!</h1>
 </div>
   
 </template>

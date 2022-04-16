@@ -16,11 +16,17 @@ export default new Router({
             path: '/hello',
             name: 'HelloWorld',
             component: HelloWorld
+        }, {
+            path: '/',
+            name: 'root',
+            redirect: { name: "HomePage" }
+
         },
         {
-            path: '/',
+            path: '/home',
             name: 'HomePage',
-            component: HomePage
+            component: HomePage,
+
         },
         {
             path: '/research',

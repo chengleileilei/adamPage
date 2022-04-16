@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>This home 科研科动!</h1>
+    <h1>This is 科研动态!</h1>
 </div>
   
 </template>
