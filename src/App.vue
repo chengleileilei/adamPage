@@ -4,8 +4,8 @@
 
     <el-row class="cover">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <div class="top">
-          <el-row class="centered">
+        <div class="top-wrap">
+          <el-row class="centered top">
             <el-col
               class="text-left"
               :xs="18"
@@ -23,17 +23,8 @@
         </div>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="border">
-        <el-row class="centered border top2">
-          <!-- <el-col class="top2-l" :xs="24" :sm="24" :md="8" :lg="7" :xl="7">
-            <img src=".\assets\bule.png" alt="" />
-            <div class="vertical-line"></div>
-            <img src=".\assets\v2_r8ry8d.jpg" alt="" />
-          </el-col>
-
-          <el-col class="top2-l" :xs="24" :sm="24" :md="16" :lg="8" :xl="8">
-            <p>应用数据挖掘与机器学习实验室</p>
-          </el-col> -->
+      <el-col class="top2-wrap" :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <el-row class="centered top2">
           <el-col :xs="24" :sm="24" :md="24" :lg="15" :xl="15">
             <el-row>
               <el-col
@@ -80,7 +71,7 @@
 
     <el-row>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <div class="border">
+        <div>
           <router-view />
         </div>
       </el-col>
@@ -146,12 +137,15 @@ a {
   color: #2c3e50;
 }
 
-.top {
+.top-wrap {
   background-color: #101010;
 }
-.top p {
+.top-wrap p {
   color: white;
   line-height: 61px;
+}
+.top{
+  padding:0 20px 0 20px;
 }
 
 .text-right {
@@ -168,14 +162,20 @@ a {
 .border {
   border: 1px solid black;
 }
+.top2-wrap{
+  box-shadow: rgb(187, 187, 187) 0px 1px 0px;
+  margin-bottom: 2px;
+
+}
 
 .top2 {
   /* max-height: 150px; */
-  min-height: 150px;
+  min-height: 100px;
+
 }
 
 .top2-l {
-  height: 150px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -197,7 +197,7 @@ a {
 }
 
 .top2-r {
-  height: 150px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -208,9 +208,8 @@ a {
   font-size: 21px;
   /* font-family: 'SourceHanSansSC-bold'; */
 }
-.top2-r a:hover{
-    color: rgba(56, 148, 255, 100);
-
+.top2-r a:hover {
+  color: rgba(56, 148, 255, 100);
 }
 
 .active {
