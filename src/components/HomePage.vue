@@ -35,34 +35,46 @@
         <div></div>
       </el-col>
       <el-col class="home-content">
-        <p>
-          北京交通大学ADaM应用数据挖掘与机器学习实验室，于2018年成立，主要从事计算机视觉、自然语言处理、数据挖掘等前沿研究，包括的具体方向有对抗鲁棒与非语义特征、社会事件与网络舆情、可靠用户建模、智能算法测试、公平性与因果性、知识图谱。近几年来，实验室取得了多方面的研究成果，团队成员多次在CVPR、TOIS、MM等高水平国际会议，及高水平期刊上发表研究成果。
-          实验室现有导师两名，博士生11名，硕士研究生二十余名，分工明确，结构合理，构成具有较强科研实力的科研队伍。自实验室成立来，与其他高校及机构保持交流，建立了良好的合作关系。
-        </p>
+        <p>{{ introductOfLab }}</p>
       </el-col>
     </el-row>
 
-        <el-row class="centered lr-padding">
+    <el-row class="centered lr-padding">
+
       <el-col class="first-title-wrap">
         <p>最新动态</p>
         <div></div>
       </el-col>
-      <el-col class="home-content">
-        <p>
-          北京交通大学ADaM应用数据挖掘与机器学习实验室，于2018年成立，主要从事计算机视觉、自然语言处理、数据挖掘等前沿研究，包括的具体方向有对抗鲁棒与非语义特征、社会事件与网络舆情、可靠用户建模、智能算法测试、公平性与因果性、知识图谱。近几年来，实验室取得了多方面的研究成果，团队成员多次在CVPR、TOIS、MM等高水平国际会议，及高水平期刊上发表研究成果。
-          实验室现有导师两名，博士生11名，硕士研究生二十余名，分工明确，结构合理，构成具有较强科研实力的科研队伍。自实验室成立来，与其他高校及机构保持交流，建立了良好的合作关系。
-        </p>
+
+      <el-col class="home-content research-trend-wrap">
+        <div class="research-trend">
+          <div class="trend-tit-wrap lr-padding">
+            <p class="trend-time">[2022-2-2]</p>
+            <a href=""><p class="trend-tit">Adam一篇论文被cvpr录用</p></a>
+          </div>
+          <div class="trend-content lr-padding">
+            <p>本问题提出了，，，，，</p>
+            <div>
+              <a href="">Paper</a>
+            </div>
+          </div>
+        </div>
       </el-col>
+
     </el-row>
+    
   </div>
 </template>
 
 <script>
+import dataMock from "../../static/mockData.json";
+console.log(dataMock);
 export default {
   name: "homepage",
   data() {
     return {
       msg: "主页",
+      // imgDatas:dataMock.imgDatas,
       imgDatas: [
         {
           id: 0,
@@ -91,6 +103,7 @@ export default {
       ],
       bannerHeight: "",
       active: 0,
+      introductOfLab: dataMock.introductionOfLab.cn,
     };
   },
   mounted() {
@@ -140,7 +153,6 @@ export default {
 </style>
 
 <style >
-
 .carousel-img {
   width: 100%;
   height: inherit;
@@ -200,7 +212,6 @@ export default {
 
 /* 轮播图样式结束 */
 
-
 .first-title-wrap {
   display: flex;
   flex-direction: column;
@@ -226,16 +237,40 @@ export default {
 }
 
 .home-content {
-  padding:20px;
+  /* padding: 20px; */
   background-color: rgba(204, 225, 249, 0.432);
   text-align: left;
 }
-.home-content p{
+.home-content>p {
   font-size: 28px;
-  text-indent:2em;
+  text-indent: 2em;
+  margin: 30px;
 }
 
-.lr-padding{
-  padding:0 30px 0 30px;
+.lr-padding {
+  padding: 0 30px 0 30px;
+}
+
+
+
+/* 最新动态 */
+.trend-tit-wrap{
+  background-color: rgb(255, 255, 255);
+}
+.research-trend-wrap{
+  border: 1px solid rgba(187, 187, 187, 100);
+  padding-top: 30px;
+}
+.trend-tit-wrap .trend-time{
+  font-size: 30px;
+  color: rgb(16, 16, 16);
+  font-family: SourceHanSansSC-bold;
+
+}
+.trend-tit-wrap .trend-tit{
+  font-size: 30px;
+  font-family: SourceHanSansSC-regular;
+  color: rgb(44, 97, 165);
+
 }
 </style>

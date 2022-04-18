@@ -1,0 +1,31 @@
+{
+    "introductionOfLab": {
+        "en": "Adam applied data mining and machine learning laboratory of Beijing Jiaotong University, established in 2018, is mainly engaged in the frontier research of Computer Vision, Natural Language Precessing,  Data Mining,  Machine Learning, mainly including several major fields of Robust and Non-Semantic Features,Event Analysis,User Modeling,Reliability Test,Fairness and Causality. In recent years, many research achievements have been made. The laboratory has published research achievements in CVPR, ACM TOIS, ACM Multimedia and other high-level international conferences, as well as in high-level journals for many times. At present, the laboratory has two Supervisors, 11 doctoral students and more than twenty graduate students. The division of labor is clear and the structure is reasonable, forming a scientific research team with strong scientific research strength. Since the establishment of the laboratory, it has maintained exchanges with many other universities and established good cooperative relations with them.",
+        "cn": "北京交通大学ADaM应用数据挖掘与机器学习实验室，于2018年成立，主要从事计算机视觉、自然语言处理、数据挖掘等前沿研究，包括的具体方向有对抗鲁棒与非语义特征、社会事件与网络舆情、可靠用户建模、智能算法测试、公平性与因果性、知识图谱。近几年来，实验室取得了多方面的研究成果，团队成员多次在CVPR、TOIS、MM等高水平国际会议，及高水平期刊上发表研究成果。实验室现有导师两名，博士生11名，硕士研究生二十余名，分工明确，结构合理，构成具有较强科研实力的科研队伍。自实验室成立来，与其他高校及机构保持交流，建立了良好的合作关系。"
+    },
+    "imgDatas": [{
+            "id": 0,
+            "src": "require('../assets/毕业季3.jpg')",
+            "info": "ADaM团队合照",
+            "link": "https://mp.weixin.qq.com/s/VIafUMBOyz0R6U_qj_PXDA"
+        },
+        {
+            "id": 1,
+            "src": "require('../assets/CVPR1.jpeg')",
+            "info": "课题组论文被CVPR2022接收",
+            "link": "https://mp.weixin.qq.com/s/jW13kykykexHwBvig3az0A"
+        },
+        {
+            "id": 2,
+            "src": "require('../assets/比赛.jpeg')",
+            "info": "ADaM小组硕士同学在第四届\"中国法研杯\"中获奖",
+            "link": "https://mp.weixin.qq.com/s/8kLVyWtHvlJXXbpsZ7EPTg"
+        },
+        {
+            "id": 3,
+            "src": "require('../assets/软件学报.jpeg')",
+            "info": "课题组综述论文被软件学报接收",
+            "link": "https://mp.weixin.qq.com/s/aAUg-xZauZQwnu6eX4tcdA"
+        }
+    ]
+}
