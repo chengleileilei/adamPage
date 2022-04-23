@@ -40,41 +40,60 @@
     </el-row>
 
     <el-row class="centered lr-padding">
-
       <el-col class="first-title-wrap">
         <p>最新动态</p>
         <div></div>
       </el-col>
 
       <el-col class="home-content research-trend-wrap">
-        <div class="research-trend">
-          <div class="trend-tit-wrap lr-padding">
-            <p class="trend-time">[2022-2-2]</p>
-            <a href=""><p class="trend-tit">Adam一篇论文被cvpr录用</p></a>
-          </div>
-          <div class="trend-content lr-padding">
-            <p>本问题提出了，，，，，</p>
-            <div>
-              <a href="">Paper</a>
+        <div v-for="trendData in trendDatas" :key="trendData.time">
+          <div class="research-trend">
+            <div class="trend-tit lr-padding">
+              <a href="">
+                <p class="trend-tit-time">
+                  > [{{ trendData.time.y }}-{{ trendData.time.m }}-{{
+                    trendData.time.d
+                  }}]
+                </p>
+                <p class="trend-tit-p">{{ trendData.title }}</p>
+              </a>
+              <a href="" class="trend-tit-more"><p>>></p></a>
+            </div>
+
+            <div class="trend-content lr-padding">
+              <p>{{ trendData.introduction }}</p>
+              <a href="">
+                <div class="trend-paper-link">
+                  <p>Paper</p>
+                  <img src="" alt="" />
+                </div>
+              </a>
             </div>
           </div>
         </div>
       </el-col>
-
     </el-row>
-    
+
+    <el-row class="centered lr-padding">
+      <el-col class="first-title-wrap">
+        <p>研究方向</p>
+        <div></div>
+      </el-col>
+      <el-col class="home-content">
+        
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 import dataMock from "../../static/mockData.json";
-console.log(dataMock);
+
 export default {
   name: "homepage",
   data() {
     return {
       msg: "主页",
-      // imgDatas:dataMock.imgDatas,
       imgDatas: [
         {
           id: 0,
@@ -104,6 +123,7 @@ export default {
       bannerHeight: "",
       active: 0,
       introductOfLab: dataMock.introductionOfLab.cn,
+      trendDatas: dataMock.trendDatas,
     };
   },
   mounted() {
@@ -115,6 +135,14 @@ export default {
       this.screenWidth = window.innerWidth;
       this.bannerHeight = (1 / 3) * this.screenWidth;
     };
+    // this.imgDatas = dataMock.imgDatas;
+    // for(let i = 0 ;i<this.imgDatas.length;i++){
+    //   var s = this.imgDatas[i].src
+    //   console.log(s,typeof(s))
+    //   this.imgDatas[i].src =  require("../assets/毕业季3.jpg")
+    //   // console.log(this.imgDatas[i].src)
+    //   // console.log(t_src)
+    // }
   },
   methods: {
     controlSwiper(id, index) {
@@ -241,7 +269,7 @@ export default {
   background-color: rgba(204, 225, 249, 0.432);
   text-align: left;
 }
-.home-content>p {
+.home-content > p {
   font-size: 28px;
   text-indent: 2em;
   margin: 30px;
@@ -251,26 +279,60 @@ export default {
   padding: 0 30px 0 30px;
 }
 
-
-
 /* 最新动态 */
-.trend-tit-wrap{
+.trend-tit {
   background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 35px;
 }
-.research-trend-wrap{
+.research-trend-wrap {
   border: 1px solid rgba(187, 187, 187, 100);
-  padding-top: 30px;
+  /* padding-top: 30px; */
 }
-.trend-tit-wrap .trend-time{
+.trend-tit .trend-tit-time {
+  display: inline;
+  margin-right: 20px;
   font-size: 30px;
   color: rgb(16, 16, 16);
   font-family: SourceHanSansSC-bold;
-
 }
-.trend-tit-wrap .trend-tit{
+.trend-tit .trend-tit-p {
+  display: inline;
   font-size: 30px;
   font-family: SourceHanSansSC-regular;
   color: rgb(44, 97, 165);
+}
+.trend-tit .trend-tit-more {
+  float: right;
+  font-size: 30px;
+  font-family: SourceHanSansSC-regular;
+  color: rgb(44, 97, 165);
+}
+.trend-content > p {
+  text-indent: 2em;
+  margin-top: 10px;
+  color: rgba(16, 16, 16, 100);
+  font-size: 28px;
+  text-align: left;
+  font-family: SourceHanSansSC-regular;
+}
 
+.trend-paper-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 134px;
+  height: 50px;
+  border-radius: 20px 20px 20px 20px;
+  color: rgba(24, 93, 166, 100);
+  border: 1px solid rgba(24, 93, 166, 100);
+  margin: 15px;
+}
+.trend-paper-link > p {
+  color: rgba(24, 93, 166, 100);
+  font-size: 28px;
 }
 </style>

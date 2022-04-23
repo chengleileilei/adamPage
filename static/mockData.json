@@ -5,27 +5,56 @@
     },
     "imgDatas": [{
             "id": 0,
-            "src": "require('../assets/毕业季3.jpg')",
+            "src": "../assets/毕业季3.jpg",
             "info": "ADaM团队合照",
             "link": "https://mp.weixin.qq.com/s/VIafUMBOyz0R6U_qj_PXDA"
         },
         {
             "id": 1,
-            "src": "require('../assets/CVPR1.jpeg')",
+            "src": "../assets/CVPR1.jpeg",
             "info": "课题组论文被CVPR2022接收",
             "link": "https://mp.weixin.qq.com/s/jW13kykykexHwBvig3az0A"
         },
         {
             "id": 2,
-            "src": "require('../assets/比赛.jpeg')",
+            "src": "../assets/比赛.jpeg",
             "info": "ADaM小组硕士同学在第四届\"中国法研杯\"中获奖",
             "link": "https://mp.weixin.qq.com/s/8kLVyWtHvlJXXbpsZ7EPTg"
         },
         {
             "id": 3,
-            "src": "require('../assets/软件学报.jpeg')",
+            "src": "../assets/软件学报.jpeg",
             "info": "课题组综述论文被软件学报接收",
             "link": "https://mp.weixin.qq.com/s/aAUg-xZauZQwnu6eX4tcdA"
+        }
+    ],
+    "trendDatas": [{
+            "time": {
+                "y": 2022,
+                "m": 3,
+                "d": 2
+            },
+            "title": " ADaM一篇论文被CVPR2022录用：任务相关解耦及可控伪样本生成的非生成式广义零样本模型",
+            "introduction": "本文提出了一种非生成式的任务相关解耦和可控伪样本合成模型（TDCSS），主要由两部分组成：任务相关特征解耦模块与可控伪样本生成模块。既保证在不同任务场景下所生成伪样本的多样性，还有助于探索不同特性的伪样本在GZSL任务的知识迁移中所起到的作用。"
+        },
+        {
+            "time": {
+                "y": 2021,
+                "m": 10,
+                "d": 26
+            },
+            "title": "软件学报：对话推荐算法研究综述",
+            "introduction": "本文将对话推荐系统的整体框架进行梳理,将对话推荐算法研究所使用的数据集进行分类,同时对评价对话推荐效果的相关指标进行讨论,重点关注于对话推荐系统中的后台对话策略与推荐逻辑,对近年来的对话推荐算法进行综述,最后对对话推荐领域的未来发展方向进行展望。"
+        },
+        {
+            "time": {
+                "y": 2021,
+                "m": 5,
+                "d": 6
+            },
+            "title": "TOIS：基于元学习的冷启动序列推荐",
+            "introduction": "本文提出了一个基于元学习的端到端冷启动序列推荐框架metaCSR，将具有充分行为的温启动（warm start）/普通用户的交互作为输入，并为具有少量行为的冷启动用户输出“next-one”物品预测。"
+
         }
     ]
 }
