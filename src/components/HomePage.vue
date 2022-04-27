@@ -8,7 +8,7 @@
         :height="bannerHeight + 'px'"
         @change="carousel"
       >
-        <el-carousel-item v-for="imgData in imgDatas" :key="imgData.id">
+        <el-carousel-item v-for="imgData in imgData" :key="imgData.id">
           <img :src="imgData.src" alt="" class="carousel-img" />
         </el-carousel-item>
       </el-carousel>
@@ -16,7 +16,7 @@
 
     <el-row class="carousel-bg carousel-bottom-wrap">
       <div
-        v-for="(imgData, index) in imgDatas"
+        v-for="(imgData, index) in imgData"
         :key="index"
         @click="controlSwiper(imgData.id, index)"
         v-show="active == imgData.id"
@@ -48,7 +48,7 @@
       </el-col>
 
       <el-col class="home-content research-trend-wrap">
-        <div v-for="(trendData, index) in trendDatas" :key="index">
+        <div v-for="(trendData, index) in trendData" :key="index">
           <div class="research-trend">
             <div class="trend-tit lr-padding">
               <img
@@ -123,6 +123,77 @@
       </el-col>
       <el-col class="home-content"> </el-col>
     </el-row>
+
+    <el-row class="backcolor-blue lr-padding">
+      <el-row :gutter="20" class="centered">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+          v-for="(card, index) in searchDirection"
+          :key="index"
+          class="card-wrap"
+        >
+          <div class="card">
+            <img :src="card.logo_src" alt="" class="card-logo" />
+            <p class="card-tit1">{{ card.title }}</p>
+            <p class="card-tit2">
+              {{ card.content }}
+            </p>
+          </div>
+        </el-col>
+      </el-row>
+    </el-row>
+
+    <el-row class="centered lr-padding">
+      <el-col class="first-title-wrap">
+        <p>了解更多</p>
+        <div></div>
+      </el-col>
+      <el-col class="home-content"> </el-col>
+    </el-row>
+
+    <el-row class="backcolor-blue lr-padding">
+      <el-row class="more-wrap">
+        <div>
+          <p>团队风采</p>
+          <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
+        </div>
+        <div>
+          <el-carousel
+            indicator-position="none"
+            ref="carousel"
+            :height="bannerHeight + 'px'"
+            @change="carousel"
+          >
+            <el-carousel-item v-for="imgData in imgData" :key="imgData.id">
+              <img :src="imgData.src" alt="" class="carousel-img" />
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </el-row>
+
+            <el-row class="more-wrap">
+        <div>
+          <p>成员介绍</p>
+          <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
+        </div>
+        <div>
+          <el-carousel
+            indicator-position="none"
+            ref="carousel"
+            :height="bannerHeight + 'px'"
+            @change="carousel"
+          >
+            <el-carousel-item v-for="imgData in imgData" :key="imgData.id">
+              <img :src="imgData.src" alt="" class="carousel-img" />
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </el-row>
+    </el-row>
   </div>
 </template>
 
@@ -134,11 +205,12 @@ export default {
   data() {
     return {
       msg: "主页",
-      imgDatas: [],
+      imgData: dataMock.carousel_data.zh_cn,
       bannerHeight: "",
       active: 0,
-      introductOfLab: dataMock.introductionOfLab.zh_cn,
-      trendDatas: dataMock.trendDatas,
+      introductOfLab: dataMock.introduction_of_lab.zh_cn,
+      trendData: dataMock.trend_data,
+      searchDirection: dataMock.search_direction,
     };
   },
   mounted() {
@@ -151,9 +223,15 @@ export default {
       this.bannerHeight = (1 / 3) * this.screenWidth;
     };
 
-    this.imgDatas = dataMock.imgDatas.zh_cn;
-    for (let i = 0; i < this.imgDatas.length; i++) {
-      this.imgDatas[i].src = require("@/assets/" + this.imgDatas[i].src);
+    for (let i = 0; i < this.imgData.length; i++) {
+      this.imgData[i].src = require("@/assets/" + this.imgData[i].src);
+    }
+
+    for (let i = 0; i < this.searchDirection.length; i++) {
+      this.searchDirection[
+        i
+      ].logo_src = require("@/assets/search_direction_logo/" +
+        this.searchDirection[i].logo_src);
     }
   },
   methods: {
@@ -371,5 +449,40 @@ export default {
 
 .border-top {
   border-top: 1px solid rgba(187, 187, 187, 100);
+}
+
+.backcolor-blue {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background-color: rgb(204, 225, 249);
+}
+.card {
+  max-width: 527px;
+  /* width: 527px; */
+  height: 339px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px rgba(230, 222, 222, 0.4);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.card-wrap {
+  margin-bottom: 40px;
+}
+.card-logo {
+  width: 120px;
+  height: 120px;
+}
+.card-tit1 {
+  font-size: 32px;
+}
+.card-tit2 {
+  font-size: 20px;
+  text-indent: 2em;
+  text-align: left;
 }
 </style>

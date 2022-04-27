@@ -1,9 +1,9 @@
 {
-    "introductionOfLab": {
+    "introduction_of_lab": {
         "en": "Adam applied data mining and machine learning laboratory of Beijing Jiaotong University, established in 2018, is mainly engaged in the frontier research of Computer Vision, Natural Language Precessing,  Data Mining,  Machine Learning, mainly including several major fields of Robust and Non-Semantic Features,Event Analysis,User Modeling,Reliability Test,Fairness and Causality. In recent years, many research achievements have been made. The laboratory has published research achievements in CVPR, ACM TOIS, ACM Multimedia and other high-level international conferences, as well as in high-level journals for many times. At present, the laboratory has two Supervisors, 11 doctoral students and more than twenty graduate students. The division of labor is clear and the structure is reasonable, forming a scientific research team with strong scientific research strength. Since the establishment of the laboratory, it has maintained exchanges with many other universities and established good cooperative relations with them.",
         "zh_cn": "北京交通大学ADaM应用数据挖掘与机器学习实验室，于2018年成立，主要从事计算机视觉、自然语言处理、数据挖掘等前沿研究，包括的具体方向有对抗鲁棒与非语义特征、社会事件与网络舆情、可靠用户建模、智能算法测试、公平性与因果性、知识图谱。近几年来，实验室取得了多方面的研究成果，团队成员多次在CVPR、TOIS、MM等高水平国际会议，及高水平期刊上发表研究成果。实验室现有导师两名，博士生11名，硕士研究生二十余名，分工明确，结构合理，构成具有较强科研实力的科研队伍。自实验室成立来，与其他高校及机构保持交流，建立了良好的合作关系。"
     },
-    "imgDatas": {
+    "carousel_data": {
         "en": [{
                 "id": 0,
                 "src": "毕业季3.jpg",
@@ -55,7 +55,7 @@
             }
         ]
     },
-    "trendDatas": [{
+    "trend_data": [{
             "time": {
                 "y": 2022,
                 "m": 3,
@@ -86,5 +86,37 @@
             "link": "https://dl.acm.org/doi/10.1145/3466753"
 
         }
+    ],
+    "search_direction": [{
+            "logo_src": "眼睛.png",
+            "title": "对抗鲁棒与非语义",
+            "content": "研究围绕人与模型的感知、认知差异，主要研究内容包括对抗隐私保护，多模态预训练模型对抗鲁棒性，数据和模型角度下非语义信息的认识、挖掘及利用。"
+        },
+        {
+            "logo_src": "nlp.png",
+            "title": "社会事件和网络舆情",
+            "content": "社会事件表示学习（事件文本表示学习、事件图谱构建、事件模式图归纳）、社会事件分析（热点事件检测与追踪，产业链风险事件监控）、社会事件观点挖掘"
+        },
+        {
+            "logo_src": "用户.png",
+            "title": "用户建模",
+            "content": "知识驱动的高效可靠用户建模、可信赖用户建模、序列推荐、对话推荐系统"
+        },
+        {
+            "logo_src": "算法.png",
+            "title": "智能算法测试",
+            "content": "模型可信赖测试、诊断、调试及推断可信赖度评估"
+        },
+        {
+            "logo_src": "天平.png",
+            "title": "公平性因果性",
+            "content": "具体任务中的算法偏见消除、预训练模型中的算法偏见消除、因果推断建模"
+        },
+        {
+            "logo_src": "图谱.png",
+            "title": "知识图谱",
+            "content": "基于知识图谱的产业链深度知识挖掘，基于自然语言处理的数据挖掘与语义分析"
+        }
+
     ]
 }
