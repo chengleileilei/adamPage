@@ -39,25 +39,25 @@
       </el-col>
     </el-row>
 
-    <el-row class="centered lr-padding">
+    <el-row class="centered lr-padding2">
       <el-col class="first-title-wrap">
         <p>最新动态</p>
         <div></div>
       </el-col>
 
       <el-col class="home-content research-trend-wrap">
-        <div v-for="trendData in trendDatas" :key="trendData.time">
+        <div v-for="(trendData, index) in trendDatas" :key="index">
           <div class="research-trend">
             <div class="trend-tit lr-padding">
-              <a href="">
-                <p class="trend-tit-time">
-                  > [{{ trendData.time.y }}-{{ trendData.time.m }}-{{
-                    trendData.time.d
-                  }}]
-                </p>
+              <p class="trend-tit-time">
+                > [{{ trendData.time.y }}-{{ trendData.time.m }}-{{
+                  trendData.time.d
+                }}]
+              </p>
+              <a :href="trendData.link">
                 <p class="trend-tit-p">{{ trendData.title }}</p>
               </a>
-              <a href="" class="trend-tit-more"><p>>></p></a>
+              <a :href="trendData.link" class="trend-tit-more"><p>>></p></a>
             </div>
 
             <div class="trend-content lr-padding">
@@ -71,6 +71,28 @@
             </div>
           </div>
         </div>
+
+        <div class="border-top">
+          <div class="trend-tit lr-padding">
+            <router-link to="/papers">
+              <p class="trend-tit-time">> [查看论文列表]</p>
+            </router-link>
+            <router-link class="trend-tit-more" to="/papers">
+              <p>>></p>
+            </router-link>
+          </div>
+        </div>
+
+        <div class="border-top">
+          <div class="trend-tit lr-padding">
+            <router-link to="/research">
+              <p class="trend-tit-time">> [更多科研动态]</p>
+            </router-link>
+            <router-link class="trend-tit-more" to="/research">
+              <p>>></p>
+            </router-link>
+          </div>
+        </div>
       </el-col>
     </el-row>
 
@@ -79,9 +101,7 @@
         <p>研究方向</p>
         <div></div>
       </el-col>
-      <el-col class="home-content">
-        
-      </el-col>
+      <el-col class="home-content"> </el-col>
     </el-row>
   </div>
 </template>
@@ -276,7 +296,10 @@ export default {
 }
 
 .lr-padding {
-  padding: 0 30px 0 30px;
+  padding: 0 40px 0 40px;
+}
+.lr-padding2 {
+  padding: 0 80px 0 80px;
 }
 
 /* 最新动态 */
@@ -285,11 +308,11 @@ export default {
   overflow: hidden;
   padding-top: 8px;
   padding-bottom: 8px;
-  margin-top: 35px;
+  /* margin-top: 35px; */
 }
 .research-trend-wrap {
   border: 1px solid rgba(187, 187, 187, 100);
-  /* padding-top: 30px; */
+  padding-top: 35px;
 }
 .trend-tit .trend-tit-time {
   display: inline;
@@ -331,8 +354,13 @@ export default {
   border: 1px solid rgba(24, 93, 166, 100);
   margin: 15px;
 }
+
 .trend-paper-link > p {
   color: rgba(24, 93, 166, 100);
   font-size: 28px;
+}
+
+.border-top {
+  border-top: 1px solid rgba(187, 187, 187, 100);
 }
 </style>
