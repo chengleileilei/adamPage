@@ -24,7 +24,9 @@
       >
         <p class="img-tittle">{{ imgData.info }}</p>
         <div class="img-link-wrap">
-          <a :href="imgData.link">详情>></a>
+          <a :href="imgData.link"
+            >详情<img src="@/assets/icon/iconPark-double-right.svg" alt=""
+          /></a>
         </div>
       </div>
     </el-row>
@@ -49,25 +51,33 @@
         <div v-for="(trendData, index) in trendDatas" :key="index">
           <div class="research-trend">
             <div class="trend-tit lr-padding">
+              <img
+                class="trend-tit-angel-right"
+                src="@/assets/icon/fas-fa-angle-right.svg"
+                alt=""
+              />
+
               <p class="trend-tit-time">
-                > [{{ trendData.time.y }}-{{ trendData.time.m }}-{{
+                [{{ trendData.time.y }}-{{ trendData.time.m }}-{{
                   trendData.time.d
                 }}]
               </p>
               <a :href="trendData.link">
                 <p class="trend-tit-p">{{ trendData.title }}</p>
               </a>
-              <a :href="trendData.link" class="trend-tit-more"><p>>></p></a>
+              <a :href="trendData.link" class="trend-tit-more"
+                ><img src="@/assets/icon/iconPark-double-right.svg" alt=""
+              /></a>
             </div>
 
             <div class="trend-content lr-padding">
               <p>{{ trendData.introduction }}</p>
-              <a href="">
-                <div class="trend-paper-link">
+              <div>
+                <a href="" class="trend-paper-link">
                   <p>Paper</p>
-                  <img src="" alt="" />
-                </div>
-              </a>
+                  <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -75,10 +85,15 @@
         <div class="border-top">
           <div class="trend-tit lr-padding">
             <router-link to="/papers">
-              <p class="trend-tit-time">> [查看论文列表]</p>
+              <img
+                class="trend-tit-angel-right"
+                src="@/assets/icon/fas-fa-angle-right.svg"
+                alt=""
+              />
+              <p class="trend-tit-time">[查看论文列表]</p>
             </router-link>
             <router-link class="trend-tit-more" to="/papers">
-              <p>>></p>
+              <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
             </router-link>
           </div>
         </div>
@@ -86,10 +101,15 @@
         <div class="border-top">
           <div class="trend-tit lr-padding">
             <router-link to="/research">
-              <p class="trend-tit-time">> [更多科研动态]</p>
+              <img
+                class="trend-tit-angel-right"
+                src="@/assets/icon/fas-fa-angle-right.svg"
+                alt=""
+              />
+              <p class="trend-tit-time">[更多科研动态]</p>
             </router-link>
             <router-link class="trend-tit-more" to="/research">
-              <p>>></p>
+              <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
             </router-link>
           </div>
         </div>
@@ -114,35 +134,10 @@ export default {
   data() {
     return {
       msg: "主页",
-      imgDatas: [
-        {
-          id: 0,
-          src: require("../assets/毕业季3.jpg"),
-          info: "ADaM团队合照",
-          link: "https://mp.weixin.qq.com/s/VIafUMBOyz0R6U_qj_PXDA",
-        },
-        {
-          id: 1,
-          src: require("../assets/CVPR1.jpeg"),
-          info: "课题组论文被CVPR2022接收",
-          link: "https://mp.weixin.qq.com/s/jW13kykykexHwBvig3az0A",
-        },
-        {
-          id: 2,
-          src: require("../assets/比赛.jpeg"),
-          info: 'ADaM小组硕士同学在第四届"中国法研杯"中获奖',
-          link: "https://mp.weixin.qq.com/s/8kLVyWtHvlJXXbpsZ7EPTg",
-        },
-        {
-          id: 3,
-          src: require("../assets/软件学报.jpeg"),
-          info: "课题组综述论文被软件学报接收",
-          link: "https://mp.weixin.qq.com/s/aAUg-xZauZQwnu6eX4tcdA",
-        },
-      ],
+      imgDatas: [],
       bannerHeight: "",
       active: 0,
-      introductOfLab: dataMock.introductionOfLab.cn,
+      introductOfLab: dataMock.introductionOfLab.zh_cn,
       trendDatas: dataMock.trendDatas,
     };
   },
@@ -155,14 +150,11 @@ export default {
       this.screenWidth = window.innerWidth;
       this.bannerHeight = (1 / 3) * this.screenWidth;
     };
-    // this.imgDatas = dataMock.imgDatas;
-    // for(let i = 0 ;i<this.imgDatas.length;i++){
-    //   var s = this.imgDatas[i].src
-    //   console.log(s,typeof(s))
-    //   this.imgDatas[i].src =  require("../assets/毕业季3.jpg")
-    //   // console.log(this.imgDatas[i].src)
-    //   // console.log(t_src)
-    // }
+
+    this.imgDatas = dataMock.imgDatas.zh_cn;
+    for (let i = 0; i < this.imgDatas.length; i++) {
+      this.imgDatas[i].src = require("@/assets/" + this.imgDatas[i].src);
+    }
   },
   methods: {
     controlSwiper(id, index) {
@@ -217,6 +209,9 @@ export default {
 }
 
 .carousel-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
@@ -231,7 +226,7 @@ export default {
 
 .carousel-bottom .img-link-wrap {
   position: relative;
-  top: 2px;
+  top: 1px;
   margin-left: 15px;
   padding: 4px 10px 4px 10px;
   border-radius: 5px;
@@ -247,6 +242,14 @@ export default {
 .img-link-wrap a {
   color: rgba(24, 93, 166, 100);
   font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.img-link-wrap > a > img {
+  height: 25px;
+  width: 25px;
 }
 
 @media screen and (max-width: 800px) {
@@ -310,6 +313,13 @@ export default {
   padding-bottom: 8px;
   /* margin-top: 35px; */
 }
+.trend-tit .trend-tit-angel-right {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 3px;
+  /* margin-top:6px; */
+}
 .research-trend-wrap {
   border: 1px solid rgba(187, 187, 187, 100);
   padding-top: 35px;
@@ -329,9 +339,7 @@ export default {
 }
 .trend-tit .trend-tit-more {
   float: right;
-  font-size: 30px;
-  font-family: SourceHanSansSC-regular;
-  color: rgb(44, 97, 165);
+  margin-top: 6px;
 }
 .trend-content > p {
   text-indent: 2em;
@@ -345,19 +353,20 @@ export default {
 .trend-paper-link {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: row;
   width: 134px;
   height: 50px;
   border-radius: 20px 20px 20px 20px;
   color: rgba(24, 93, 166, 100);
   border: 1px solid rgba(24, 93, 166, 100);
-  margin: 15px;
+  margin: 15px 15px 25px 15px;
 }
 
 .trend-paper-link > p {
   color: rgba(24, 93, 166, 100);
   font-size: 28px;
+  margin-right: 5px;
 }
 
 .border-top {

@@ -14,10 +14,14 @@
               :lg="18"
               :xl="18"
             >
+              <img src="@/assets/icon/fas-fa-home.svg" alt="" />
               <p>北京交通大学计算机与信息技术学院</p>
             </el-col>
-            <el-col class="text-right" :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-              <p>English</p>
+            <el-col  :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
+              <router-link to="/" class="text-right">
+                <img src="@/assets/icon/fas-fa-sync-alt.svg" alt="" />
+                <p>English</p>
+              </router-link>
             </el-col>
           </el-row>
         </div>
@@ -142,17 +146,25 @@ a {
 }
 .top-wrap p {
   color: white;
-  line-height: 61px;
+  margin: 15px 10px 15px 10px;
 }
-.top{
-  padding:0 20px 0 20px;
+.top {
+  padding: 0 30px 0 30px;
 }
+/* .top>div{
+  display: flex;
+  flex-direction: row;
+} */
 
 .text-right {
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .text-left {
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .centered {
@@ -162,16 +174,14 @@ a {
 .border {
   border: 1px solid black;
 }
-.top2-wrap{
+.top2-wrap {
   box-shadow: rgb(187, 187, 187) 0px 1px 0px;
   margin-bottom: 2px;
-
 }
 
 .top2 {
   /* max-height: 150px; */
   min-height: 100px;
-
 }
 
 .top2-l {
