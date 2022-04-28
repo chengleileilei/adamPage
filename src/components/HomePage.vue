@@ -157,25 +157,23 @@
 
     <el-row class="backcolor-blue lr-padding">
       <el-row class="more-wrap">
-        <div>
-          <p>团队风采</p>
-          <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
-        </div>
-        <div>
-          <el-carousel
-            indicator-position="none"
-            ref="carousel"
-            :height="bannerHeight + 'px'"
-            @change="carousel"
-          >
+
+        <el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
+          <el-carousel indicator-position="none" :height="bannerHeight+'px'">
             <el-carousel-item v-for="imgData in imgData" :key="imgData.id">
-              <img :src="imgData.src" alt="" class="carousel-img" />
+              <img :src="imgData.src" alt="" />
             </el-carousel-item>
           </el-carousel>
-        </div>
+        </el-col>
+
+        <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+          <p>团队风采</p>
+          <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
+        </el-col>
+
       </el-row>
 
-            <el-row class="more-wrap">
+      <!-- <el-row class="more-wrap">
         <div>
           <p>成员介绍</p>
           <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
@@ -188,11 +186,11 @@
             @change="carousel"
           >
             <el-carousel-item v-for="imgData in imgData" :key="imgData.id">
-              <img :src="imgData.src" alt="" class="carousel-img" />
+              <img :src="imgData.src" alt=""/>
             </el-carousel-item>
           </el-carousel>
         </div>
-      </el-row>
+      </el-row> -->
     </el-row>
   </div>
 </template>
@@ -484,5 +482,10 @@ export default {
   font-size: 20px;
   text-indent: 2em;
   text-align: left;
+}
+.more-wrap{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 </style>
