@@ -118,5 +118,19 @@
             "content": "基于知识图谱的产业链深度知识挖掘，基于自然语言处理的数据挖掘与语义分析"
         }
 
-    ]
+    ],
+    "carousel_data_team": [{
+            "src": "秋游2.jpg"
+        },
+        {
+            "src": "cs3.png"
+        },
+        {
+            "src": "cs2.png"
+        }
+    ],
+    "carousel_data_members": [{
+        "src": "篮球合照.jpg"
+    }]
+
 }

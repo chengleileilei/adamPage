@@ -124,7 +124,7 @@
       <el-col class="home-content"> </el-col>
     </el-row>
 
-    <el-row class="backcolor-blue lr-padding">
+    <el-row class="backcolor-blue lr-padding flex-center">
       <el-row :gutter="20" class="centered">
         <el-col
           :xs="24"
@@ -156,41 +156,75 @@
     </el-row>
 
     <el-row class="backcolor-blue lr-padding">
-      <el-row class="more-wrap">
-
-        <el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
-          <el-carousel indicator-position="none" :height="bannerHeight+'px'">
-            <el-carousel-item v-for="imgData in imgData" :key="imgData.id">
-              <img :src="imgData.src" alt="" />
-            </el-carousel-item>
-          </el-carousel>
-        </el-col>
-
-        <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-          <p>团队风采</p>
-          <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
-        </el-col>
-
-      </el-row>
-
-      <!-- <el-row class="more-wrap">
-        <div>
-          <p>成员介绍</p>
-          <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
-        </div>
-        <div>
-          <el-carousel
-            indicator-position="none"
-            ref="carousel"
-            :height="bannerHeight + 'px'"
-            @change="carousel"
+      <div class="centered">
+        <el-row class="more-wrap">
+          <el-col
+            :xs="21"
+            :sm="21"
+            :md="21"
+            :lg="21"
+            :xl="21"
+            class="carousel2-wrap"
           >
-            <el-carousel-item v-for="imgData in imgData" :key="imgData.id">
-              <img :src="imgData.src" alt=""/>
-            </el-carousel-item>
-          </el-carousel>
-        </div>
-      </el-row> -->
+            <el-carousel
+              indicator-position="none"
+              :height="bannerHeight2 + 'px'"
+            >
+              <el-carousel-item v-for="(imgData,index) in carouselTeam" :key="index">
+                <img :src="imgData.src" alt="" class="carousel-img" />
+              </el-carousel-item>
+            </el-carousel>
+          </el-col>
+
+          <el-col
+            :xs="3"
+            :sm="3"
+            :md="3"
+            :lg="3"
+            :xl="3"
+            class="more-info-wrap"
+          >
+            <p>团队风采</p>
+            <router-link to="/team">
+              <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
+            </router-link>
+          </el-col>
+        </el-row>
+
+        <el-row class="more-wrap">
+          <el-col
+            :xs="3"
+            :sm="3"
+            :md="3"
+            :lg="3"
+            :xl="3"
+            class="more-info-wrap"
+          >
+            <p>成员介绍</p>
+            <router-link to="/members">
+              <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
+            </router-link>
+          </el-col>
+
+          <el-col
+            :xs="21"
+            :sm="21"
+            :md="21"
+            :lg="21"
+            :xl="21"
+            class="carousel2-wrap"
+          >
+            <el-carousel
+              indicator-position="none"
+              :height="bannerHeight2 + 'px'"
+            >
+              <el-carousel-item v-for="(imgData,index) in carouselMembers" :key="index">
+                <img :src="imgData.src" alt="" class="carousel-img" />
+              </el-carousel-item>
+            </el-carousel>
+          </el-col>
+        </el-row>
+      </div>
     </el-row>
   </div>
 </template>
@@ -205,20 +239,43 @@ export default {
       msg: "主页",
       imgData: dataMock.carousel_data.zh_cn,
       bannerHeight: "",
+      bannerHeight2: "",
       active: 0,
       introductOfLab: dataMock.introduction_of_lab.zh_cn,
       trendData: dataMock.trend_data,
       searchDirection: dataMock.search_direction,
+      carouselTeam: dataMock.carousel_data_team,
+      carouselMembers: dataMock.carousel_data_members,
     };
   },
   mounted() {
     // 首次加载时,初始化高度 设置宽高比为3：1
     this.screenWidth = window.innerWidth;
     this.bannerHeight = (1 / 3) * this.screenWidth;
+
+    //初始化carsousel2 宽高比 3：1
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        console.log(entry.target.offsetWidth);
+        // 打印出entry.target 可以看到此处可以进行元素的各种变化的监听
+        //此处直接写监听变化后要处理的逻辑即可
+        var w = entry.target.offsetWidth;
+        this.bannerHeight2 = (w * 9) / 21;
+        console.log("this.bannerHeight2", this.bannerHeight2);
+      }
+    });
+    this.bannerWidth2 = resizeObserver.observe(
+      document.querySelector(".carousel2-wrap")
+    );
+
     // 窗口大小发生改变
     window.onresize = () => {
       this.screenWidth = window.innerWidth;
       this.bannerHeight = (1 / 3) * this.screenWidth;
+
+      resizeObserver.observe(document.querySelector(".carousel2-wrap"));
+      this.bannerHeight2 = (this.bannerWidth2 * 9) / 21;
+      console.log("this.bannerHeight2", this.bannerHeight2);
     };
 
     for (let i = 0; i < this.imgData.length; i++) {
@@ -230,6 +287,16 @@ export default {
         i
       ].logo_src = require("@/assets/search_direction_logo/" +
         this.searchDirection[i].logo_src);
+    }
+
+    for (let i = 0; i < this.carouselTeam.length; i++) {
+      this.carouselTeam[i].src = require("@/assets/" +
+        this.carouselTeam[i].src);
+    }
+
+    for (let i = 0; i < this.carouselMembers.length; i++) {
+      this.carouselMembers[i].src = require("@/assets/" +
+        this.carouselMembers[i].src);
     }
   },
   methods: {
@@ -269,10 +336,14 @@ export default {
 </style>
 
 <style >
-.carousel-img {
+/* .carousel-img {
   width: 100%;
   height: inherit;
-}
+} */
+ .carousel-img {
+  height: 100%;
+  /* width: inherit; */
+} 
 
 .carousel-bg {
   background-color: rgb(204, 225, 249);
@@ -449,6 +520,11 @@ export default {
   border-top: 1px solid rgba(187, 187, 187, 100);
 }
 
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .backcolor-blue {
   padding-top: 70px;
   padding-bottom: 30px;
@@ -483,9 +559,30 @@ export default {
   text-indent: 2em;
   text-align: left;
 }
-.more-wrap{
+.more-wrap {
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+}
+.more-info-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.more-info-wrap p {
+  color: rgba(104, 155, 210, 99);
+  font-size: 48px;
+  letter-spacing: 10px;
+  writing-mode: vertical-rl;
+  font-family: SourceHanSansSC-regular;
+}
+
+.more-info-wrap img {
+  height: 58px;
+  width: 58px;
 }
 </style>
