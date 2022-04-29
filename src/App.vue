@@ -17,7 +17,7 @@
               <img src="@/assets/icon/fas-fa-home.svg" alt="" />
               <p>北京交通大学计算机与信息技术学院</p>
             </el-col>
-            <el-col  :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
+            <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
               <router-link to="/" class="text-right">
                 <img src="@/assets/icon/fas-fa-sync-alt.svg" alt="" />
                 <p>English</p>
@@ -85,11 +85,18 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="footer-wrap">
         <el-row class="centered footer">
           <el-col :xs="24" :sm="24" :md="16" :lg="14" :xl="14" class="footer-l">
-            <p>
+            <p class="with-logo-left">
+              <img class="footer-logo" src="@/assets/icon/arcoDesign-location.svg" alt="" />
               地址：北京市海淀区西直门外上园村3号 计算机与信息技术学院九教北5楼
             </p>
-            <p>电话：XXXXXXX</p>
-            <p>邮箱：XXXXXX@bjtu.edu.cn</p>
+            <p  class="with-logo-left">
+              <img class="footer-logo" src="@/assets/icon/fas-fa-phone.svg" alt="" />
+              电话：XXXXXXX
+            </p>
+            <p class="with-logo-left">
+              <img class="footer-logo" src="@/assets/icon/arcoDesign-email.svg" alt="" />
+              邮箱：XXXXXX@bjtu.edu.cn
+            </p>
             <br />
             <a href="https://www.bjtu.edu.cn/"
               ><p class="small-p">
@@ -104,7 +111,8 @@
           </el-col>
 
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="footer-b">
-            <p>
+            <p class="with-logo-center">
+              <img class="footer-logo" src="@/assets/icon/fas-fa-copyright.svg" alt="" />
               ADaM Lab for School of Computer and Information Technology,
               Beijing Jiaotong University
             </p>
@@ -168,7 +176,7 @@ a {
 }
 
 .centered {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .border {
@@ -242,7 +250,7 @@ a {
 }
 .footer-wrap p {
   color: rgba(255, 255, 255, 100);
-  font-size: 20px;
+  font-size: 18px;
 }
 .footer {
   min-height: 257px;
@@ -259,6 +267,12 @@ a {
 }
 .footer-l .small-p {
   font-size: 18px;
+}
+
+.footer-l .with-logo-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .footer-r {
   margin-top: 40px;
@@ -282,5 +296,14 @@ a {
   color: rgba(189, 192, 193, 100);
   font-size: 16px;
   font-family: SourceHanSansSC-regular;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo{
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
 }
 </style>

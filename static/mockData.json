@@ -127,10 +127,15 @@
         },
         {
             "src": "cs2.png"
+        },
+        {
+            "src": "羽毛球12.png"
         }
     ],
     "carousel_data_members": [{
         "src": "篮球合照.jpg"
+    }, {
+        "src": "秋游3.jpg"
     }]
 
 }
