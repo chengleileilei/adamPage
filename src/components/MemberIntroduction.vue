@@ -1,6 +1,11 @@
 <template>
 <div>
-    <h1>This is 成员介绍!</h1>
+    <el-row class="centered lr-padding">
+      <el-col class="first-title-wrap">
+        <p>成员介绍</p>
+        <div></div>
+      </el-col>
+    </el-row>
 </div>
   
 </template>

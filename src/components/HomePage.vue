@@ -63,7 +63,7 @@
                 }}]
               </p>
               <a :href="trendData.link">
-                <p class="trend-tit-p">{{ trendData.title }}</p>
+                <p class="trend-tit-p">{{ trendData.title.zh_cn }}</p>
               </a>
               <a :href="trendData.link" class="trend-tit-more"
                 ><img src="@/assets/icon/iconPark-double-right.svg" alt=""
@@ -170,7 +170,10 @@
               indicator-position="none"
               :height="bannerHeight2 + 'px'"
             >
-              <el-carousel-item v-for="(imgData,index) in carouselTeam" :key="index">
+              <el-carousel-item
+                v-for="(imgData, index) in carouselTeam"
+                :key="index"
+              >
                 <img :src="imgData.src" alt="" class="carousel-img" />
               </el-carousel-item>
             </el-carousel>
@@ -218,7 +221,10 @@
               indicator-position="none"
               :height="bannerHeight2 + 'px'"
             >
-              <el-carousel-item v-for="(imgData,index) in carouselMembers" :key="index">
+              <el-carousel-item
+                v-for="(imgData, index) in carouselMembers"
+                :key="index"
+              >
                 <img :src="imgData.src" alt="" class="carousel-img" />
               </el-carousel-item>
             </el-carousel>
@@ -340,10 +346,10 @@ export default {
   width: 100%;
   height: inherit;
 } */
- .carousel-img {
+.carousel-img {
   height: 100%;
   /* width: inherit; */
-} 
+}
 
 .carousel-bg {
   background-color: rgb(204, 225, 249);
@@ -410,7 +416,7 @@ export default {
 
 /* 轮播图样式结束 */
 
-.first-title-wrap {
+/* .first-title-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -432,7 +438,7 @@ export default {
   color: rgba(24, 93, 166, 100);
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(187, 187, 187, 100);
-}
+} */
 
 .home-content {
   /* padding: 20px; */
@@ -445,12 +451,12 @@ export default {
   margin: 30px;
 }
 
-.lr-padding {
+/* .lr-padding {
   padding: 0 40px 0 40px;
 }
 .lr-padding2 {
   padding: 0 80px 0 80px;
-}
+} */
 
 /* 最新动态 */
 .trend-tit {

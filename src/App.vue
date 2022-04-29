@@ -306,4 +306,41 @@ a {
   width: 20px;
   height: 20px;
 }
+
+.backcolor-blue {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background-color: rgb(204, 225, 249);
+}
+
+.first-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.first-title-wrap p {
+  color: rgb(62, 121, 183);
+  font-size: 55px;
+  font-family: SourceHanSansSC-regular;
+}
+.first-title-wrap div {
+  margin-top: 30px;
+  width: 171px;
+  height: 6px;
+  opacity: 0.43;
+  background-color: rgba(134, 179, 227, 100);
+  color: rgba(24, 93, 166, 100);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.lr-padding {
+  padding: 0 40px 0 40px;
+}
+.lr-padding2 {
+  padding: 0 80px 0 80px;
+}
 </style>
