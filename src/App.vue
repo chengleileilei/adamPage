@@ -338,9 +338,10 @@ a {
 }
 
 .lr-padding {
-  padding: 0 40px 0 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .lr-padding2 {
-  padding: 0 80px 0 80px;
-}
+  padding-left: 80px;
+padding-right: 80px;}
 </style>

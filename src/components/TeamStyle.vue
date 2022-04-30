@@ -8,7 +8,7 @@
     </el-row>
 
     <el-row
-      class="backcolor-blue"
+      class="backcolor-blue lr-padding activity-wrap"
       v-for="(activity, index) in teamActivities"
       :key="index"
     >
@@ -109,6 +109,9 @@ export default {
 </script>
 
 <style>
+.activity-wrap{
+  margin-bottom: 100px;
+}
 .team-title-wrap {
   text-align: left;
   margin-bottom: 30px;
@@ -164,9 +167,16 @@ export default {
   width: 100%;
 }
 .item-wrap {
+      display: flex;
+    flex-wrap: wrap;
   padding-bottom: 30px;
+      align-items: center;
   /* display: flex;
   align-items: center;
   flex-direction: row; */
+}
+.item-wrap>*{
+      display: flex;
+    flex-direction: column;
 }
 </style>
