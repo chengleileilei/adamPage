@@ -205,7 +205,8 @@
                 "zh_cn": "桑基韬，北京交通大学计算机学院教授，东南大学学士、中科院自动化研究所博士。2012-2017年在模式识别国家重点实验室工作，2017年入选北京交通大学“卓越百人”计划。曾获中科院院长特别奖、中科院百篇优博、CCF优秀博士论文提名、ACM中国新星奖等。主要研究方向为社会多媒体计算、多源数据挖掘、可信赖机器学习等。已出版英文专著一部，第一/第二作者的相关工作7次获得中国计算机学会推荐国际会议的论文奖项。作为负责人先后主持国家自然科学基金重点项目、国家重点研发计划课题、北京市杰出青年基金等，以第二完成人获得中国电子学会自然科学一等奖和北京市科学技术奖。",
                 "en": "Professor, in School of computer science, Beijing Jiaotong University, Bachelor of Southeast University and doctor of Institute of automation, Chinese Academy of Sciences. From 2012 to 2017, he worked in the State Key Laboratory of pattern recognition and was selected into the \"100 outstanding people \" program of Beijing Jiaotong University in 2017. He has won the special award of the president of the Chinese Academy of Sciences, one hundred Excellent Doctoral Dissertations of the Chinese Academy of Sciences, the nomination of CCF excellent doctoral dissertation, ACM China New Star Award, etc. The main research interests are social multimedia computing, multi-source data mining, trusted machine learning and so on. One English monograph has been published, and the relevant work of the first / second author has won the paper award of the international conference recommended by the Chinese Computer Society for 7 times. "
             },
-            "img_src": "桑老师头像.jpeg"
+            "img_src": "桑老师头像.jpeg",
+            "link": "https://faculty.bjtu.edu.cn/9129/"
         },
         {
             "name": {
@@ -216,7 +217,8 @@
                 "zh_cn": "黄晓雯，北京交通大学计算机与信息技术学院讲师，中南大学学士，中国科学院自动化研究所博士，。2015年9月至2020年7月于中国科学院自动化研究所硕博连读，就读于模式识别国家重点实验室，师从徐常胜研究员，2020年7月就职于北京交通大学计算机与信息技术学院计算机科学系，加入机器学习与认知计算研究所，主要研究方向为多媒体计算、数据挖掘、用户建模、推荐系统等。目前于国内外学术会议/期刊上发表学术论文十余篇，其中包括ACM Multimedia、CVPR、ACM TOIS、ACM TOMM、IEEE Multimedia、软件学报等国内外顶级会议/期刊；已授权发明专利1项，公开发明专利1项；2017和2019年两次在国际学术竞赛中获奖；参与国家自然科学基金重点项目、国家重点研发计划、新一代人工智能重大项目课题等多项科研项目。",
                 "en": "Lecturer in School of computer and information technology, Beijing Jiaotong University, Bachelor of Central South University, doctor of Institute of automation, Chinese Academy of Sciences. From September 2015 to July 2020, she studied in the State Key Laboratory of pattern recognition under the master's degree and doctoral degree in the Institute of automation, Chinese Academy of Sciences. She studied with researcher Changsheng Xu . In July 2020, she worked in the Department of computer science, School of computer and information technology, Beijing Jiaotong University and joined the Institute of machine learning and cognitive computing. Her main research interests are Multimedia Computing, Data Mining, User Modeling, Recommendation System, etc. At present, she has published more than ten academic papers in academic conferences / journals at home and abroad, including ACM Multimedia, CVPR, ACM TOIS, ACM TOMM, IEEE Multimedia, software journal and other top conferences / journals at home and abroad."
             },
-            "img_src": "黄老师头像.jpeg"
+            "img_src": "黄老师头像.jpeg",
+            "link": "https://faculty.bjtu.edu.cn/9545/"
         }
     ],
     "doctoral_student": [{
@@ -402,17 +404,52 @@
         "rsearch_direction": ""
     }],
     "undergraduate_student": [{
-        "name": "",
+        "name": "小王",
         "sex": "男",
         "grade": "",
         "rsearch_direction": ""
     }],
     "graduated_student": [{
-        "name": "",
+        "name": "毕业生1",
         "sex": "男",
         "grade": "",
         "rsearch_direction": ""
+    }],
+    "paper_list": [{
+        "time": "2022",
+        "papers": [{
+            "title": "",
+            "author": "",
+            "link": ""
+        }]
+    }, {
+        "time": "2021",
+        "papers": [{
+            "title": "",
+            "author": "",
+            "link": ""
+        }]
+    }, {
+        "time": "2020",
+        "papers": [{
+            "title": "",
+            "author": "",
+            "link": ""
+        }]
+    }, {
+        "time": "2019",
+        "papers": [{
+            "title": "",
+            "author": "",
+            "link": ""
+        }]
+    }, {
+        "time": "2018",
+        "papers": [{
+            "title": "",
+            "author": "",
+            "link": ""
+        }]
     }]
-
 
 }
