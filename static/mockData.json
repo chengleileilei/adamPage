@@ -418,37 +418,131 @@
     "paper_list": [{
         "time": "2022",
         "papers": [{
-            "title": "",
-            "author": "",
+            "title": "Non-generative Generalized Zero-shot Learning via Task-correlated Disentanglement and Controllable Samples Synthesis",
+            "author": "Yaogong Feng",
             "link": ""
         }]
     }, {
         "time": "2021",
         "papers": [{
-            "title": "",
-            "author": "",
-            "link": ""
-        }]
+                "title": "Post-fairness: Cross-task Adversarial Attack-based Instance Debiasing for Deactivating Spurious Correlation",
+                "author": "Yi Zhang",
+                "link": ""
+            },
+            {
+                "title": "Pre-training also Transfers Non-Robustness",
+                "author": "Jiaming Zhang",
+                "link": ""
+            }, {
+                "title": "Towards Predictable Feature Attribution: Revisiting and Improving Guided BackPropagation",
+                "author": "Guanhua Zheng",
+                "link": ""
+            }, {
+                "title": "Benign Adversarial Attack: Tricking Algorithm for Goodness",
+                "author": "Xian Zhao",
+                "link": ""
+            }, {
+                "title": "Survey of Conversational Recommendation Algorithms",
+                "author": "Mengyuan Zhao",
+                "link": ""
+            }, {
+                "title": "Learning to Learn a Cold-start Sequential Recommender",
+                "author": "Xiaowen Huang",
+                "link": ""
+            }
+        ]
     }, {
         "time": "2020",
         "papers": [{
-            "title": "",
-            "author": "",
+            "title": "Adaptive Adversarial Logits Pairing",
+            "author": "Shangxi Wu",
+            "link": ""
+        }, {
+            "title": "Adversarial Privacy-preserving Filter",
+            "author": "Jiaming Zhang",
+            "link": ""
+        }, {
+            "title": "Towards Accuracy-Fairness Paradox: Adversarial Example-based Data Augmentation for Visual Debiasing",
+            "author": "Yi Zhang",
             "link": ""
         }]
     }, {
         "time": "2019",
         "papers": [{
-            "title": "",
-            "author": "",
+            "title": "Beyond Literal Visual Modeling: Understanding Image Metaphor based on Literal-Implied Concept Mapping",
+            "author": "Chengpeng Fu, Jinqiang Wang",
+            "link": ""
+        }, {
+            "title": "A Generalization Theory based on Independent and Task-Identically Distributed Assumption",
+            "author": "Guanhua Zheng",
             "link": ""
         }]
     }, {
         "time": "2018",
         "papers": [{
-            "title": "",
-            "author": "",
+            "title": "Attention, Please!Adversarial Defense via Attention Rectification and Preservation",
+            "author": "Shangxi Wu",
             "link": ""
+        }, {
+            "title": "Robust CAPTCHAs towards Malicious OCR",
+            "author": "Jiaming Zhang",
+            "link": ""
+        }, {
+            "title": "CSAN: Contextual Self-Attention Network for User Sequential Recommendation",
+            "author": "Xiaowen Huang",
+            "link": ""
+        }]
+    }],
+    "team_activities": [{
+        "time": {
+            "y": 2021,
+            "m": 10
+        },
+        "title": "Adam京郊秋游行",
+        "link": "https://mp.weixin.qq.com/s/9sqhammP0QXl9yGIWvZBgQ",
+        "content": [{
+            "img_src": "",
+            "text": ["金秋时节，Adam实验室计划许久的秋游活动伴随着北京八级大风，拉开了帷幕，此行秋游的目的地是位于京郊十三陵附近的一处山庄，将展开真人cs对抗赛"]
+        }, {
+            "img_src": "",
+            "text": ["真人CS是大家期待的重头戏。在工作人员的讲解和带领下，大家兵分两队，完成了这场紧张刺激的游戏。之后，大家一起进行了合照。"]
+        }, {
+            "img_src": "",
+            "text": ["中午大家一起投入到烤烧烤和吃烧烤的行动，享受和温暖的阳光和美味的食物带来的快乐。", "下午，大家还一起进行了室内棋牌活动，最终在黄昏时尽兴而归。"]
+        }]
+    }, {
+        "time": {
+            "y": 2021,
+            "m": 7
+        },
+        "title": "Adam第一届师生篮球赛顺利举办",
+        "link": "https://mp.weixin.qq.com/s/1-YpvbHphTwXGTXJJpxuEQ",
+        "content": [{
+            "img_src": "",
+            "text": ["为激励各位同学加强体育运动，养成锻炼的好习惯，ADaM实验室举办了第一届师生篮球赛。本次比赛本着\"友谊第一、比赛第二\"的原则，在ADaM实验室的全体师生及其亲朋好友间展开，比赛中不设专业裁判，由实验室的师生进行裁决，以释放压力与增进感情为主要目的。"]
+        }, {
+            "img_src": "",
+            "text": ["随着一句呐喊，比赛拉开帷幕，首先进行的是3V3篮球赛。场上选手分为三组，轮流上场。大家使出浑身解数，在球场上奋勇拼搏，场面一度进入白热化。随着最后一颗球被投进，3V3的比赛落下了帷幕。"]
+        }, {
+            "img_src": "",
+            "text": ["随后还进行了轻松愉悦的投篮赛和激动人心的1V1对抗赛。", "最终，所有比赛在一片欢呼声中结束，每一位选手都意犹未尽，期待下一次篮球赛的到来！"]
+        }]
+    }, {
+        "time": {
+            "y": 2021,
+            "m": 6
+        },
+        "title": "Adam2021毕业季！",
+        "link": "https://mp.weixin.qq.com/s/VIafUMBOyz0R6U_qj_PXDA",
+        "content": [{
+            "img_src": "",
+            "text": ["2021年盛夏，ADaM实验室迎来了第一批毕业生——8位毕业生顺利取得硕士学位：付成鹏（深造读博）、张玮铭（中国联通）、马丽（华为）、范可心（寒武纪）、王金强（深造读博）、徐鹏帮（中国人寿）、丁相国（北京腾讯）、张彪（中兴）。"]
+        }, {
+            "img_src": "",
+            "text": ["为了给毕业生践行，6月20日，ADaM实验室举行了毕业聚餐，实验室的各位同学欢聚一堂。首先，桑老师进行致辞，表达了对毕业生的真切祝福，随后，各位师弟师妹与毕业的师兄师姐们展开亲切交流。举杯投箸之间，欢声笑语一片。"]
+        }, {
+            "img_src": "",
+            "text": ["同学们的欢声笑语，老师们的句句箴言，一切都烙印在了毕业生们的心中。", "喝完最后一杯酒，毕业聚餐也进入尾声。快门响起，大家留下了最灿烂的笑容。"]
         }]
     }]
 
