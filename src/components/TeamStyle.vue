@@ -20,8 +20,8 @@
           </p>
           <p class="team-title-text">{{ activity.title }}</p>
           <a :href="activity.link" class="team-title-details-wrap">
-            <img src="@/assets/icon/md-input.svg" alt="" />
             <p>详情</p>
+            <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
           </a>
         </el-row>
 
@@ -140,10 +140,15 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  border: 1px solid rgb(24, 93, 166);
+  border-radius: 5px;
+  padding: 3px 10px 3px 10px;
+  margin-top:5px;
+
 }
 .team-title-details-wrap p {
   color: rgba(24, 93, 166, 100);
-  font-size: 30px;
+  font-size: 25px;
   font-family: SourceHanSansSC-regular;
 }
 
