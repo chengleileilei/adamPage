@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import dataMock from "../../static/mockData.json";
+import dataMock from "@/assets/data/mockData.json";
 
 export default {
   name: "TeamStyle",

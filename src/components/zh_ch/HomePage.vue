@@ -84,7 +84,7 @@
 
         <div class="border-top">
           <div class="trend-tit lr-padding">
-            <router-link to="/papers">
+            <router-link to="/zhcn/papers">
               <img
                 class="trend-tit-angel-right"
                 src="@/assets/icon/fas-fa-angle-right.svg"
@@ -92,7 +92,7 @@
               />
               <p class="trend-tit-time">[查看论文列表]</p>
             </router-link>
-            <router-link class="trend-tit-more" to="/papers">
+            <router-link class="trend-tit-more" to="/zhcn/papers">
               <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
             </router-link>
           </div>
@@ -100,7 +100,7 @@
 
         <div class="border-top">
           <div class="trend-tit lr-padding">
-            <router-link to="/research">
+            <router-link to="/zhcn/research">
               <img
                 class="trend-tit-angel-right"
                 src="@/assets/icon/fas-fa-angle-right.svg"
@@ -108,7 +108,7 @@
               />
               <p class="trend-tit-time">[更多科研动态]</p>
             </router-link>
-            <router-link class="trend-tit-more" to="/research">
+            <router-link class="trend-tit-more" to="/zhcn/research">
               <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
             </router-link>
           </div>
@@ -188,7 +188,7 @@
             class="more-info-wrap"
           >
             <p>团队风采</p>
-            <router-link to="/team">
+            <router-link to="/zhcn/team">
               <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
             </router-link>
           </el-col>
@@ -204,7 +204,7 @@
             class="more-info-wrap"
           >
             <p>成员介绍</p>
-            <router-link to="/members">
+            <router-link to="/zhcn/members">
               <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
             </router-link>
           </el-col>
@@ -236,7 +236,7 @@
 </template>
 
 <script>
-import dataMock from "../../static/mockData.json";
+import dataMock from "@/assets/data/mockData.json";
 
 export default {
   name: "homepage",
