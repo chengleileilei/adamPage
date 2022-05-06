@@ -5,24 +5,15 @@
     <el-row class="cover">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <div class="top-wrap">
-          <el-row class="centered top">
-            <el-col
-              class="text-left"
-              :xs="18"
-              :sm="18"
-              :md="18"
-              :lg="18"
-              :xl="18"
-            >
+          <el-row class="centered top lr-padding3">
+            <div>
               <img src="@/assets/icon/fas-fa-home.svg" alt="" />
               <p>北京交通大学计算机与信息技术学院</p>
-            </el-col>
-            <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-              <router-link to="/english" class="text-right">
-                <img src="@/assets/icon/fas-fa-sync-alt.svg" alt="" />
-                <p>English</p>
-              </router-link>
-            </el-col>
+            </div>
+            <router-link to="/english" class="text-right">
+              <img src="@/assets/icon/fas-fa-sync-alt.svg" alt="" />
+              <p>English</p>
+            </router-link>
           </el-row>
         </div>
       </el-col>
@@ -57,7 +48,9 @@
           </el-col>
 
           <el-col class="top2-r" :xs="24" :sm="24" :md="24" :lg="9" :xl="9">
-            <router-link active-class="active" to="/zhcn/home">首页</router-link>
+            <router-link active-class="active" to="/zhcn/home"
+              >首页</router-link
+            >
             <router-link active-class="active" to="/zhcn/research"
               >科研动态</router-link
             >
@@ -67,7 +60,9 @@
             <router-link active-class="active" to="/zhcn/papers"
               >论文列表</router-link
             >
-            <router-link active-class="active" to="/zhcn/team">团队风采</router-link>
+            <router-link active-class="active" to="/zhcn/team"
+              >团队风采</router-link
+            >
           </el-col>
         </el-row>
       </el-col>
@@ -86,15 +81,27 @@
         <el-row class="centered footer">
           <el-col :xs="24" :sm="24" :md="16" :lg="14" :xl="14" class="footer-l">
             <p class="with-logo-left">
-              <img class="footer-logo" src="@/assets/icon/arcoDesign-location.svg" alt="" />
+              <img
+                class="footer-logo"
+                src="@/assets/icon/arcoDesign-location.svg"
+                alt=""
+              />
               地址：北京市海淀区西直门外上园村3号 计算机与信息技术学院九教北5楼
             </p>
-            <p  class="with-logo-left">
-              <img class="footer-logo" src="@/assets/icon/fas-fa-phone.svg" alt="" />
+            <p class="with-logo-left">
+              <img
+                class="footer-logo"
+                src="@/assets/icon/fas-fa-phone.svg"
+                alt=""
+              />
               电话：XXXXXXX
             </p>
             <p class="with-logo-left">
-              <img class="footer-logo" src="@/assets/icon/arcoDesign-email.svg" alt="" />
+              <img
+                class="footer-logo"
+                src="@/assets/icon/arcoDesign-email.svg"
+                alt=""
+              />
               邮箱：XXXXXX@bjtu.edu.cn
             </p>
             <br />
@@ -112,7 +119,11 @@
 
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="footer-b">
             <p class="with-logo-center">
-              <img class="footer-logo" src="@/assets/icon/fas-fa-copyright.svg" alt="" />
+              <img
+                class="footer-logo"
+                src="@/assets/icon/fas-fa-copyright.svg"
+                alt=""
+              />
               ADaM Lab for School of Computer and Information Technology,
               Beijing Jiaotong University
             </p>
@@ -157,17 +168,17 @@ a {
   margin: 15px 10px 15px 10px;
 }
 .top {
-  padding: 0 30px 0 30px;
 }
-/* .top>div{
+.top > div {
   display: flex;
   flex-direction: row;
-} */
+  float: left;
+}
 
 .text-right {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  flex-direction: row;
+  float: right;
 }
 .text-left {
   display: flex;
@@ -234,17 +245,6 @@ a {
   color: rgba(56, 148, 255, 100);
 }
 
-@media screen and (max-width: 1200px) {
-  .top2-r {
-    height: 60px;
-  }
-}
-@media screen and (max-width: 992px) {
-  .top2-l {
-    height: 80px;
-  }
-}
-
 .footer-wrap {
   background-color: rgba(45, 45, 45, 100);
 }
@@ -269,7 +269,7 @@ a {
   font-size: 18px;
 }
 
-.footer-l .with-logo-left{
+.footer-l .with-logo-left {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -301,7 +301,7 @@ a {
   align-items: center;
   justify-content: center;
 }
-.footer-logo{
+.footer-logo {
   margin-right: 10px;
   width: 20px;
   height: 20px;
@@ -318,16 +318,16 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   margin-top: 40px;
 }
 .first-title-wrap p {
   color: rgb(62, 121, 183);
-  font-size: 55px;
+  font-size: 50px;
   font-family: SourceHanSansSC-regular;
 }
 .first-title-wrap div {
-  margin-top: 30px;
+  margin-top: 25px;
   width: 171px;
   height: 6px;
   opacity: 0.43;
@@ -343,5 +343,36 @@ a {
 }
 .lr-padding2 {
   padding-left: 80px;
-padding-right: 80px;}
+  padding-right: 80px;
+}
+.lr-padding3 {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .top2-r {
+    height: 60px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .top2-l {
+    height: 80px;
+  }
+  .lr-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .lr-padding2 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .lr-padding3 {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .top-wrap p {
+  margin: 15px 3px 15px 3px;
+}
+}
 </style>

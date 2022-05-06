@@ -155,8 +155,8 @@
       <el-col class="home-content"> </el-col>
     </el-row>
 
-    <el-row class="backcolor-blue lr-padding">
-      <div class="centered">
+    <el-row class="backcolor-blue">
+      <div class="centered lr-padding2">
         <el-row class="more-wrap">
           <el-col
             :xs="21"
@@ -373,7 +373,7 @@ export default {
 
 .carousel-bottom > p {
   color: rgba(104, 155, 210, 99);
-  font-size: 25px;
+  font-size: 22px;
   font-family: SourceHanSansSC-bold;
 }
 
@@ -446,7 +446,7 @@ export default {
   text-align: left;
 }
 .home-content > p {
-  font-size: 28px;
+  font-size: 24px;
   text-indent: 2em;
   margin: 30px;
 }
@@ -470,7 +470,7 @@ export default {
   height: 30px;
   width: 30px;
   position: relative;
-  top: 3px;
+  top: 5px;
   /* margin-top:6px; */
 }
 .research-trend-wrap {
@@ -479,14 +479,14 @@ export default {
 }
 .trend-tit .trend-tit-time {
   display: inline;
-  margin-right: 20px;
-  font-size: 30px;
+  margin-right: 10px;
+  font-size: 25px;
   color: rgb(16, 16, 16);
   font-family: SourceHanSansSC-bold;
 }
 .trend-tit .trend-tit-p {
   display: inline;
-  font-size: 30px;
+  font-size: 25px;
   font-family: SourceHanSansSC-regular;
   color: rgb(44, 97, 165);
 }
@@ -498,7 +498,7 @@ export default {
   text-indent: 2em;
   margin-top: 10px;
   color: rgba(16, 16, 16, 100);
-  font-size: 28px;
+  font-size: 24px;
   text-align: left;
   font-family: SourceHanSansSC-regular;
 }
@@ -518,8 +518,11 @@ export default {
 
 .trend-paper-link > p {
   color: rgba(24, 93, 166, 100);
-  font-size: 28px;
+  font-size: 24px;
   margin-right: 5px;
+}
+.trend-paper-link img{
+  max-height: 25px ;
 }
 
 .border-top {
@@ -573,6 +576,7 @@ export default {
   margin-bottom: 30px;
 }
 .more-info-wrap {
+  /* font-size:50px ; */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -581,14 +585,44 @@ export default {
 
 .more-info-wrap p {
   color: rgba(104, 155, 210, 99);
-  font-size: 48px;
+  font-size: 42px;
+  /* font-size: 1rem; */
   letter-spacing: 10px;
   writing-mode: vertical-rl;
   font-family: SourceHanSansSC-regular;
 }
 
 .more-info-wrap img {
-  height: 58px;
-  width: 58px;
+  width: 50px;
+  max-width: 58px;
+}
+
+@media screen and (max-width: 1100px) {
+  .more-info-wrap p{
+    font-size: 30px;
+  }
+  .more-info-wrap img{
+  width: 30px;
+
+  }
+}
+@media screen and (max-width: 767px) {
+  .more-info-wrap p{
+    font-size: 20px;
+  }
+    .more-info-wrap img{
+  width: 25px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .more-info-wrap p{
+    font-size: 16px;
+      letter-spacing: 4px;
+
+  }
+    .more-info-wrap img{
+  width: 20px;
+  }
 }
 </style>
