@@ -66,7 +66,7 @@ export default {
 }
 .paper-time-wrap > p {
   color: rgba(16, 16, 16, 1);
-  font-size: 30px;
+  font-size: 26px;
   font-family: SourceHanSansSC-regular;
 }
 .circle {
@@ -92,12 +92,12 @@ export default {
 }
 .paper-wrap>p{
   text-align: left;
-  font-size: 25px;
+  font-size: 24px;
   font-family: Roboto;
 }
 .paper-wrap>a{
   float: right;
-  font-size: 25px;
+  font-size: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;

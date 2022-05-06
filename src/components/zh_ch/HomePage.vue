@@ -156,7 +156,7 @@
     </el-row>
 
     <el-row class="backcolor-blue">
-      <div class="centered lr-padding2">
+      <div class="centered">
         <el-row class="more-wrap">
           <el-col
             :xs="21"
@@ -480,13 +480,13 @@ export default {
 .trend-tit .trend-tit-time {
   display: inline;
   margin-right: 10px;
-  font-size: 25px;
+  font-size: 26px;
   color: rgb(16, 16, 16);
   font-family: SourceHanSansSC-bold;
 }
 .trend-tit .trend-tit-p {
   display: inline;
-  font-size: 25px;
+  font-size: 26px;
   font-family: SourceHanSansSC-regular;
   color: rgb(44, 97, 165);
 }
@@ -534,11 +534,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.backcolor-blue {
-  padding-top: 70px;
-  padding-bottom: 30px;
-  background-color: rgb(204, 225, 249);
-}
+
 .card {
   max-width: 527px;
   /* width: 527px; */
@@ -574,6 +570,8 @@ export default {
   align-items: center;
   background-color: #ffffff;
   margin-bottom: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 .more-info-wrap {
   /* font-size:50px ; */
@@ -603,8 +601,12 @@ export default {
   }
   .more-info-wrap img{
   width: 30px;
-
   }
+  .more-wrap {
+
+  margin-left: 50px;
+  margin-right: 50px;
+}
 }
 @media screen and (max-width: 767px) {
   .more-info-wrap p{
@@ -613,13 +615,17 @@ export default {
     .more-info-wrap img{
   width: 25px;
   }
+    .more-wrap {
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
 }
 
 @media screen and (max-width: 500px) {
   .more-info-wrap p{
     font-size: 16px;
       letter-spacing: 4px;
-
   }
     .more-info-wrap img{
   width: 20px;

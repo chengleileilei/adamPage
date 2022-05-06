@@ -165,8 +165,7 @@ export default {
   text-indent: 2em;
   font-family: SourceHanSansSC-regular;
 }
-.team-image-wrap {
-}
+
 .team-image-wrap img {
   max-width: 100%;
   width: 100%;
@@ -183,5 +182,22 @@ export default {
 .item-wrap>*{
       display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+.team-title-time {
+  font-size: 24px;
+}
+.team-title-text {
+  font-size: 24px;
+}
+.team-title-details-wrap p {
+  font-size: 20px;
+}
+.team-text-wrap p {
+
+  font-size: 20px;
+
+}
 }
 </style>

@@ -372,7 +372,11 @@ a {
     padding-right: 2px;
   }
   .top-wrap p {
-  margin: 15px 3px 15px 3px;
-}
+    margin: 15px 3px 15px 3px;
+  }
+  .backcolor-blue {
+    padding-top: 40px;
+    padding-bottom: 10px;
+  }
 }
 </style>

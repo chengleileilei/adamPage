@@ -207,12 +207,12 @@ table {
 }
 table td {
   border: 1px solid rgba(202, 202, 202, 0.486);
-  font-size: 25px;
+  font-size: 22px;
   font-family: Roboto;
   padding: 10px;
 }
 table th {
-  font-size: 28px;
+  font-size: 24px;
   font-family: Microsoft Yahei;
   background-color: rgba(202, 202, 202, 0.486);
   border: 1px solid rgba(202, 202, 202, 0.486);

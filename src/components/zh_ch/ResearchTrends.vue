@@ -27,7 +27,7 @@
           >
         </el-row>
 
-        <el-row class="article-content-wrap">
+        <el-row class="lr-padding">
           <div v-for="(item, index) in articleData.article" :key="index">
             <div v-if="item.type == 'image'" class="article-content-image">
               <img :src="item.img_src" alt="" />
@@ -75,6 +75,8 @@ export default {
   margin-bottom: 80px;
 }
 .article-title-wrap {
+  padding-left:5px ;
+  padding-right: 5px;
   text-align: left;
   margin-bottom: 30px;
 }
@@ -82,18 +84,17 @@ export default {
   display: inline;
 }
 .article-title-wrap img {
-  width: 28px;
-  height: 28px;
+  width: 26px;
 }
 .article-title-time {
   color: rgba(16, 16, 16, 100);
-  font-size: 36px;
+  font-size: 28px;
   font-family: SourceHanSansSC-medium;
 }
 .article-title-text {
   margin-left: 5px;
   color: rgba(24, 93, 166, 100);
-  font-size: 36px;
+  font-size: 28px;
   font-family: SourceHanSansSC-medium;
 }
 .article-title-details-wrap {
@@ -105,35 +106,30 @@ export default {
 }
 .article-title-details-wrap p {
   color: rgba(24, 93, 166, 100);
-  font-size: 30px;
+  font-size: 28px;
   font-family: SourceHanSansSC-regular;
 }
-.article-content-wrap {
-  padding: 0 40px 0 40px;
-}
+
 .article-content-text {
   text-indent: 2em;
   color: rgba(16, 16, 16, 100);
-  font-size: 28px;
+  font-size: 24px;
   text-align: left;
   font-family: SourceHanSansSC-regular;
-  margin-bottom:20px
+  margin-bottom: 20px;
 }
-.article-content-image{
-    width:100%;
-
+.article-content-image {
+  width: 100%;
 }
-.article-content-image img{
-    max-width:100%;
-    max-height: 500px;
-          margin-bottom:20px
-
+.article-content-image img {
+  max-width: 98%;
+  max-height: 500px;
+  margin-bottom: 20px;
 }
-.article-content-image p{
-color: rgba(24, 93, 166, 100);
-font-size: 30px;
-font-family: SourceHanSansSC-medium;
-      margin-bottom:20px
-
+.article-content-image p {
+  color: rgba(24, 93, 166, 100);
+  font-size: 24px;
+  font-family: SourceHanSansSC-medium;
+  margin-bottom: 20px;
 }
 </style>
