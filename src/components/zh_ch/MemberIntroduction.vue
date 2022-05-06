@@ -157,6 +157,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  text-align: center;
 }
 .portrait-wrap img {
   max-width: 300px;

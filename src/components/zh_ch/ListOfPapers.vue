@@ -92,12 +92,12 @@ export default {
 }
 .paper-wrap>p{
   text-align: left;
-  font-size: 24px;
+  font-size: 22px;
   font-family: Roboto;
 }
 .paper-wrap>a{
   float: right;
-  font-size: 24px;
+  font-size: 22px;
   display: flex;
   flex-direction: row;
   align-items: center;

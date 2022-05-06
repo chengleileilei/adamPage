@@ -37,7 +37,7 @@
         <div></div>
       </el-col>
       <el-col class="home-content">
-        <p>{{ introductOfLab }}</p>
+      <p v-for="(text,index) in introductOfLab " :key="index" class="en-content-text">{{ text}}</p>
       </el-col>
     </el-row>
 
@@ -138,7 +138,7 @@
         >
           <div class="card">
             <img :src="card.logo_src" alt="" class="card-logo" />
-            <p class="card-tit1">{{ card.title }}</p>
+            <p class="card-tit1">{{ card.title.zh_cn }}</p>
             <p class="card-tit2">
               {{ card.content }}
             </p>

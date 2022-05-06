@@ -120,6 +120,7 @@ export default {
 }
 .article-content-image {
   width: 100%;
+  text-align: center;
 }
 .article-content-image img {
   max-width: 98%;
