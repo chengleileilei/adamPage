@@ -205,6 +205,7 @@ table {
   border-collapse: collapse;
   border: 1px solid rgba(202, 202, 202, 0.486);
   margin-bottom: 30px;
+  text-align: center;
 }
 table td {
   border: 1px solid rgba(202, 202, 202, 0.486);
