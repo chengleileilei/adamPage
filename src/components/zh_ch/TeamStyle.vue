@@ -173,11 +173,11 @@ export default {
 .item-wrap {
       display: flex;
     flex-wrap: wrap;
-  padding-bottom: 30px;
       align-items: center;
-  /* display: flex;
-  align-items: center;
-  flex-direction: row; */
+}
+.item-wrap > div{
+  padding-bottom: 30px;
+
 }
 .item-wrap>*{
       display: flex;

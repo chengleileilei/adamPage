@@ -37,7 +37,13 @@
         <div></div>
       </el-col>
       <el-col class="home-content">
-      <p v-for="(text,index) in introductOfLab " :key="index" class="en-content-text">{{ text}}</p>
+        <p
+          v-for="(text, index) in introductOfLab"
+          :key="index"
+          class="en-content-text"
+        >
+          {{ text }}
+        </p>
       </el-col>
     </el-row>
 
@@ -262,12 +268,12 @@ export default {
     //初始化carsousel2 宽高比 3：1
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        console.log(entry.target.offsetWidth);
+        // console.log(entry.target.offsetWidth);
         // 打印出entry.target 可以看到此处可以进行元素的各种变化的监听
         //此处直接写监听变化后要处理的逻辑即可
         var w = entry.target.offsetWidth;
         this.bannerHeight2 = (w * 9) / 21;
-        console.log("this.bannerHeight2", this.bannerHeight2);
+        // console.log("this.bannerHeight2", this.bannerHeight2);
       }
     });
     this.bannerWidth2 = resizeObserver.observe(
@@ -281,7 +287,7 @@ export default {
 
       resizeObserver.observe(document.querySelector(".carousel2-wrap"));
       this.bannerHeight2 = (this.bannerWidth2 * 9) / 21;
-      console.log("this.bannerHeight2", this.bannerHeight2);
+      // console.log("this.bannerHeight2", this.bannerHeight2);
     };
 
     for (let i = 0; i < this.imgData.length; i++) {
@@ -521,8 +527,8 @@ export default {
   font-size: 24px;
   margin-right: 5px;
 }
-.trend-paper-link img{
-  max-height: 25px ;
+.trend-paper-link img {
+  max-height: 25px;
 }
 
 .border-top {
@@ -596,39 +602,37 @@ export default {
 }
 
 @media screen and (max-width: 1100px) {
-  .more-info-wrap p{
+  .more-info-wrap p {
     font-size: 30px;
   }
-  .more-info-wrap img{
-  width: 30px;
+  .more-info-wrap img {
+    width: 30px;
   }
   .more-wrap {
-
-  margin-left: 50px;
-  margin-right: 50px;
-}
+    margin-left: 50px;
+    margin-right: 50px;
+  }
 }
 @media screen and (max-width: 767px) {
-  .more-info-wrap p{
+  .more-info-wrap p {
     font-size: 20px;
   }
-    .more-info-wrap img{
-  width: 25px;
+  .more-info-wrap img {
+    width: 25px;
   }
-    .more-wrap {
-
-  margin-left: 10px;
-  margin-right: 10px;
-}
+  .more-wrap {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
 @media screen and (max-width: 500px) {
-  .more-info-wrap p{
+  .more-info-wrap p {
     font-size: 16px;
-      letter-spacing: 4px;
+    letter-spacing: 4px;
   }
-    .more-info-wrap img{
-  width: 20px;
+  .more-info-wrap img {
+    width: 20px;
   }
 }
 </style>

@@ -2,70 +2,86 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
 
-    <el-row class="cover">
-      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <div class="top-wrap">
-          <el-row class="centered top lr-padding3">
-            <div>
-              <img src="@/assets/icon/fas-fa-home.svg" alt="" />
-              <p>北京交通大学计算机与信息技术学院</p>
-            </div>
-            <router-link to="/english" class="text-right">
-              <img src="@/assets/icon/fas-fa-sync-alt.svg" alt="" />
-              <p>English</p>
-            </router-link>
-          </el-row>
-        </div>
-      </el-col>
-
-      <el-col class="top2-wrap" :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <el-row class="centered top2">
-          <el-col :xs="24" :sm="24" :md="24" :lg="15" :xl="15">
-            <el-row>
-              <el-col
-                class="top2-l"
-                :xs="24"
-                :sm="24"
-                :md="10"
-                :lg="10"
-                :xl="10"
-              >
-                <img src="@/assets/bule.png" alt="" />
-                <div class="vertical-line"></div>
-                <img src="@/assets/v2_r8ry8d.jpg" alt="" />
-              </el-col>
-              <el-col
-                class="top2-l"
-                :xs="24"
-                :sm="24"
-                :md="14"
-                :lg="14"
-                :xl="14"
-              >
-                <p>应用数据挖掘与机器学习实验室</p>
-              </el-col>
-            </el-row>
-          </el-col>
-
-          <el-col class="top2-r" :xs="24" :sm="24" :md="24" :lg="9" :xl="9">
-            <router-link active-class="active" to="/zhcn/home"
-              >首页</router-link
-            >
-            <router-link active-class="active" to="/zhcn/research"
-              >科研动态</router-link
-            >
-            <router-link active-class="active" to="/zhcn/members"
-              >成员介绍</router-link
-            >
-            <router-link active-class="active" to="/zhcn/papers"
-              >论文列表</router-link
-            >
-            <router-link active-class="active" to="/zhcn/team"
-              >团队风采</router-link
-            >
-          </el-col>
+    <el-row>
+      <div class="top-wrap">
+        <el-row class="centered top lr-padding3">
+          <div>
+            <img class="house-img" src="@/assets/icon/fas-fa-home.svg" alt="" />
+            <p>北京交通大学计算机与信息技术学院</p>
+          </div>
+          <router-link to="/english" class="text-right">
+            <img src="@/assets/icon/fas-fa-sync-alt.svg" alt="" />
+            <p>English</p>
+          </router-link>
         </el-row>
-      </el-col>
+      </div>
+    </el-row>
+
+    <!-- <el-row class="top2-wrap">
+      <el-row class="centered top2">
+        <el-col :xs="24" :sm="24" :md="24" :lg="15" :xl="15">
+          <el-row>
+            <el-col class="top2-l" :xs="24" :sm="24" :md="10" :lg="10" :xl="10">
+              <img src="@/assets/bule.png" alt="" />
+              <div class="vertical-line"></div>
+              <img src="@/assets/v2_r8ry8d.jpg" alt="" />
+            </el-col>
+            <el-col class="top2-l" :xs="24" :sm="24" :md="14" :lg="14" :xl="14">
+              <p>应用数据挖掘与机器学习实验室</p>
+            </el-col>
+          </el-row>
+        </el-col>
+
+        <el-col class="top2-r" :xs="24" :sm="24" :md="24" :lg="9" :xl="9">
+          <router-link active-class="active" to="/zhcn/home">首页</router-link>
+          <router-link active-class="active" to="/zhcn/research"
+            >科研动态</router-link
+          >
+          <router-link active-class="active" to="/zhcn/members"
+            >成员介绍</router-link
+          >
+          <router-link active-class="active" to="/zhcn/papers"
+            >论文列表</router-link
+          >
+          <router-link active-class="active" to="/zhcn/team"
+            >团队风采</router-link
+          >
+        </el-col>
+      </el-row>
+    </el-row> -->
+
+    <el-row class="nav-wrap">
+      <el-row class="centered nav">
+        <div class="nav-logo-wrap">
+          <img src="@/assets/bule.png" alt="" />
+          <div class="vertical-line"></div>
+          <img src="@/assets/v2_r8ry8d.jpg" alt="" />
+        </div>
+        <div class="nav-title-wrap">
+          <p class="nav-title">应用数据挖掘与机器学习实验室</p>
+          <div class="nav-button" v-if="buttonShow" @click="buttonClick">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="nav-link-wrap" v-show="linkShow" @click="linkClick">
+          <router-link active-class="active" to="/zhcn/home">首页</router-link>
+          <router-link active-class="active" to="/zhcn/research"
+            >科研动态</router-link
+          >
+          <router-link active-class="active" to="/zhcn/members"
+            >成员介绍</router-link
+          >
+          <router-link active-class="active" to="/zhcn/papers"
+            >论文列表</router-link
+          >
+          <router-link active-class="active" to="/zhcn/team"
+            >团队风采</router-link
+          >
+        </div>
+      </el-row>
     </el-row>
 
     <el-row>
@@ -137,6 +153,44 @@
 <script>
 export default {
   name: "Chinese",
+  data() {
+    return {
+      buttonShow: true,
+      linkShow: false,
+    };
+  },
+  methods: {
+    buttonClick() {
+      this.linkShow = !this.linkShow;
+      console.log("buttonClick was called! status is : ", this.linkShow);
+    },
+    linkClick(){
+      if (this.screenWidth2 <= 850){
+        this.linkShow = false
+      }
+    }
+  },
+  mounted() {
+    this.screenWidth2 = window.innerWidth;
+    if (this.screenWidth2 <= 850) {
+      this.linkShow = false;
+    } else {
+      this.buttonShow = false;
+      this.linkShow = true;
+    }
+    window.addEventListener("resize", () => {
+      // 窗口尺寸改变时触发事件
+      this.screenWidth2 = window.innerWidth;
+
+      if (this.screenWidth2 <= 850) {
+        this.buttonShow = true;
+        this.linkShow = false;
+      } else {
+        this.buttonShow = false;
+        this.linkShow = true;
+      }
+    });
+  },
 };
 </script>
 
@@ -193,56 +247,74 @@ a {
 .border {
   border: 1px solid black;
 }
-.top2-wrap {
+.nav-wrap {
   box-shadow: rgb(187, 187, 187) 0px 1px 0px;
   margin-bottom: 2px;
 }
 
-.top2 {
-  /* max-height: 150px; */
-  min-height: 100px;
+.active {
+  color: rgba(56, 148, 255, 100);
 }
-
-.top2-l {
-  height: 100px;
+.nav > * {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
-.top2-l img {
+.nav-logo-wrap {
+  height: 80px;
+
+  display: flex;
+  float: left;
+}
+.nav-logo-wrap img {
   height: 50px;
-  margin: 10px;
+  margin: 5px;
 }
-.top2-l p {
+.nav-title {
+  float: left;
   color: rgba(36, 64, 96, 100);
   font-size: 30px;
+  margin-left: 10px;
+
   font-weight: 600;
   font-family: Times New Roman-bold;
 }
-.top2-l .vertical-line {
-  height: 70px;
-  border: 1px solid rgba(187, 187, 187, 100);
+.nav-title-wrap {
+  height: 80px;
+  float: left;
+  justify-content: space-between;
 }
 
-.top2-r {
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+.nav-link-wrap {
+  height: 80px;
+
+  justify-content: space-evenly;
 }
-.top2-r a {
+.nav-link-wrap a {
   text-decoration: none;
-  font-size: 21px;
-  /* font-family: 'SourceHanSansSC-bold'; */
-}
-.top2-r a:hover {
-  color: rgba(56, 148, 255, 100);
+  font-size: 20px;
+  font-family: "SourceHanSansSC-bold";
 }
 
-.active {
-  color: rgba(56, 148, 255, 100);
+.nav-button {
+  cursor: pointer;
+  height: 30px;
+  width: 40px;
+  margin-right: 10px;
+  /* border: 2px solid rgb(78, 78, 78); */
+  background-color: rgb(255, 255, 255);
+  border-radius: 10%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  float: right;
+}
+.nav-button span {
+  height: 5px;
+  width: 60%;
+  background-color: black;
 }
 
 .footer-wrap {
@@ -307,4 +379,37 @@ a {
   height: 20px;
 }
 
+@media screen and (max-width: 1200px) {
+  .nav-logo-wrap {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .nav-title {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Times New Roman-bold;
+  }
+  .nav-title-wrap {
+    width: 100%;
+    height: 50px;
+  }
+
+  .nav-link-wrap {
+    height: auto;
+    flex-direction: column;
+    width: 100%;
+  }
+  .house-img {
+    display: none;
+  }
+  .top-wrap p {
+    color: white;
+    margin: 15px 2px 15px 2px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
 </style>
