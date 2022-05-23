@@ -23,7 +23,7 @@
           <p class="article-title-text">{{ articleData.title.zh_cn }}</p>
           <a :href="articleData.link" class="article-title-details-wrap">
             <img src="@/assets/icon/md-input.svg" alt="" />
-            <p>详情</p></a
+            <p>Paper</p></a
           >
         </el-row>
 
@@ -132,5 +132,33 @@ export default {
   font-size: 24px;
   font-family: SourceHanSansSC-medium;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 787px) {
+  .article-title-text {
+
+    font-size: 22px;
+    
+
+}
+.article-title-time {
+    font-size: 22px;
+}
+.article-content-text {
+
+    font-size: 18px;
+
+}
+.article-title-details-wrap p {
+    font-size: 22px;
+}
+.article-content-image p {
+    font-size: 22px;
+
+}
+.article-title-wrap {
+
+    margin-bottom: 15px;
+}
 }
 </style>

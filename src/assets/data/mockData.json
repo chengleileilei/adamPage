@@ -245,231 +245,281 @@
     "doctoral_student": [{
         "name": "张翼",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "博士四年级",
+        "rsearch_direction": "机器学习公平性"
     }, {
         "name": "杨朋波",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "博士四年级",
+        "rsearch_direction": "机器学习鲁棒性与可解释性"
     }, {
         "name": "冯耀功",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "吴尚锡",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "王金强",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "林致宇",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "赵宪",
-        "sex": "女",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "王宇航",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "张家明",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "修洋洋",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "博士四年级",
+        "rsearch_direction": "零样本与小样本学习"
     }, {
         "name": "郑冠华",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "博士四年级",
+        "rsearch_direction": "深度学习可解释性算法理论"
+    }, {
+        "name": "修洋洋",
+        "sex": "男",
+        "grade": "博士三年级",
+        "rsearch_direction": "深度学习泛化性与鲁棒性理论"
+    }, {
+        "name": "张家明",
+        "sex": "男",
+        "grade": "博士二年级",
+        "rsearch_direction": "多模态深度学习鲁棒性"
+    }, {
+        "name": "吴尚锡",
+        "sex": "男",
+        "grade": "博士二年级",
+        "rsearch_direction": "后门攻击与对抗样本攻防"
+    }, {
+        "name": "王金强",
+        "sex": "男",
+        "grade": "博士二年级",
+        "rsearch_direction": "深度学习算法测试与调试"
+    }, {
+        "name": "林致宇",
+        "sex": "男",
+        "grade": "博士一年级",
+        "rsearch_direction": "频域与深度学习鲁棒性"
+    }, {
+        "name": "赵宪",
+        "sex": "女",
+        "grade": "博士一年级",
+        "rsearch_direction": "深度学习泛化性与鲁棒性"
+    }, {
+        "name": "王宇航",
+        "sex": "男",
+        "grade": "博士一年级",
+        "rsearch_direction": "预训练模型知识抽取"
+    }, {
+        "name": "张宇翔",
+        "sex": "男",
+        "grade": "博士一年级",
+        "rsearch_direction": "社会事件分析与表示学习"
+    }, {
+        "name": "胡锐",
+        "sex": "男",
+        "grade": "博士一年级",
+        "rsearch_direction": "深度学习算法测试与调试"
     }],
     "graduate_student": [{
         "name": "赵梦媛",
         "sex": "女",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研三",
+        "rsearch_direction": "知识图谱"
     }, {
         "name": "杜清月",
         "sex": "女",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研三",
+        "rsearch_direction": "知识图谱"
     }, {
         "name": "张多",
         "sex": "女",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研三",
+        "rsearch_direction": "深度学习鲁棒性"
     }, {
         "name": "张宇奇",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "张宇翔",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研三",
+        "rsearch_direction": "推荐系统"
     }, {
         "name": "孙坤",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研二",
+        "rsearch_direction": "信息抽取"
     }, {
         "name": "王可心",
         "sex": "女",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研二",
+        "rsearch_direction": "算法公平性"
     }, {
         "name": "王浩楠",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
-    }, {
-        "name": "胡锐",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研二",
+        "rsearch_direction": "深度学习鲁棒性"
     }, {
         "name": "沈浮文",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "事件分析"
     }, {
         "name": "张君石",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "信息抽取"
     }, {
         "name": "朱立玺",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "推荐系统"
     }, {
         "name": "李玮健",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "推荐系统"
     }, {
         "name": "秦博文",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "信息抽取"
     }, {
         "name": "何秋洋",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "sex": "女",
+        "grade": "研一",
+        "rsearch_direction": "深度学习鲁棒性"
     }, {
         "name": "易琪",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "多模态模型"
     }, {
         "name": "易宇轩",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "深度学习公平性"
     }, {
         "name": "王君阳",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研一",
+        "rsearch_direction": "深度学习公平性"
     }, {
         "name": "胡瑞",
         "sex": "女",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研二",
+        "rsearch_direction": "算法公平性"
     }, {
         "name": "杜林",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "研二",
+        "rsearch_direction": "事件分析"
     }, {
         "name": "高逸飞",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "准研一",
+        "rsearch_direction": "深度学习鲁棒性"
     }, {
         "name": "蒋钞全",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "准研一",
+        "rsearch_direction": "算法测试"
     }, {
         "name": "张京",
         "sex": "女",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "准研一",
+        "rsearch_direction": "信息抽取"
     }, {
         "name": "程磊",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "准研一",
+        "rsearch_direction": "推荐系统"
     }, {
         "name": "李爽",
         "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "grade": "准研一",
+        "rsearch_direction": "算法测试"
     }],
     "undergraduate_student": [{
-        "name": "小王",
+        "name": "本科生1",
         "sex": "男",
         "grade": "",
         "rsearch_direction": ""
     }],
     "graduated_student": [{
-        "name": "毕业生1",
-        "sex": "男",
-        "grade": "",
-        "rsearch_direction": ""
+        "name": "邓拯宇(中科院自动化所联合指导)",
+        "sex": "博士",
+        "grade": "2015",
+        "rsearch_direction": "阿里巴巴"
+    }, {
+        "name": "方全 (中科院自动化所联合指导)",
+        "sex": "博士",
+        "grade": "2015",
+        "rsearch_direction": "中科院自动化所"
+    }, {
+        "name": "袁召全 (中科院自动化所联合指导)",
+        "sex": "博士",
+        "grade": "2015",
+        "rsearch_direction": "西南交通大学"
+    }, {
+        "name": "严明 (中科院自动化所联合指导)",
+        "sex": "博士",
+        "grade": "2016",
+        "rsearch_direction": "就职于阿里巴巴"
+    }, {
+        "name": "项连城 (中科院自动化所联合指导)",
+        "sex": "硕士",
+        "grade": "2017",
+        "rsearch_direction": "字节跳动"
+    }, {
+        "name": "黄晓雯 (中科院自动化所联合指导)",
+        "sex": "博士",
+        "grade": "2020",
+        "rsearch_direction": "北京交通大学"
+    }, {
+        "name": "范可心",
+        "sex": "硕士",
+        "grade": "2020",
+        "rsearch_direction": "寒武纪"
+    }, {
+        "name": "马丽",
+        "sex": "硕士",
+        "grade": "2020",
+        "rsearch_direction": "华为北研院"
+    }, {
+        "name": "高瑜琦（南京大学联合指导）",
+        "sex": "硕士",
+        "grade": "2020",
+        "rsearch_direction": "罗彻斯特大学读博"
+    }, {
+        "name": "付成鹏",
+        "sex": "硕士",
+        "grade": "2021",
+        "rsearch_direction": "哈工大-鹏城实验室读博"
+    }, {
+        "name": "丁相国",
+        "sex": "硕士",
+        "grade": "2021",
+        "rsearch_direction": "腾讯"
     }],
     "paper_list": [{
         "time": "2022",
         "papers": [{
             "title": "Non-generative Generalized Zero-shot Learning via Task-correlated Disentanglement and Controllable Samples Synthesis",
             "author": "Yaogong Feng",
-            "link": ""
+            "link": "https://arxiv.org/pdf/2203.05335.pdf"
         }]
     }, {
         "time": "2021",
         "papers": [{
                 "title": "Post-fairness: Cross-task Adversarial Attack-based Instance Debiasing for Deactivating Spurious Correlation",
                 "author": "Yi Zhang",
-                "link": ""
+                "link": "#"
             },
             {
                 "title": "Pre-training also Transfers Non-Robustness",
                 "author": "Jiaming Zhang",
-                "link": ""
+                "link": "https://arxiv.org/pdf/2106.10989.pdf"
             }, {
                 "title": "Towards Predictable Feature Attribution: Revisiting and Improving Guided BackPropagation",
                 "author": "Guanhua Zheng",
-                "link": ""
+                "link": "#"
             }, {
                 "title": "Benign Adversarial Attack: Tricking Algorithm for Goodness",
                 "author": "Xian Zhao",
-                "link": ""
+                "link": "https://arxiv.org/pdf/2107.11986.pdf"
             }, {
                 "title": "Survey of Conversational Recommendation Algorithms",
                 "author": "Mengyuan Zhao",
-                "link": ""
+                "link": "#"
             }, {
                 "title": "Learning to Learn a Cold-start Sequential Recommender",
                 "author": "Xiaowen Huang",
-                "link": ""
+                "link": "https://dl.acm.org/doi/abs/10.1145/3466753?casa_token=zJ6kxRG7phEAAAAA:t4zN1HnkYebToCHLA96DTH0MkmbkBmxjvBDTu12iycT5R7IkJmsGkLgH5ZQPHPldkCX9yCPdzOxcuQ"
             }
         ]
     }, {
@@ -477,41 +527,41 @@
         "papers": [{
             "title": "Adaptive Adversarial Logits Pairing",
             "author": "Shangxi Wu",
-            "link": ""
+            "link": "https://arxiv.org/pdf/2005.11904.pdf"
         }, {
             "title": "Adversarial Privacy-preserving Filter",
             "author": "Jiaming Zhang",
-            "link": ""
+            "link": "https://dl.acm.org/doi/abs/10.1145/3394171.3413906?casa_token=keVy59VMWIsAAAAA:rAz7NpnifttEigh43pdXXlInUYeChAMFO8aXM0ClfH7EOO8wyGx5Q9fwNUc9fXPsQmGLwPgHZHL4_g"
         }, {
             "title": "Towards Accuracy-Fairness Paradox: Adversarial Example-based Data Augmentation for Visual Debiasing",
             "author": "Yi Zhang",
-            "link": ""
+            "link": "https://dl.acm.org/doi/abs/10.1145/3394171.3413772?casa_token=bizPhdp8ugoAAAAA:5eOlAJTYU-NSkKSkCpoLcfIZcz4HQ2q4y3QSGoLHtzyZO2PoTvKeTC3wi-WyClKKBELxIY1_voHuoQ"
         }]
     }, {
         "time": "2019",
         "papers": [{
             "title": "Beyond Literal Visual Modeling: Understanding Image Metaphor based on Literal-Implied Concept Mapping",
             "author": "Chengpeng Fu, Jinqiang Wang",
-            "link": ""
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-37731-1_10"
         }, {
             "title": "A Generalization Theory based on Independent and Task-Identically Distributed Assumption",
             "author": "Guanhua Zheng",
-            "link": ""
+            "link": "https://arxiv.org/pdf/1911.12603.pdf"
         }]
     }, {
         "time": "2018",
         "papers": [{
             "title": "Attention, Please!Adversarial Defense via Attention Rectification and Preservation",
             "author": "Shangxi Wu",
-            "link": ""
+            "link": "https://arxiv.org/pdf/1811.09831.pdf"
         }, {
             "title": "Robust CAPTCHAs towards Malicious OCR",
             "author": "Jiaming Zhang",
-            "link": ""
+            "link": "https://ieeexplore.ieee.org/abstract/document/9158388/"
         }, {
             "title": "CSAN: Contextual Self-Attention Network for User Sequential Recommendation",
             "author": "Xiaowen Huang",
-            "link": ""
+            "link": "https://dl.acm.org/doi/abs/10.1145/3240508.3240609?casa_token=9MWjPUfwJeIAAAAA:LypGoWOChZcvLYX1k9Aa-Mh0AighDSM2ecbe_RvDtZ76Il5GwSPtnZTT9yeoiHeD_ikOaZt948wF9g"
         }]
     }],
     "team_activities": [{

@@ -68,18 +68,24 @@
                   trendData.time.d
                 }}]
               </p>
-              <a :href="trendData.link">
+              <router-link to="/zhcn/research">
                 <p class="trend-tit-p">{{ trendData.title.zh_cn }}</p>
-              </a>
-              <a :href="trendData.link" class="trend-tit-more"
+              </router-link>
+              <router-link to="/zhcn/research" class="trend-tit-more">
+                <img src="@/assets/icon/iconPark-double-right.svg" alt="" />
+              </router-link>
+              <!-- <a :href="trendData.link">
+                <p class="trend-tit-p">{{ trendData.title.zh_cn }}</p>
+              </a> -->
+              <!-- <a :href="trendData.link" class="trend-tit-more"
                 ><img src="@/assets/icon/iconPark-double-right.svg" alt=""
-              /></a>
+              /></a> -->
             </div>
 
             <div class="trend-content lr-padding">
               <p>{{ trendData.introduction }}</p>
               <div>
-                <a href="" class="trend-paper-link">
+                <a :href="trendData.link" class="trend-paper-link">
                   <p>Paper</p>
                   <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" />
                 </a>
@@ -413,7 +419,7 @@ export default {
 
 @media screen and (max-width: 800px) {
   .carousel-bottom > p {
-    font-size: 20px;
+    font-size: 18px;
   }
   .img-link-wrap a {
     font-size: 15px;
@@ -633,6 +639,19 @@ export default {
   }
   .more-info-wrap img {
     width: 20px;
+  }
+  .home-content > p {
+    font-size: 18px;
+    margin: 10px;
+  }
+  .trend-content > p {
+    font-size: 18px;
+  }
+  .trend-tit .trend-tit-p {
+    font-size: 22px;
+  }
+  .trend-tit .trend-tit-time {
+    font-size: 22px;
   }
 }
 </style>

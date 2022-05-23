@@ -104,21 +104,21 @@
               />
               地址：北京市海淀区西直门外上园村3号 计算机与信息技术学院九教北5楼
             </p>
-            <p class="with-logo-left">
+            <!-- <p class="with-logo-left">
               <img
                 class="footer-logo"
                 src="@/assets/icon/fas-fa-phone.svg"
                 alt=""
               />
               电话：XXXXXXX
-            </p>
+            </p> -->
             <p class="with-logo-left">
               <img
                 class="footer-logo"
                 src="@/assets/icon/arcoDesign-email.svg"
                 alt=""
               />
-              邮箱：XXXXXX@bjtu.edu.cn
+              邮箱：jtsang@bjtu.edu.cn
             </p>
             <br />
             <a href="https://www.bjtu.edu.cn/"

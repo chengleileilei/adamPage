@@ -70,7 +70,7 @@
         </tr>
       </table>
     </el-row>
-
+<!-- 
     <el-row class="centered lr-padding">
       <div class="role-wrap"><p>本科生</p></div>
       <table>
@@ -88,16 +88,16 @@
           <td>{{ undergraduateStudent.grade }}</td>
         </tr>
       </table>
-    </el-row>
+    </el-row> -->
 
     <el-row class="centered lr-padding">
       <div class="role-wrap"><p>毕业生</p></div>
       <table>
         <tr>
           <th>姓名</th>
-          <th>性别</th>
-          <th>年级</th>
-          <th>研究方向</th>
+          <th>毕业学位</th>
+          <th>毕业时间</th>
+          <th>毕业去向</th>
         </tr>
         <tr v-for="(graduatedStudent, index) in graduatedStudents" :key="index">
           <td>{{ graduatedStudent.name }}</td>
