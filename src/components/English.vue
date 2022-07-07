@@ -2,7 +2,9 @@
   <div id="app">
     <el-row class="lr-padding en-top-wrap">
       <div class="en-top centered">
-        <div class="en-logo-wrap"><img class="en-logo" src="@/assets/bjtu-logo.png" alt="" /></div>
+        <div class="en-logo-wrap">
+          <img class="en-logo" src="@/assets/bjtu-logo.png" alt="" />
+        </div>
         <div>
           <p class="content-1">
             Beijing Jiaotong University School of Computer and Information
@@ -112,9 +114,10 @@
           class="event-title-wrap"
         >
           <p>{{ recentEvent.title.en }}</p>
-          <a :href="recentEvent.link"
+          <a :href="recentEvent.link" v-if="recentEvent.link != ''"
             >[paper<img src="@/assets/icon/black-plane.svg" alt="" />]</a
           >
+          
         </el-col>
       </el-row>
     </el-row>
@@ -139,29 +142,42 @@
       </el-row>
     </el-row>
 
-        <el-row class="centered">
+    <el-row class="centered">
       <p class="en-first-title">Paper List</p>
       <el-row
-      class="centered lr-padding"
-      v-for="(papers, index) in paperList"
-      :key="index"
-    >
-      <div class="paper-time-wrap lr-padding">
-        <img src="@/assets/icon/antOutline-calendar.svg" alt="" />
-        <div class="circle">
-          <img src="@/assets/icon/antFill-file-text.svg" alt="" />
+        class="centered lr-padding"
+        v-for="(papers, index) in paperList"
+        :key="index"
+      >
+        <div class="paper-time-wrap lr-padding">
+          <img src="@/assets/icon/antOutline-calendar.svg" alt="" />
+          <div class="circle">
+            <img src="@/assets/icon/antFill-file-text.svg" alt="" />
+          </div>
+          <p>{{ papers.time }}</p>
         </div>
-        <p>{{ papers.time }}</p>
-      </div>
 
-      <el-row>
-        <el-col v-for="(paper, index) in papers.papers" :key="index"  class="paper-wrap lr-padding">
-          <p>{{ paper.title }}</p>
-          <p>{{ paper.author }}</p>
-          <a :href="paper.link">[paper <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" /> ]</a>
-        </el-col>
+        <el-row>
+          <el-col
+            v-for="(paper, index) in papers.papers"
+            :key="index"
+            class="paper-wrap lr-padding"
+          >
+            <p>{{ paper.title }}</p>
+            <p>{{ paper.author }}</p>
+            <a :href="paper.link" v-if="paper.link != ''"
+              >[paper
+              <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" /> ]</a
+            >
+            <a
+            :href="'../static/' + paper.introduction_link"
+            v-if="paper.introduction_link != ''"
+            >[introduction
+            <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" /> ]</a
+          >
+          </el-col>
+        </el-row>
       </el-row>
-    </el-row>
     </el-row>
 
     <el-row>
@@ -199,7 +215,6 @@
               Email：XXXXXX@bjtu.edu.cn
             </p>
             <br />
-
           </el-col>
 
           <el-col
@@ -210,9 +225,10 @@
             :xl="10"
             class="en-footer-r"
           >
-                        <a href="https://www.bjtu.edu.cn/"
+            <a href="https://www.bjtu.edu.cn/"
               ><p class="small-p">
-                Other Link：Beijing Jiaotong University School of Computer and Information Technolo
+                Other Link：Beijing Jiaotong University School of Computer and
+                Information Technolo
               </p></a
             >
           </el-col>
@@ -256,8 +272,7 @@ export default {
       supervisors: dataMock.supervisors,
       recentEvents: dataMock.trend_data,
       searchDirection: dataMock.search_direction,
-            paperList: dataMock.paper_list,
-
+      paperList: dataMock.paper_list,
     };
   },
   mounted() {
@@ -561,25 +576,25 @@ a {
   height: 70%;
 }
 
-
-.paper-wrap{
+.paper-wrap {
   border-bottom: 1px solid rgb(184, 184, 184);
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.paper-wrap>p{
+.paper-wrap > p {
   text-align: left;
   font-size: 22px;
   font-family: Roboto;
 }
-.paper-wrap>a{
+.paper-wrap > a {
+  margin-left: 10px;
   float: right;
   font-size: 22px;
   display: flex;
   flex-direction: row;
   align-items: center;
-font-family: SourceHanSansSC-regular;
-color: rgba(10, 83, 159, 1);
+  font-family: SourceHanSansSC-regular;
+  color: rgba(10, 83, 159, 1);
 }
 /* 页脚 */
 .en-footer-wrap {
@@ -645,7 +660,7 @@ color: rgba(10, 83, 159, 1);
 }
 
 @media screen and (max-width: 767px) {
-  .en-logo-wrap{
+  .en-logo-wrap {
     display: none;
   }
 }

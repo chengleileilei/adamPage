@@ -1,0 +1,350 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="robots" content="index,follow">
+    <meta name="referrer" content="never">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+    <link href="https://ai.tencent.com/ailab/images/favicon.ico" type="image/ico" rel="shortcut icon">
+    <script src="./Post_fairness_files/segment.js"></script>
+    <link href="./Post_fairness_files/app.b56908a4ef7f7c7df6627f70cc26fc81.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" async="" src="./Post_fairness_files/9.691b19c55c2987dd0cf3.js"></script>
+</head>
+
+<body _c_t_common="1" style="zoom: 1;" _c_t_j1="1" data-new-gr-c-s-check-loaded="14.1033.0" data-gr-ext-installed="">
+<div class="wrap wrap2 wrap_detial">
+    <header class="header whiteBg">
+        <div class="inner">
+            <div class="lang"><a href="https://adam-bjtu.org"
+                                 class="router-link-exact-active router-link-active" id="zh" aria-current="page">中</a>
+                <span>|</span> <a href="https://adam-bjtu.org" class="langUnFocus"
+                                  id="en">En</a></div>
+            <div class="navbar" style="">
+                <ul style="height: 100%;">
+                    <li class="paperNav"><a href="../../../index.html"
+                                            class="router-link-exact-active router-link-active"><span>主页</span></a></li>
+                    <!-- <li class="paperNav"><a href="adam-bjtu.org/paper/Post_fairness"
+                            class="router-link-exact-active router-link-active"><span>论文</span></a></li>
+                    <li class="aboutNav"><a href="/about"
+                            class=""><span>关于</span></a></li> -->
+                    <li class="lang lang2"><a id="zh" class="">中</a> <span></span> <a id="en"
+                                                                                      class="langUnFocus">En</a></li>
+                </ul>
+            </div>
+            <!----> <a href="javascript:;" class="nav_btn"></a>
+        </div>
+    </header>
+
+    <br><br><br><br><br>
+    <table border="0" width="1000px" align="center">
+        <tbody>
+        <tr>
+            <td>
+
+                <center>
+                    <h1>
+                        <font face="helvetica" style="font-size:87%">
+                            Post-fairness: Cross-task Adversarial Attack-based 
+                            <br>
+                            Instance Debiasing for Deactivating Spurious Correlations
+                        </font>
+                    </h1>
+                </center>
+
+                <br>
+
+                <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        Neural networks often learn to make predictions that rely on social attributes like gender and race, which causes the model to be social biased.
+                        While previous work tackles this issue with training an unbiased model, but a stronger and common requirement in practice is a more challenging setting where model weights is unchangeable. 
+                        In this paper, we propose a post-processing debiasing framework, and explore new ideas for achieving algorithm fairness. 
+                        Our observations show that the biased model learn the bias feature and make biased decisions based on it.
+                        We propose an instance debiasing method based on adversarial attacks to remove the information in the test sample that will activate the bias feature of the model, 
+                        and require that the features of the new instance deactivate model's biased decision-making relus, so that the model only makes predictions based on the target feature. 
+                        We demonstrate the effectiveness of this method in laboratory scenarios and real applications. 
+
+                    </p>
+
+                    <p>
+                        <b>We summarize our main contributions as follows:</b>
+                    </p>
+                    <ol style="margin-top:-7px">
+
+                        <li>
+                            We are the first to propose debiasing through instance transformation. Compared with pre-processing and intermediate processing, 
+                            our method does not need to modify the model, as a lightweight plug-in to debias the biased model. 
+                            Our method can also be compatibly used with pre and in-processing at the same time to enhanced debiasing effect. 
+                            Compared with other post-processing methods, we can make great use of the target feature-based decision rules in the model to achieve debiasing 
+                            and ensure accuracy on each instance, instead of transformation the prediction distribution to ensure fairness.
+
+                        </li>
+                        <li>
+                            Under the framework of instance transformation, we explored a function of adversarial attack: 
+                            As a tool for sample generation, unbiased instances are generated by transforming the original image to remove bias feature.
+                        </li>
+
+                    </ol>
+
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">Motivation</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:15px">
+
+
+                    <h3>Not all results are based on task-irrelevant features in the input:</h3>
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./Post_fairness/Motivation1.png" height="400">
+                            <br> <strong>Fig.1</strong> Model bias v.s. The level difficulty of the bias attribute recognition. 
+                            Model bias of test samples with different levels in the classification of bias attributes.
+                        </center>
+                    </font>
+
+
+                    <font face="helvetica" style="font-size:17px">
+                        <p align="justify">
+                            The observation is "Not all results are based on task-irrelevant features in the input.""
+                            Instead, when the bias attribute of the test sample is difficult to recognition, the unfair target model will output fair results.
+                            Therefore, We obtain a direct idea: We can hide the bias information in the sample to make the model output from unfair to fair.
+                            Based on our above research, we consider that we can use adversarial attack to manipulate image with the target of removing bias information.
+                        
+                        </p>
+                    </font>
+
+
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Regular adversarial attack can’t cross task</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:15px">
+
+
+
+                        <center>
+                            <img src="./Post_fairness/Motivation2.png" height="400">
+                            <br><strong>Fig.2</strong> The debiaisng performance for different target model.
+                        </center>
+                        <br>
+                    </font>
+
+                    <font face="helvetica" style="font-size:17px">
+                        <p align="justify">
+                            When we use adversarial attack achieve instance debiasing, the debiasing performance is not enough and far from our debiasing goal.
+                            But we only use the Natural Unbiased Instance to test, the model bias is much lower than the model bias obtained by using the entire test set and achieve excellent debiasing performance.
+                        </p>
+                    </font>
+
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Analysis Framework</font>
+                    </h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./Post_fairness/Motivation3.png" height="450">
+                            <br>
+                            <strong>Fig.3</strong> Take a closer look at the different between adversarial attack and Natural Unbiased Instanse by using manifold space as analysis tool.
+                        </center>
+                    </font>
+                    <br>
+                    <font face="helvetica" style="font-size:17px">
+                        <p align="justify">
+                            Based on PCA manifold space, we can observe the relation between adversarial attack direction and manifold feature direction.  
+                            We use the mean Cosine Similarity to measured, and observed that the mean Cosine Similarity between “Loss Gradient of I ” and “Loss Gradient of M”  is 0.36.
+                            This low Cosine Similarity  means The direction of adversarial attack isn’t feature direction，and this leads to underperform debiaisng.
+                        </p>
+                    </font>
+
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Proposed Method</font>
+                    </h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./Post_fairness/Method.png" height="300">
+                            <br>
+                            <strong>Fig.4</strong> Illustration of the training process of the Post-fairness model.
+                        </center>
+                    </font>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Debiasing Evaluation</font>
+                    </h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+                    <font face="helvetica" style="font-size:17px">
+                        <p align="justify">
+                            
+Real-world application does not allow to modify model for debiasing, the only available debiasing method is the post-processing.
+We compare the performance of our algorithm with three typical post-processing debiasing algorithms. 
+In laboratory scenarios, the debiasing algorithms can access to the data preparation and training stage to retrain model. 
+To evaluate the effectiveness, we consider several typical pre and in-processing debiasing solutions. 
+We evaluated the proposed AEDA solution on both simulated and real-world bias scenarios, all experimental
+results in evaluation support that Post-fairness successfully obtained the unbiased result in the biased model without modifying the original model.
+                        </p>
+                    </font>
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./Post_fairness/Results.png" height="450">
+                            <br>
+                        </center>
+                    </font>
+                    <p style="padding-bottom:1px"></p>
+
+
+
+
+</font></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="clear"></div>
+    <div class="footer">
+        <div class="footer-box">
+            <!-- <div class="left"><img
+                    src="data:image/png;base64,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"
+                    alt=""></div> -->
+            <p>Copyright © 2021 ADaM. All Rights Reserved.</p>
+            <ul class="right">
+                <!-- <li class="footer_wechat"><a href="javascript:void(0);"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAkCAMAAADFCSheAAAAeFBMVEUAAABfY2hfZGlgZGpgY2lgY2hhZWtjam1gY2lgZGlgZGlkZmt2dopgY2hgZGlfZGlkZWlsbG9gY2lfY2hgZGhfZGlfZGhkaG9gZGhgZGhhZGlgZWlhZWpgZGlhZGhhZGtmd3dgZGlgZGhgY2lgZGlhamxgY2lfY2j4pgKsAAAAJ3RSTlMA+vVI4s84GYl0WSME13lkKgzryr2gjxOYfl9UMJJpUAfFrqSEHrTAcFJPAAABdElEQVQ4y42T6baCMAyE05Z9EWQXRHHN+7/hBWIVWqr3+zWnzAlpJ4EPblvmFueWXSYhfEcUuKDoIjBytFHBPoIBn6EGO8AmDW5SbrVSoYEKNM5oJACFvUUf7rXzUpfwcSWV7RXzgc7jUSYkU4AaiZ1ijuk4H2VA8gEwMJIWrHDwRQe1/X4FT56msKRFicWlyrK5scZvhau3rJPt3L3YVWV/CBb+fsvK/UEU7J18MsikUcdO03z9nzOZO92b7xOunjVz9KHmjesT6txgolCnzRG4hQeUxIqe8s9EeKXwUxoDNg14lK/NoS8LubNwAKit59z16jYXoBwbgOMszjILVs8Pwpatua/W721MwSY+Xw6sWNQ+OWhAjqDzcXfmXeiB+Cx38rPyMFVmsucfSybG3EQUBl75rMA2eFlNZo/7EUh8g/kKxMNVNliHEtQRhuttsz11JvR5rsCMsikYw1doByU8gu9M231r7kHoegwd+Ddp0cLIH4duiLZID23xAAAAAElFTkSuQmCC"></a>
+                </li>
+                <li class="footer_email"><a href="mailto:ailab@tencent.com"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAgCAMAAABemGpIAAAAdVBMVEUAAABgZGhqc4Bobm5fZGlgY2lfY2hhZWpjZ2xmaW5fY2hgY2lgZGlgZGlkZHNgZGlgZGlgZGlgY2hgZGlgZGlgZGlhZWtgY2lfZGhgY2lgZGliZ21jZWthaGtfZGhfZGlhZGhfZGlhY2lhZWhhZWpgZGlfY2gi7z+FAAAAJnRSTlMA+gcM8+vLQx0V3NeXhxDBvK2gj2JTNHnjs3EvKSbh0WlmXkw6erPR6wkAAAFwSURBVDjLhZKJsoIwDEVTbBFLURBUVveX///Ed1t3KHBmGAZ6oE1uCCRazKITenBXPIu6E4hWuOI5N46IVhEZ3RKt02k3XRO1R0Oa5ZIoMFOuCYiWkjUJZnEmolqMqaLG8tl6kEGOx5v0u/KGxZyBk0G1IGpKn1s2RIuKPzI42XLDoRvaZp34V2a1xx+yvpthx73ivsxyZ8P8dW1sO8kDGRywVHw9iwIvDsxembe2n+qdsO3/lv0y2CCpTrNDd0h2w+OyWNLLwHfYRkzIVwLY+3EicB2Xa/w2dFW5WkP0rR6TE/x0Y2+OBEcJcPPLBm71SOKVTwXb+OSMiLbPjJsmfDYTL7OhnAZ2tgbk2C7ty7aYP/aAUhfhrxxjuC7s5YJxjL/lY4SBEX5ZYMCi40dWXT+sfqydeslyj6GVY+5nHbL7slU8gWrtzpC1O1PJk5SuJk2mcNVO47pVGApcH2dBDlBdQvO4hMEqj8UscY6D/AMQB5GcWnbVDgAAAABJRU5ErkJggg=="></a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./Post_fairness_files/manifest.a046e764a7f89ee70324.js"></script>
+<script type="text/javascript" src="./Post_fairness_files/vendor.bf6c914e1185a8f804a7.js"></script>
+<script type="text/javascript" src="./Post_fairness_files/app.fd4ed8c6867ac0aa97f6.js"></script>
+<style>
+    ol {
+        counter-reset: sectioncounter;
+        display: block;
+        list-style-type: decimal;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding-inline-start: 40px;
+
+    }
+
+
+    h1 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+
+    }
+
+    table {
+        margin-top: 4%
+    }
+
+    h2, b {
+        margin-top: 1%;
+        margin-bottom: 1.5%
+    }
+
+    b {
+        line-height: 5vh;
+    }
+
+    .tb_button {
+        padding: 1px;
+        cursor: pointer;
+        border-right: 1px solid #8b8b8b;
+        border-left: 1px solid #FFF;
+        border-bottom: 1px solid #fff;
+    }
+
+    .tb_button.hover {
+        borer: 2px outset #def;
+        background-color: #f8f8f8 !important;
+    }
+
+    .ws_toolbar {
+        z-index: 100000
+    }
+
+    .ws_toolbar .ws_tb_btn {
+        cursor: pointer;
+        border: 1px solid #555;
+        padding: 3px
+    }
+
+    .tb_highlight {
+        background-color: yellow
+    }
+
+    .tb_hide {
+        visibility: hidden
+    }
+
+    .ws_toolbar img {
+        padding: 2px;
+        margin: 0px
+    }
+
+    #container {
+        display: block;
+        overflow: hidden;
+        width: 830px;
+        margin: 0 auto;
+    }
+
+
+    #container li {
+
+        float: left;
+        height: 96px;
+        list-style: none outside none;
+        margin: 6px;
+        position: relative;
+        width: 125px;
+
+        -moz-box-shadow: 0 0 5px #000;
+        -webkit-box-shadow: 0 0 5px #000;
+        box-shadow: 0 0 5px #000;
+    }
+
+    #container ul {
+        overflow: hidden;
+    }
+
+    #container ul.hidden {
+        display: none;
+    }
+</style>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+</body>
+
+</html>

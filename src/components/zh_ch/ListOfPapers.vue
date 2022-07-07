@@ -24,7 +24,8 @@
         <el-col v-for="(paper, index) in papers.papers" :key="index"  class="paper-wrap lr-padding">
           <p>{{ paper.title }}</p>
           <p>{{ paper.author }}</p>
-          <a :href="paper.link">[paper <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" /> ]</a>
+          <a :href="paper.link" v-if="paper.link!=''">[paper <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" /> ]</a>
+          <a :href="'../static/'+paper.introduction_link" v-if="paper.introduction_link!=''">[introduction <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" /> ]</a>
         </el-col>
       </el-row>
     </el-row>
@@ -101,6 +102,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 20px;
 font-family: SourceHanSansSC-regular;
 color: rgba(10, 83, 159, 1);
 }

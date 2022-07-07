@@ -1,0 +1,345 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            Benign Adversarial Attack: Tricking Algorithm for Goodness
+    </h1>
+
+
+    <br>
+    <div>
+            <h2>
+                            <font face="helvetica" style="font-size:24px">Introduction</font>
+                        </h2>
+                        <hr style="margin-top:-10px; margin-bottom:13px">
+                        <font face="helvetica" style="font-size:18px">
+                            <p align="justify">
+                                Due to the critical risk to machine learning algorithms, adversarial attack has been
+                                viewed as malignant in default, which naturally gives rise to the considerable attention
+                                on defense against adversarial examples. Beyond falling into this cat-and-mouse game,
+                                this paper attempts to provide alternative perspective to consider adversarial example
+                                and explore whether we can exploit it in other-than-malignant applications.
+                            </p>
+                            <br>
+                            <p>
+                                <b>The main contributions are summarized as follows: </b>
+                            </p>
+                            <ol style="margin-top:-7px">
+                                <li>
+                                    We provide alternative perspective to view adversarial example under a novel
+                                    taxonomy of visual information along task-relevance and semantic-orientation.
+                                    The emergence of adversarial example is attributed to algorithm’s utilization of
+                                    task-relevant non-semantic information.
+                                </li>
+                                <li>
+                                    We present brave new idea called benign adversarial attack to exploit the
+                                    adversarial examples for goodness.
+                                    Three potential research directions are positioned with justification experiments
+                                    and prototype applications.
+                                </li>
+                            </ol>
+
+
+
+                            <p style="padding-bottom:1px"></p>
+
+                            <h2>
+                                <font face="helvetica" style="font-size:24px">ADVERSARIAL EXAMPLE: EXPLOITING THE
+                                    DIFFERENCE
+                                    BETWEEN HUMAN AND ALGORITHM</font>
+                            </h2>
+                            <hr style="margin-top:-10px; margin-bottom:13px">
+                            <h4>
+                                <font face="helvetica" style="font-size:20px"><b>Human v.s. Algorithm: Information
+                                        Taxonomy
+                                        along Task-relevance and Semantic-orientation</b></font>
+                            </h4>
+                            <p>
+                                To better investigate how human and machine learning algorithms make inference, we
+                                propose
+                                the following two criterion to discriminate the different visual information:
+                            </p>
+                            <ul>
+                                <li>
+                                    <b>Task-relevance</b> measures whether the information is intrinsic to solve the
+                                    task.
+                                    Task-relevant information employed by machine learning algorithms is also called
+                                    task-relevant feature, whose judgment can resort to whether it is generalizable to
+                                    unseen data.
+                                </li>
+                                <li>
+                                    <b>Semantic-orientation</b> measures whether the information is perceptible to
+                                    human.
+                                    Semantic-oriented information like color, shape and contour is easily perceived and
+                                    understood by human to make inference. On the contrary, human usually fails to
+                                    capture
+                                    or understand the non-semantic information, such as white noise, adversarial
+                                    perturbation.
+                                </li>
+                            </ul>
+                            <img src="./zx_img/frame.png" height="400" width="600" />
+                            <p>The above two criterion lead to a taxonomy to divide visual information into the
+                                following
+                                four categories (illustrated in Fig. 1):</p>
+                            <ol>
+                                <li> <b>Task-relevant semantic information:</b> semantic information that generalizes to
+                                    unseen
+                                    data. This category of information is perceptible to human as well as intrinsic to
+                                    solve
+                                    the target task. Examples of task-relevant semantic information in image
+                                    classification
+                                    are shape, contour, etc.</li>
+                                <li> <b>Task-relevant non-semantic information:</b> snon-semantic information that
+                                    generalizes to unseen data. This category of information is also intrinsic to solve
+                                    the
+                                    target task but imperceptible to human. Adversarial perturbation falls in this very
+                                    category.</li>
+                                <li> <b>Task-irrelevant semantic information:</b> semantic information that fails to
+                                    generalize to unseen data. This category of information is perceptible to human, but
+                                    not
+                                    useful to solve the target task. Algorithm employing task-irrelevant semantic
+                                    information tends to suffer from the overfitting problem [16], e.g., the background
+                                    information in image object recognition tasks.</li>
+                                <li> <b>Task-irrelevant non-semantic information:</b> non-semantic information that
+                                    fails to
+                                    generalize to unseen data. This category of information is neither perceptible to
+                                    human
+                                    or intrinsic to solve the target task, e.g., Gaussian white noise, salt and pepper
+                                    noise.</li>
+                            </ol>
+                            <h4>
+                                <font face="helvetica" style="font-size:20px"><b>Adversarial Example v.s. Task-relevant
+                                        Non-semantic Information</b></font>
+                            </h4>
+                            <br>
+                            <p>we are interested in the following three characteristics to motivate exploitation that
+                                the existence of adversarial example proves that
+                                algorithms indeed employ non-semantic information as features:</p>
+                            <ol style="margin-top: -6px;">
+                                <li><b>Exclusive to algorithm: </b>Solving tasks involves with both semantic and
+                                    non-semantic
+                                    information. While machine learning algorithms can utilize both, human relies mostly
+                                    on the semantic part. This is the fundamental characteristics to distinguish between
+                                    human and algorithm.</li>
+                                <li><b>Reflecting common weakness: </b>Equipping with this “superman’s power”, machine
+                                    learning algorithms at the same time suffer from common weakness as easily fooled by
+                                    trivial perturbation. This is particularly the case in tasks heavily interacted with
+                                    human.</li>
+                                <li><b>Utilizable as features: </b>Classical machine learning focuses on employing the
+                                    semantic features. Since it is difficult to completely prevent the algorithm from
+                                    employing the nonsemantic information, how about we proactively exploit it to assist
+                                    task solving especially in cases like data shortage?</li>
+                            </ol>
+                            <h2>
+                                <font face="helvetica" style="font-size:24px">EXPLOITING ADVERSARIAL ATTACK FOR BENIGN
+                                    APPLICATIONS</font>
+                            </h2>
+                            <hr style="margin-top:-10px; margin-bottom:13px">
+                            <h3>
+                                <font face="helvetica" style="font-size:20px"><b>1.Adversarial Turing Test</b></font>
+                            </h3>
+                            <h4> <b>A. Visualization of task-relevant non-semantic information.</b></h4>
+                            <img src="./zx_img/1-1.png" width="500" />
+                            <h4> <b>B. Different sensitivities to visual distortions between human and algorithm.</b>
+                            </h4>
+                            <img src="./zx_img/1-3.png" width="600" />
+                            <h4> <b>Prototype Application and Discussion.</b></h4>
+                            <p>We have implemented a prototype application by employing adversarially perturbed images
+                                to improve character-based CAPTCHAs, which is called robust <a
+                                    href="http://adam-bjtu.org/paper/person3/jiaming3.html"><u>CAPTCHAs</u></a>. </p>
+
+                            <p> <i><b>Future direction：</b></i>With the tendency that traditional Turing test being
+                                cracked by
+                                machine learning
+                                algorithms, researchers are continuously exploring alternative solutions. As the
+                                exclusive information of the algorithm, task-relevant non-semantic information is
+                                justified via the above analysis and prototype application for its feasibility in
+                                distinguishing between human and algorithm. We hope this study can shed light on the
+                                future studies on exploiting adversarial examples to design novel Turing tests.
+                                Moreover, besides the standard forms of Turing test, we envision the increasing
+                                necessity of generalized Turing test to distinguish between human and algorithm in the
+                                future. In particular, the widespread application of machine learning algorithms in data
+                                synthesis and automated data annotation is giving rise to a considerable amount
+                                of algorithm-generated data in the wild. We believe the utilization of non-semantic
+                                information inevitably leaves traces in the generated data, which provides possible
+                                solution to identify the algorithm-generated data by carefully examining its reaction to
+                                adversarial perturbation.</p>
+                            <h3>
+                                <font face="helvetica" style="font-size:20px"><b>2.Rejecting malicious algorithm</b>
+                                </font>
+                            </h3>
+                            <h4> <b>A. Results of Attacking Malicious Face Recognition Algorithms</b></h4>
+                            <img src="./zx_img/2-1.png" width="600">
+                            <h4> <b>B. Attacking Results on Resistance against Image Compression</b></h4>
+                            <img src="./zx_img/2-2.png" width="600">
+                            <h4> <b>C. Attacking Results on Compatibility with Facial Makeup</b></h4>
+                            <img src="./zx_img/2-3.png" width="600">
+                            <h4> <b>Prototype Application and Discussion.</b></h4>
+                            <p><a href="http://adam-bjtu.org/paper/person1/jiaming1.html"> <u> prototype application </u></a> employing adversarial attack to rejecting
+                                malicious face recognition algorithms is implemented.</p>
+                            <p><i><b>Future direction: </b></i> Justified by the above analysis and inspired by the
+                                prototype
+                                application, we expect two productive directions of exploiting adversarial attack to
+                                reject malicious algorithms: (1) optimizing the procedure of generating adversarial
+                                examples by addressing practical requirements (e.g., non-accessibility in our
+                                application) and invaliding key modules to reject the malicious algorithm (e.g., face
+                                detection module in face identification system); and (2) applying benign adversarial
+                                attacks in other scenarios of privacy-preserving (e.g., personal identity in
+                                surveillance video and phone call) and novel applications of information hiding (e.g.,
+                                sensitive information in documentation).</p>
+                            <h3>
+                                <font face="helvetica" style="font-size:20px"><b>3.Adversarial data augmentation</b>
+                                </font>
+                            </h3>
+                            <h4> <b>A. Adversarial Attack provides Strong Feature</b></h4>
+                            <img src="./zx_img/3-1.png" width="600">
+                            <h4> <b>B. Adversarial Attack provides Generalizable Feature</b></h4>
+                            <img src="./zx_img/3-2.png" width="600">
+                            <h4> <b>C. Adversarial Attack provides Complementary Feature</b></h4>
+                            <img src="./zx_img/3-3a.png" width="600">
+                            <img src="./zx_img/3-3b.png" width="600">
+                            <h4> <b>Prototype Application and Discussion.</b></h4>
+                            By utilizing adversarial examples for data augmentation, we implemented <a href="http://adam-bjtu.org/paper/AEDA_yi/yi1.html"> <u>a prototype application</u></a> to solve the algorithm bias problem.
+                            <p><i><b>Future direction: </b></i>Researchers are generally utilizing data augmentation to
+                                improve the generalization of machine learning models caused by data shortage. Through
+                                the above experiments and analysis, we demonstrated that expanding training dataset by
+                                adversarial examples is an effective means of data augmentation. While traditional data
+                                augmentation can be viewed as exploiting human-consistent prior knowledge to make up for
+                                the data shortage, adversarial attack provides a new sight of prior knowledge which is
+                                imperceptible to human. We argue that the capability of employing non-semantic
+                                information contributes much to the rapid progress of today’s machine learning
+                                algorithms. However, few work has proactively examined how to exploit it in benign
+                                applications. It remains unexplored in many perspectives before integrating the
+                                non-semantic and semantic features, e.g., in what cases the algorithms are likely to
+                                extract non-semantic features for practical usage, how to extract and better employ the
+                                non-semantic features, what are the pros and cons of employing non-semantic features,
+                                etc.</p>
+                        </font>
+                        <h2>
+                            <font face="helvetica" style="font-size:24px">Paper</font>
+                        </h2>
+                        <hr style="margin-top:-10px; margin-bottom:13px">
+                        <a href="https://arxiv.org/pdf/2107.11986.pdf">https://arxiv.org/pdf/2107.11986.pdf</a>
+
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

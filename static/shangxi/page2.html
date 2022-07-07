@@ -1,0 +1,186 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            Adaptive Adversarial Logits Pairing
+    </h1>
+
+
+    <br>
+    <div>
+        <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        Adversarial examples provide an opportunity as well as impose a challenge for understanding image classification systems. Based on the analysis of the adversarial training solution Adversarial Logits Pairing (ALP), we observed in this work that: (1) The inference of adversarially robust model tends to rely on fewer high-contribution features compared with vulnerable ones. (2) The training target of ALP doesn't fit well to a noticeable part of samples, where the logits pairing loss is overemphasized and obstructs minimizing the classification loss. Motivated by these observations, we design an Adaptive Adversarial Logits Pairing (AALP) solution by modifying the training process and training target of ALP. Specifically, AALP consists of an adaptive feature optimization module with Guided Dropout to systematically pursue fewer high-contribution features, and an adaptive sample weighting module by setting sample-specific training weights to balance between logits pairing loss and classification loss. The proposed AALP solution demonstrates superior defense performance on multiple datasets with extensive experiments.
+                    <p>
+                        <b>The main contributions are as follows:</b>
+                    </p>
+                    <ol style="margin-top:-7px">
+                        <li>
+                            We propose a Guided Dropout that tailors features based on feature contributions. It can prevent overfitting while improving the model’s robustness
+                        </li>
+                        <li>
+                            We propose a method to adaptively adjust the Adversarial Logits Pairing loss, and our proposed method greatly improves the robustness of the model against adversarial attacks and shows excellent results on multiple datasets.
+                        </li>
+                        <li>
+                            Our proposed method greatly improves the robustness of the model against adversarial attacks and shows excellent results on multiple datasets.
+                        </li>
+                    </ol>
+
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+                <h2><font face="helvetica" style="font-size:24px">Framework</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:15px">
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./images/pic1.png" height="180" width="1000">
+                            <br> <strong>Fig.1</strong>  AALP training framework. The upper is original sample and the lower is the adversarial sample. Guided Dropout is
+                            in the layer before the Logits layer.
+                        </center>
+                    </font>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+                    <h2><font face="helvetica" style="font-size:24px">Paper</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+
+                        <div>
+                            <a href="" style="text-decoration: none;">
+                                <img src="./images/paper-plane-fill.png" height="30px">
+                            </a>
+                            <div style="margin-left: 20px; margin-top: 0px;margin-bottom: 10px; display: inline-block; font-size:18px;">
+                                <a href="https://arxiv.org/abs/2005.11904">https://arxiv.org/abs/2005.11904</a>
+                            </div>
+                        </div>
+
+                        <br>
+                    </font></font></td>
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

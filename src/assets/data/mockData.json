@@ -61,11 +61,122 @@
     "trend_data": [{
             "time": {
                 "y": 2022,
+                "m": 7,
+                "d": 3
+            },
+            "title": {
+                "zh_cn": "ACM MM 2022：反例对比学习消除杂散相关",
+                "en": "ACM MM 2022: Counterexample Contrastive Learning for Spurious Correlation Elimination"
+            },
+            "introduction": "本文提出了反例对比学习（CounterCL），其利用有限的观测到的反例来调整特征表示。具体来说，CounterCL 设法将反例拉近同一类中具有不同偏见特征的样本，同时将它们推离不同类别中具有相同偏见特征的样本。这样的约束有助于避免模型学习偏见和标签之间的虚假相关性。",
+            "link": "",
+            "article": [{
+                    "type": "text",
+                    "text": "观测的数据分布中存在的偏见将导致模型学习与标签高度相关的偏见特征。这种学习到的虚假相关性会使模型推断失败，尤其是当测试数据与训练数据分布存在差异时。为了消除虚假相关性，一种常见且有效的方法是反事实数据增强。通过掩盖或替换原始图像中的关键对象生成新样本，以削弱偏见特征和任务标签之间的相关性。然而生成反事实样本时具有以下实际问题：（1）高人工标注成本和时间成本； (2) 模型性能对生成样本的质量和真实性高度敏感。"
+                }, {
+                    "type": "image",
+                    "img_src": "jinqiang/1.png",
+                    "img_title": "图1  基于反事实的偏见衡量方法"
+                }, {
+                    "type": "text",
+                    "text": "除了求助于额外生成的样本之外，我们认为原始数据集中实际上存在有价值的样本，其消除虚假相关性的潜力没有得到很好的探索。我们将这些与大多数样本具有不一致的偏见-标签对应关系的观测样本称为反例。因此，本文提出了反例对比学习（CounterCL），其利用有限的观测到的反例来调整特征表示。具体来说，CounterCL 设法将反例拉近同一类中具有不同偏见特征的样本，同时将它们推离不同类别中具有相同偏见特征的样本。这样的约束有助于避免模型学习偏见和标签之间的虚假相关性。"
+                },
+                {
+                    "type": "image",
+                    "img_src": "jinqiang/2.png",
+                    "img_title": "图2  CounterBias对三种偏见的衡量"
+                }
+            ]
+        }, {
+            "time": {
+                "y": 2022,
+                "m": 7,
+                "d": 3
+            },
+            "title": {
+                "zh_cn": "ACM MM 2022：视觉语言预训练模型中社会偏见的反事实衡量和消除",
+                "en": "ACM MM 2022: Counterfactually Measuring and Eliminating Social Bias in Vision-Language Pre-training Models"
+            },
+            "introduction": "本文针对VLP模型的多模态特性，基于反事实样本生成衡量了各个模态的社会偏见以及多模态融合的社会偏见。",
+            "link": "https://arxiv.org/abs/2207.01056",
+            "article": [{
+                    "type": "text",
+                    "text": "在本工作中，我们针对VLP模型的多模态特性，基于反事实样本生成衡量了各个模态的社会偏见以及多模态融合的社会偏见。衡量预训练模型中的社会偏见本质上是衡量偏见概念（比如，性别等社会属性）和目标概念之间的相关性。VLP模型中信息的跨模态交互为偏见衡量提出了两个挑战。第一项挑战是如何在VLP模型中建模偏见概念和目标概念。受到Masked Language Modeling（MLM）预训练任务的启发，我们提出了prompt-based query去探测模型对偏见概念和目标概念的建模。"
+                }, {
+                    "type": "image",
+                    "img_src": "zhangyi/1.png",
+                    "img_title": "图1  基于反事实的偏见衡量方法"
+                }, {
+                    "type": "text",
+                    "text": "第二项挑战是量化偏见概念和目标概念之间的联系。考虑到不同图文对之间存在较大差异，无法通过直接比较“偏见概念不同”的图文对中对“目标概念”MLM任务的预测概率来统计VLP模型中偏见概念和目标概念的联系。我们提出了基于反事实的偏见衡量方法CounterBias，如图1所示。"
+                },
+                {
+                    "type": "text",
+                    "text": "基于VLP模型的多模态属性，我们分别为视觉模态、文本模态和两个模态的融合衡量了社会偏见。具体的比较方式总结为图2。"
+                }, {
+                    "type": "image",
+                    "img_src": "zhangyi/2.png",
+                    "img_title": "图2  CounterBias对三种偏见的衡量"
+                }
+            ]
+        }, {
+            "time": {
+                "y": 2022,
+                "m": 6,
+                "d": 19
+            },
+            "title": {
+                "zh_cn": "ACM MM 2022：对视觉语言预训练模型的对抗性攻击",
+                "en": "ACM MM 2022: Towards Adversarial Attack on Vision-Language Pre-training Models"
+            },
+            "introduction": "虽然视觉语言预训练模型 (VLP) 在各种视觉语言 (V+L) 任务上显示出革命性的改进，但关于其对抗鲁棒性的研究在很大程度上仍未得到探索。本文研究了对流行的 VLP 模型和 V+L 任务的对抗性攻击。",
+            "link": "https://arxiv.org/abs/2206.09391",
+            "article": [{
+                "type": "text",
+                "text": "最近视觉-语言预训练（Vision-Language Pre-training, VLP）模型发展十分迅速，应用渗透进了方方面面。但是在传统的单模态模型进行了非常详细的鲁棒性研究的情况下，不管是计算机视觉还是自然语言处理，鲜有对多模态模型的鲁棒性研究。目前关注到了多模态模型中的对抗样本问题的工作十分稀少，而且现有工作忽略了两个问题：①针对分类任务的一般对抗攻击对VLP模型并没有那么适用，由于VLP模型的下游任务有相当数量的非分类任务。所以针对嵌入表征的对抗攻击对于VLP是更普适的，但是由于VLP的结构十分复杂，如何选择更有效的攻击目标和扰动对象就成为了一个问题。②在两个模态上独立地进行攻击，而没有考虑到两个模态之间的攻击应该有怎样的交互。如图1所示，如果不考虑两个模态攻击之间的协同关系，就有可能出现“两次攻击互相抵消的情况”。即，只扰动单个模态的输入（图像）可以成功攻击模型，但是同时扰动两个模态的输入反而无法成功攻击模型。"
+            }, {
+                "type": "image",
+                "img_src": "zhangjiaming/1.png",
+                "img_title": "图1  基于反事实的偏见衡量方法"
+            }, {
+                "type": "text",
+                "text": "为了实现更有效的多模态攻击，需要在攻击时加强两个攻击之间的交互，使两个攻击形成“合力”。于是，我们提出了一种协同对抗攻击（Collaborative Attack, Co-Attack）针对VLP模型。对于攻击Multimodal Embedding，Co-Attack试图协同地扰乱输入文本和输入图像，这促使被扰乱的Multimodal Embedding偏离原始的Multimodal Embedding。如图2(a)所示，如果不考虑这两种攻击之间的一致性，文本模态的噪声δ_t和图像模态的噪声δ_i所形成的合力噪声δ_(i&t)的模长相对较小，两者的夹角β大致处于正交状态。而与此相反，Co-Attack协同进行文本模态的扰动和图像模态的扰动，实现更强的合力噪声δ_(i&t)和更小的夹角β。对于Unimodal Embedding，如图2(b)所示，Co-Attack是通过使两个模态的噪声δ_t和δ_i之间的夹角γ增大来实现的，进而使δ_(i&t)的模长增大，实现更强的攻击效果。"
+            }, {
+                "type": "image",
+                "img_src": "zhangjiaming/2.png",
+                "img_title": "图2  CounterBias对三种偏见的衡量"
+            }]
+        }, {
+            "time": {
+                "y": 2022,
+                "m": 5,
+                "d": 6
+            },
+            "title": {
+                "zh_cn": "IJCAI2022 Oral：探究和解释图像分类任务中存在的频域偏见",
+                "en": "IJCAI2022 Oral: Investigating and Explanining the Frequency Bias in Image Classification"
+            },
+            "introduction": "CNN表现出许多不同于人的行为，其中之一是对于图像中高频分量的利用。本文讨论图像分类任务中的频域偏差现象：高频分量相比低频和中频分量被CNN更少关注。",
+            "link": "https://arxiv.org/abs/2205.03154",
+            "article": [{
+                "type": "text",
+                "text": "CNN表现出许多不同于人的行为，其中之一是对于图像中高频分量的利用。本文讨论图像分类任务中的频域偏差现象：高频分量相比低频和中频分量被CNN更少关注。"
+            }, {
+                "type": "text",
+                "text": "我们首先在特征判别性和学习优先级两个角度研究和拓展频域偏差现象。此外，我们假设（i）频谱密度，（ii）类一致性是频域偏见现象产生的两个因素。具体而言，我们的研究表明了数据集的频谱密度主要影响学习分类任务中的优先级偏见，而类一致性主要影响分类任务中的特征判别性偏见现象。"
+            }, {
+                "type": "image",
+                "img_src": "zhiyu/1.jpg",
+                "img_title": "图1  不同频率分量（子图）的基于KDE的类间方差的可视化。"
+            }]
+        }, {
+            "time": {
+                "y": 2022,
                 "m": 3,
                 "d": 2
             },
             "title": {
-                "zh_cn": " ADaM一篇论文被CVPR2022录用：任务相关解耦及可控伪样本生成的非生成式广义零样本模型",
+                "zh_cn": "ADaM一篇论文被CVPR2022录用：任务相关解耦及可控伪样本生成的非生成式广义零样本模型",
                 "en": "A paper of ADaM was accepted by CVPR 2022:Non-generative Generalized Zero-shot Learning via Task-correlated Disentanglement and Controllable Samples Synthesis"
             },
             "introduction": "本文提出了一种非生成式的任务相关解耦和可控伪样本合成模型（TDCSS），主要由两部分组成：任务相关特征解耦模块与可控伪样本生成模块。既保证在不同任务场景下所生成伪样本的多样性，还有助于探索不同特性的伪样本在GZSL任务的知识迁移中所起到的作用。",
@@ -489,37 +600,65 @@
     "paper_list": [{
         "time": "2022",
         "papers": [{
+            "title": "Investigating and Explanining the Frequency Bias in Image Classification",
+            "author": "Zhiyu Lin",
+            "link": "https://arxiv.org/abs/2205.03154",
+            "introduction_link": "zhiyu/zy.html"
+        }, {
+            "title": "Counterexample Contrastive Learning for Spurious Correlation Elimination",
+            "author": "Jinqiang Wang",
+            "link": "",
+            "introduction_link": "jinqiang2/huang.html"
+        }, {
+            "title": "Towards Adversarial Attack on Vision-Language Pre-training Models",
+            "author": "Jiaming Zhang",
+            "link": "https://arxiv.org/abs/2206.09391",
+            "introduction_link": "张家明(1)/huang.html"
+        }, {
+            "title": "Counterfactually Measuring and Eliminating Social Bias inVision-Language Pre-training Models",
+            "author": "Yi Zhang",
+            "link": "http://arxiv.org/abs/2207.01056",
+            "introduction_link": "zhangyi/网页端zhangyi/huang.html"
+        }, {
             "title": "Non-generative Generalized Zero-shot Learning via Task-correlated Disentanglement and Controllable Samples Synthesis",
             "author": "Yaogong Feng",
-            "link": "https://arxiv.org/pdf/2203.05335.pdf"
+            "link": "https://arxiv.org/pdf/2203.05335.pdf",
+            "introduction_link": ""
         }]
     }, {
         "time": "2021",
         "papers": [{
                 "title": "Post-fairness: Cross-task Adversarial Attack-based Instance Debiasing for Deactivating Spurious Correlation",
                 "author": "Yi Zhang",
-                "link": "#"
+                "link": "#",
+                "introduction_link": "Post_fairness_yi/yi2.html"
             },
             {
                 "title": "Pre-training also Transfers Non-Robustness",
                 "author": "Jiaming Zhang",
-                "link": "https://arxiv.org/pdf/2106.10989.pdf"
+                "link": "https://arxiv.org/pdf/2106.10989.pdf",
+                "introduction_link": "person2/jiaming2.html"
             }, {
                 "title": "Towards Predictable Feature Attribution: Revisiting and Improving Guided BackPropagation",
                 "author": "Guanhua Zheng",
-                "link": "#"
+                "link": "#",
+                "introduction_link": "zheng/TRGBP.html"
+
             }, {
                 "title": "Benign Adversarial Attack: Tricking Algorithm for Goodness",
                 "author": "Xian Zhao",
-                "link": "https://arxiv.org/pdf/2107.11986.pdf"
+                "link": "https://arxiv.org/pdf/2107.11986.pdf",
+                "introduction_link": "BenignAdversarialAttack/zhao1.html"
             }, {
                 "title": "Survey of Conversational Recommendation Algorithms",
                 "author": "Mengyuan Zhao",
-                "link": "#"
+                "link": "#",
+                "introduction_link": ""
             }, {
                 "title": "Learning to Learn a Cold-start Sequential Recommender",
                 "author": "Xiaowen Huang",
-                "link": "https://dl.acm.org/doi/abs/10.1145/3466753?casa_token=zJ6kxRG7phEAAAAA:t4zN1HnkYebToCHLA96DTH0MkmbkBmxjvBDTu12iycT5R7IkJmsGkLgH5ZQPHPldkCX9yCPdzOxcuQ"
+                "link": "https://dl.acm.org/doi/abs/10.1145/3466753?casa_token=zJ6kxRG7phEAAAAA:t4zN1HnkYebToCHLA96DTH0MkmbkBmxjvBDTu12iycT5R7IkJmsGkLgH5ZQPHPldkCX9yCPdzOxcuQ",
+                "introduction_link": ""
             }
         ]
     }, {
@@ -527,41 +666,49 @@
         "papers": [{
             "title": "Adaptive Adversarial Logits Pairing",
             "author": "Shangxi Wu",
-            "link": "https://arxiv.org/pdf/2005.11904.pdf"
+            "link": "https://arxiv.org/pdf/2005.11904.pdf",
+            "introduction_link": "shangxi/shangxi2.html"
         }, {
             "title": "Adversarial Privacy-preserving Filter",
             "author": "Jiaming Zhang",
-            "link": "https://dl.acm.org/doi/abs/10.1145/3394171.3413906?casa_token=keVy59VMWIsAAAAA:rAz7NpnifttEigh43pdXXlInUYeChAMFO8aXM0ClfH7EOO8wyGx5Q9fwNUc9fXPsQmGLwPgHZHL4_g"
+            "link": "https://dl.acm.org/doi/abs/10.1145/3394171.3413906?casa_token=keVy59VMWIsAAAAA:rAz7NpnifttEigh43pdXXlInUYeChAMFO8aXM0ClfH7EOO8wyGx5Q9fwNUc9fXPsQmGLwPgHZHL4_g",
+            "introduction_link": "person1/jiaming1.html"
         }, {
             "title": "Towards Accuracy-Fairness Paradox: Adversarial Example-based Data Augmentation for Visual Debiasing",
             "author": "Yi Zhang",
-            "link": "https://dl.acm.org/doi/abs/10.1145/3394171.3413772?casa_token=bizPhdp8ugoAAAAA:5eOlAJTYU-NSkKSkCpoLcfIZcz4HQ2q4y3QSGoLHtzyZO2PoTvKeTC3wi-WyClKKBELxIY1_voHuoQ"
+            "link": "https://dl.acm.org/doi/abs/10.1145/3394171.3413772?casa_token=bizPhdp8ugoAAAAA:5eOlAJTYU-NSkKSkCpoLcfIZcz4HQ2q4y3QSGoLHtzyZO2PoTvKeTC3wi-WyClKKBELxIY1_voHuoQ",
+            "introduction_link": "AEDA_yi/yi1.html"
         }]
     }, {
         "time": "2019",
         "papers": [{
             "title": "Beyond Literal Visual Modeling: Understanding Image Metaphor based on Literal-Implied Concept Mapping",
             "author": "Chengpeng Fu, Jinqiang Wang",
-            "link": "https://link.springer.com/chapter/10.1007/978-3-030-37731-1_10"
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-37731-1_10",
+            "introduction_link": "jinqiang/jinqiang.html"
         }, {
             "title": "A Generalization Theory based on Independent and Task-Identically Distributed Assumption",
             "author": "Guanhua Zheng",
-            "link": "https://arxiv.org/pdf/1911.12603.pdf"
+            "link": "https://arxiv.org/pdf/1911.12603.pdf",
+            "introduction_link": "zheng/ITID.html"
         }]
     }, {
         "time": "2018",
         "papers": [{
             "title": "Attention, Please!Adversarial Defense via Attention Rectification and Preservation",
             "author": "Shangxi Wu",
-            "link": "https://arxiv.org/pdf/1811.09831.pdf"
+            "link": "https://arxiv.org/pdf/1811.09831.pdf",
+            "introduction_link": "shangxi1.html"
         }, {
             "title": "Robust CAPTCHAs towards Malicious OCR",
             "author": "Jiaming Zhang",
-            "link": "https://ieeexplore.ieee.org/abstract/document/9158388/"
+            "link": "https://ieeexplore.ieee.org/abstract/document/9158388/",
+            "introduction_link": "person3/jiaming3.html"
         }, {
             "title": "CSAN: Contextual Self-Attention Network for User Sequential Recommendation",
             "author": "Xiaowen Huang",
-            "link": "https://dl.acm.org/doi/abs/10.1145/3240508.3240609?casa_token=9MWjPUfwJeIAAAAA:LypGoWOChZcvLYX1k9Aa-Mh0AighDSM2ecbe_RvDtZ76Il5GwSPtnZTT9yeoiHeD_ikOaZt948wF9g"
+            "link": "https://dl.acm.org/doi/abs/10.1145/3240508.3240609?casa_token=9MWjPUfwJeIAAAAA:LypGoWOChZcvLYX1k9Aa-Mh0AighDSM2ecbe_RvDtZ76Il5GwSPtnZTT9yeoiHeD_ikOaZt948wF9g",
+            "introduction_link": "huang/huang.html"
         }]
     }],
     "team_activities": [{

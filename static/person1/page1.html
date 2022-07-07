@@ -1,0 +1,203 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            Adversarial Privacy-preserving Filter
+    </h1>
+
+
+    <br>
+    <div>
+        <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        While widely adopted in practical applications, face recognition has been critically discussed regarding the malicious use of face images and the potential privacy problems, e.g., deceiving payment system and causing personal sabotage. Online photo sharing services unintentionally act as the main repository for malicious crawler and face recognition applications. This work aims to develop a privacy-preserving solution, called Adversarial Privacy-preserving Filter (APF), to protect the online shared face images from being maliciously used.We propose an end-cloud collaborated adversarial attack solution to satisfy requirements of privacy, utility and nonaccessibility. Specifically, the solutions consist of three modules:
+                           <br>
+                           (1) image-specific gradient generation, to extract image-specific gradient in the
+                           user end with a compressed probe model;
+                           <br>
+                           (2) adversarial gradient transfer,
+                           to fine-tune the image-specific gradient in the server cloud;
+                           <br>
+                           (3) universal adversarial
+                           perturbation enhancement, to append image-independent perturbation to derive the final adversarial noise.
+                           <br>
+                           Extensive experiments on three datasets validate the effectiveness and efficiency of the proposed solution. A prototype application is also released for further evaluation.We hope the end-cloud collaborated attack framework could shed light on addressing the issue of online multimedia sharing privacy-preserving issues from user side.
+                    </p>
+
+                    <p>
+                        <b>The contributions of the paper can be summarized as follows:</b>
+                    </p>
+                    <ol style="margin-top:-7px">
+                        <li>
+                            We designed an adversarial privacy-preserving filter to preserve users' portrait privacy from malicious face recognition crackers without affecting their photo sharing experience. Adversarial attack naturally meets the two basic requirements of privacy and utility.
+                        </li>
+                        <li>
+                            We proposed an end-cloud collaborated adversarial attack framework, which addresses the additional non-accessibility requirement to guarantee the original image only accessible to users' own device end. The compatible performance of this two-stage attack with the traditional one-stage attack also provides a novel perspective to understand the adversarial attack problem.
+                        </li>
+                        <li>
+                            We integrated the universal adversarial perturbation with image-dependent perturbation to obtain improved privacy-preserving capability. This sheds light on alternative way to exploit adversarial examples.
+                        </li>
+                        <li>
+                            We conducted extensive experiments to validate the effectiveness and efficiency of the proposed solution framework. A prototype of adversarial privacy-preserving filter is further carried out and released for evaluation.
+                        </li>
+                    </ol>
+
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">Framework</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:15px">
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./images/pic1.png" height="500" width="1200">
+                            <br> <strong>Fig.1</strong> The proposed adversarial privacy-preserving filter framework.
+                        </center>
+                    </font>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+                    <h2><font face="helvetica" style="font-size:24px">Paper</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+                        <div>
+                            <a href="" style="text-decoration: none;">
+                                <img src="./images/paper-plane-fill.png" height="30px">
+                            </a>
+                            <div style="margin-left: 20px; margin-top: 0px;margin-bottom: 10px; display: inline-block; font-size:18px;">
+                                <a href="https://dl.acm.org/doi/abs/10.1145/3394171.3413906">https://dl.acm.org/doi/abs/10.1145/3394171.3413906</a>
+                            </div>
+                        </div>
+
+                        <br>
+                    </font></font></td>
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

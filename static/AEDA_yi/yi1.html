@@ -1,0 +1,341 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            Towards Accuracy-Fairness Paradox: Adversarial Example-based Data Augmentation for Visual Debiasing
+    </h1>
+
+
+    <br>
+    <div>
+        <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+
+                        Machine learning fairness concerns about the biases towards certain protected or sensitive group of
+                        people when addressing the target tasks. This paper studies the debiasing problem in the context of image classification tasks.
+                        Our data analysis on facial attribute recognition demonstrates (1) the attribution of model bias from imbalanced training data distribution and (2) the potential of adversarial examples in balancing data distribution.
+                        We are thus motivated to employ adversarial example to augment the training data for visual debiasing. Specifically, to ensure the adversarial generalization as well as cross-task transferability,
+                        we propose to couple the operations of target task classifier training, bias task classifier training, and adversarial example generation.
+                        The generated adversarial examples supplement the target task training dataset via balancing the distribution over bias variables in an online fashion.
+                        Results on simulated and real-world debiasing experiments demonstrate the effectiveness of the proposed solution in simultaneously improving model accuracy and fairness.
+                        Preliminary experiment on few-shot learning further shows the potential of adversarial attack-based pseudo sample generation as alternative solution to make up for the training data lackage.
+
+
+
+
+                    </p>
+
+
+                    <p>
+                        <b>We summarize our main contributions as follows:</b>
+                    </p>
+                    <ol style="margin-top:-7px">
+                        <li>
+                            We propose to employ adversarial examples to balance training data distribution in the way of data augmentation. Simultaneously improved accuracy and fairness are validated from simulated and real-world debiasing evaluation.
+                        </li>
+                        <li>
+                            We provide an online coupled adversarial example generation mechanism, which ensures both the adversarial generalization and cross-task transferability.
+                        </li>
+                        <li>
+                            We explore the potential of adversarial examples as supplementary samples, which provides alternative perspective of employing adversarial attack and opens up possibility to addressing data lackage issue from new ways.
+                        </li>
+                    </ol>
+                    <div>
+                        <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                            For more details, please refer to <a href="https://arxiv.org/pdf/2007.13632.pdf" style="color: red;">paper</a>.
+
+                        </div>
+                    </div>
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">Motivation</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+
+                <font face="helvetica" style="font-size:19px">Attribution in imbalanced data distribution:</font>
+                <font face="helvetica" style="font-size:17px">
+                    <p align="justify">
+                        Fig.1 shows the calculated model bias (y-axis) for different facial attributes and their corresponding female training image ratio (x-axis).
+                        It is easy to find the strong correlation between model bias and imbalanced data distribution: for facial attributes with a
+                        larger ratio of female in training set (>0.5 in the x-axis), female images are more easily correctly classified than male images,
+                        and vice versa for male (<0.5 in the x-axis). For example, there are more female training images for facial attribute
+                         ``arched eyebrows'', and the corresponding classifier is observed to derive more correct prediction for female images,
+                          while male images with arched eyebrows are likely to be incorrectly predicted. The observation suggests that the
+                          classifier learns the correlation between facial attribute and gender from the imbalanced data, and thus utilizes the
+                          gender bias variable for target variable prediction. It well validates the motivation of the previous debiasing attempts
+                          via pre-processing to balance training data distribution, so that the learned model will not utilize the bias variables
+                          for target task prediction.
+
+                    </p>
+                </font>
+
+                <font face="helvetica" style="font-size:15px">
+
+
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./AEDA/Motivation.png" height="400">
+                            <br> <strong>Fig.1</strong> Model bias v.s. imbalanced data distribution. x-axis denotes the female ratio of total people with certain facial attribute in the training set, and y-axis denotes the model bias over gender in predictions testing set.
+                        </center>
+                    </font>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">The Potential of Adversarial Example in Balancing</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+                    <font face="helvetica" style="font-size:17px">
+                        <p align="justify">
+                            We conducted preliminary experiment to justify the feasibility of adversarial examples in switching gender labels and generalizing to original real samples.
+                            Specifically, we first trained binary gender classifier g_ori with original face images from the CelebA dataset, and then employed
+                            I-FGSM to attack each original image to its adversarial image with opposite gender label.
+                            Denoting the original image set as X_ori and the attacked adversarial image set as X_adv,
+                            we constructed the following two training datasets: (1) Hard switch: original image set X_ori with manually switched gender
+                            labels; (2) ADV switch: adversarial image set X_adv with attacked gender labels.
+                            <br>
+                            We utilized the above two datasets to train gender classifiers g_switch^hard and g_switch^ADV respectively. Fig.2 (top 2 rows) shows their classification accuracy
+                            on the original image testing set.  It is easy to understand the extremely poor performance of g_switch^hard as the manually switched labels make the image-label
+                            correlation exactly the opposite between the training and testing sets. While by replacing the original images with adversarial attacked images,
+                            gender classification accuracy increases from 5.7% to 55.6%, verifying that adversarial examples contain useful information about the attack class
+                            and have potential to generalize to original real data.
+                            <br>
+                            Following this spirit, we expect that a more robust bias classifier can generate stronger adversarial examples generalizing well to attack class.
+                            Therefore, we first conducted adversarial training on g_ori to improve its robustness and acquired the robust classifier g_robust, and then employed I-FGSM
+                            to attack this robust classifier g_robust to derive new training set ADV switch (robust) with attacked gender label. The learned gender classifier
+                            from this new training set is denoted as g_switch^ADV (robust), whose classification accuracy is shown in the bottom of Fig.2. The significant increase from 55.6%
+                             to 89.1% demonstrates the superior generalization potential of adversarial examples from robust models, which motivates us to design more
+                             robust bias classifiers in generating adversarial examples for data augmentation.
+
+                        </p>
+                    </font>
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./AEDA/Potential.png" height="350">
+                            <br><strong>Fig.2</strong> Gender classification accuracy for different training settings with switched labels.
+                        </center>
+
+                    </font>
+
+                    <h2><font face="helvetica" style="font-size:24px">Proposed AEDA Framework</font>
+                    </h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:17px">
+                        <p align="justify">
+                            The Potential of Adversarial Example in balancing inspires us to employ adversarial examples to supplement and balance the data distribution for model debiasing. Specifically,
+                            given target task (e.g., predicting the facial attribute of ``arched eyebrow'' from image) with imbalanced training set over bias
+                            variables (e.g., much more female than male samples with ``arched eyebrow'' annotation), adversarial attack is conducted to alter the bias variable
+                            and construct a balanced training set. To guarantee the adversarial generalization and cross-task transferability,
+                            we propose an online coupled adversarial attack mechanism to iteratively optimize between target task training,
+                            bias task training and adversarial example generation. This can be actually regarded as an debiasing attempt between pre-processing and in-processing,
+                            which favorably combines their both advantages.
+
+                            <br>
+
+                            Specifically, our method has two main parts, the first part is to train the target task by using the augmented data, and the second part train a bias classifier based on the feature extractor of target classifier.
+                            Then, the bias classifier will generate adversarial pseudo examples to augment the target training set. And the iterate fashion of two parts makes that the bias classifier can generate cross-task adversarial examples,  because of the iterate fashion can keep the bias classifier know what features are depended on by the target task.
+
+                            Finally, we also use the adversarial training method to learn a more robust bias classifier, and hope the adversarial examples have stronger generalization and better to balance the training data.
+                            <br>
+                            Therefore, the data distribution of the target task training is balanced, and the target classifier will not learn the spurious correlation of original data.
+
+
+                        </p>
+                    </font>
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./AEDA/Method.png" height="350">
+                            <br>
+                            <strong>Fig.3</strong> Framework of AEDA_online and AEDA_robust. AEDA_robust contains additional adversarial training module (highlighted with red dashline) to AEDA_online.
+                        </center>
+                    </font>
+                    <p style="padding-bottom:1px"></p>
+
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Debiasing Evaluation</font>
+                    </h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+                    <font face="helvetica" style="font-size:17px">
+                        <p align="justify">
+                            We evaluated the proposed AEDA solution on both simulated and real-world bias scenarios:
+                            (1) For the simulated bias, we used C-MNIST dataset. Its 10 handwritten digit classes (0-9) were regarded as the target task variables, and the associated background colors were regarded as the bias variable.
+                            When classifying digit classes, the model may rely on the background color of image.
+                            The goal is to remove the background color bias in digit recognition. (2) For the real-world bias, we used the face dataset CelebA with multiple facial attributes as the target task variables.
+                            The goal is to remove the model’s gender bias in facial attribute classification.
+                        </p>
+                    </font>
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./AEDA/Results.png" height="350">
+                            <br>
+                        </center>
+                    </font>
+                    <p style="padding-bottom:1px"></p>
+
+
+
+
+
+
+
+
+
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Dataset and Code</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+                        <div>
+                            <a href="" style="text-decoration: none;">
+                                <img src="./AEDA/download_button.jpg" height="30px">
+                            </a>
+                            <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                                <a href="https://drive.google.com/file/d/1xifRitx5pTgCKfZWedqD3QmQxeG_9ETo/view?usp=sharing">Dataset and Code
+                                    (Google Drive)</a> <br>
+
+                            </div>
+                        </div>
+
+                        <br>
+                    </font></font></td>
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

@@ -8,6 +8,7 @@
           <div>
             <img class="house-img" src="@/assets/icon/fas-fa-home.svg" alt="" />
             <p>北京交通大学计算机与信息技术学院</p>
+
           </div>
           <router-link to="/english" class="text-right">
             <img src="@/assets/icon/fas-fa-sync-alt.svg" alt="" />
@@ -129,7 +130,7 @@
           </el-col>
 
           <el-col :xs="24" :sm="24" :md="8" :lg="10" :xl="10" class="footer-r">
-            <img src="@/assets/公众号二维码.jpeg" alt="" />
+            <img src="@/assets/公众号二维码.jpg" alt="" />
             <p>公众号：<br />ADaM应用数据挖掘和机器学习</p>
           </el-col>
 

@@ -1,0 +1,177 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            Pre-training also Transfers Non-Robustness
+    </h1>
+
+
+    <br>
+    <div>
+        <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        Pre-training has enabled state-of-the-art results on many tasks. In spite of its recognized contribution to generalization, we observed in this study that pre-training also transfers adversarial non-robustness from pre-trained model into fine-tuned model in the downstream tasks. Using image classification as an example, we first conducted experiments on various datasets and network backbones to uncover the adversarial non-robustness in fine-tuned model. Further analysis was conducted on examining the learned knowledge of fine-tuned model and standard model, and revealed that the reason leading to the non-robustness is the non-robust features transferred from pre-trained model. Finally, we analyzed the preference for feature learning of the pre-trained model, explored the factors influencing robustness, and introduced a simple robust pre-training solution.
+                    </p>
+
+
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">Main Result</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:15px">
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./images/pic2.png" height="400" width="1200">
+                            <br> <strong>Table.1 </strong> Comparison of generalization and robustness between standard model, partial fine-tuned model and full fine-tuned model. For each model, we report accuracy of original inputs (AOI), accuracy of adversarial inputs (AAI), and decline ratio (DR) on 7 different target datasets.
+                        </center>
+                    </font>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Paper</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+                        <div>
+                            <a href="" style="text-decoration: none;">
+                                <img src="./images/paper-plane-fill.png" height="30px">
+                            </a>
+                            <div style="margin-left: 20px; margin-top: 0px;margin-bottom: 10px; display: inline-block; font-size:18px;">
+                                <a href="https://arxiv.org/abs/2106.109896">https://arxiv.org/abs/2106.10989</a>
+                            </div>
+                        </div>
+
+                        <br>
+                    </font></font></td>
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

@@ -43,7 +43,6 @@ export default new Router({
                     path: 'home',
                     name: 'HomePage',
                     component: HomePage,
-
                 },
                 {
                     path: 'research',

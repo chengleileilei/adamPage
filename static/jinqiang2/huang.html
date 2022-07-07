@@ -1,0 +1,415 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="robots" content="index,follow">
+    <meta name="referrer" content="never">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+    <link href="https://ai.tencent.com/ailab/images/favicon.ico" type="image/ico" rel="shortcut icon">
+    <script src="./huang_files/segment.js"></script>
+    <link href="./huang_files/app.b56908a4ef7f7c7df6627f70cc26fc81.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" async="" src="./huang_files/9.691b19c55c2987dd0cf3.js"></script>
+</head>
+
+<body _c_t_common="1" style="zoom: 1;" _c_t_j1="1" data-new-gr-c-s-check-loaded="14.1033.0" data-gr-ext-installed="">
+<div class="wrap wrap2 wrap_detial">
+    <header class="header whiteBg">
+        <div class="inner">
+            <div class="lang"><a href="https://adam-bjtu.org"
+                                 class="router-link-exact-active router-link-active" id="zh" aria-current="page">中</a>
+                <span>|</span> <a href="https://adam-bjtu.org" class="langUnFocus"
+                                  id="en">En</a></div>
+            <div class="navbar" style="">
+                <ul style="height: 100%;">
+                    <li class="paperNav"><a href="../../index.html"
+                                            class="router-link-exact-active router-link-active"><span>主页</span></a></li>
+                    <!-- <li class="paperNav"><a href="adam-bjtu.org/paper/huang"
+                            class="router-link-exact-active router-link-active"><span>论文</span></a></li>
+                    <li class="aboutNav"><a href="/about"
+                            class=""><span>关于</span></a></li> -->
+                    <li class="lang lang2"><a id="zh" class="">中</a> <span></span> <a id="en"
+                                                                                      class="langUnFocus">En</a></li>
+                </ul>
+            </div>
+            <!----> <a href="javascript:;" class="nav_btn"></a>
+        </div>
+    </header>
+
+    <br><br><br><br><br>
+    <table border="0" width="1000px" align="center">
+        <tbody>
+        <tr>
+            <td>
+
+                <center>
+                    <h1>
+                        <font face="helvetica" style="font-size:87%">
+                            Counterfactually Measuring and Eliminating Social Bias in
+                            <br>
+                            Vision-Language Pre-training Models
+                        </font>
+                    </h1>
+                </center>
+
+                <br>
+
+                <h2><font face="helvetica" style="font-size:24px">概述</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        近几年来，视觉-语言预训练（Vision-Language Pre-training, VLP）模型发展十分迅速，多种跨模态下游任务通过对VLP 模型的微调取得了state-of-the-art的表现。在准确率之外，算法公平/算法中的社会偏见也是VLP模型的可信赖设计和部署中的关键议题[1]。然而，对于VLP模型中的社会偏见尚未有完善的研究。
+在本工作中，我们针对VLP模型的多模态特性，基于反事实样本生成衡量了各个模态的社会偏见以及多模态融合的社会偏见。衡量预训练模型中的社会偏见本质上是衡量偏见概念（比如，性别等社会属性）和目标概念之间的相关性。VLP模型中信息的跨模态交互为偏见衡量提出了两个挑战。第一项挑战是如何在VLP模型中建模偏见概念和目标概念。受到Masked Language Modeling（MLM）预训练任务的启发，我们提出了prompt-based query去探测模型对偏见概念和目标概念的建模。如图1，要建模的概念在输入到VLP模型前就被屏蔽（替换为[MASK] token），MLM任务在[MASK] token位置上的预测结果P([MASK]=”shopping”)体现了VLP模型对输入图文对中[MASK]概念的建模。
+                    </p>
+
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f1.png" height="400">
+                            <br> <strong>图一</strong> 基于反事实的VLP模型偏见衡量
+                        </center>
+                    </font>
+                    <br>
+
+                    <br>
+                    第二项挑战是量化偏见概念和目标概念之间的联系。 考虑到不同图文对之间存在较大差异，无法通过直接比较“偏见概念不同”的图文对中对“目标概念”MLM任务的预测概率来统计VLP模型中偏见概念和目标概念的联系（见第二章的具体讨论）。我们提出了基于反事实的偏见衡量方法CounterBias，如图一所示，对每个样本都生成偏见属性上的反事实样本（在图一中，将女性反事实修改为男性），之后使用反事实前后模型对目标属性的建模变化来衡量偏见概念和目标概念的联系。
+                    <p align="justify"> 
+                     </p>
+                    <br>
+                    
+                    由于目前还没有现成的数据集专门用于分析VLP模型中的社会偏见，我们提出了VL-Bias数据集，用于本工作以及社区对VLP模型中的社会偏见的理解。VL-Bias包含24K图文对，其中目标属性包含52个动作和13个职业。在VL-Bias数据集上，使用CounterBias，我们测试了两种典型的VLP结构，单流VLP和双流VLP。关键的观测结果包括：（1）测试的VLP模型中存在社会偏见，视觉模态和文本模态中都存在；（2）包含在VLP模型中的社会偏见与人类刻板影响基本一致；（3）测试的单流架构VLP和双流架构VLP在两个模态中的偏见表现出不同的一致性；（4）测试的VLP模型表现出比BERT更强的性别偏见。
+                    <p align="justify"> 
+                     </p>
+                    <br>
+
+
+                    继承了CounterBias中的反事实思路，我们提出了一个简单但有效的方法FiarVLP消除VLP模型中的社会偏见。具体来说，我们首先在视觉和语言模态中分别生成偏见概念的反事实样本。再将MLM任务对事实和反事实的预测的概率差异最小化，从而防止模型学习偏差和目标概念之间的关联。实验结果证明了FairVLP的有效性。
+                    <p align="justify"> 
+                     </p>
+                    <br>
+
+
+
+
+                    <h2><font face="helvetica" style="font-size:24px">社会偏见的反事实衡量</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:18px">
+                        <p align="justify">
+                            MLM预训练任务已经被认识到是本质是最大化了[MASK] token和图文输入之间互信息[1]，这提供了我们基于[MASK] token的预测概率来探测模型对概念建模的理论基础。具体的说，我们为VLP模型的输入经过[MASK]的图文对，其中文本的目标概念被修改为[MASK] token，比如“the woman is shopping”被修改为“the woman is [MASK]”。之后将修改后的文本和图像一起输入到VLP模型。模型对[MASK] token的概率建模可以看作模型对目标概念的建模。
+                        </p>
+    
+    
+
+    
+                        <br>
+                        为了实现样本之间，除了偏见属性外，其他信息都完全一致，我们提出了对样本中的偏见概念进行反事实编辑，生成反事实样本。之后分别使用MLM任务去探测VLP模型对真实样本和反事实样本中目标属性的建模。
+对于图像的反事实样本生成，我们使用了Model-specific adversarial attacks。同样利用MLM任务去建模模型对图像中偏见属性的建模，之后为图像施加微小的改动来修改模型对图像中偏见属性的建模。具体的说，我们创建了一个偏见属性提取模板，“a [MASK] is in the picture”,作为文本输入，让模型通过MLM任务重建[MASK]预测图像中的性别信息。相似于传统的对抗攻击[4][5]，我们使用介于P(B|V)和反事实偏见属性B‘之间的交叉熵损失，寻找对抗扰动来最小化此交叉熵。
+                        <p align="justify"> 
+                         </p>
+                        <br>
+                        
+                        对于文本模态的偏见信息修改，我们手动地替换文本输入中的偏见相关词汇，比如将“woman”替换为“man”。在衡量偏见之前，我们还注意到反事实样本中对偏见信息的改变并不是二值化的，而是连续的（比如P(B|V)是连续值）。我们在衡量偏见时，还需要考虑偏见信息的变化量。最后，VLP模型中社会偏见可以表示为单位偏见信息的变化带来VLP模型对目标属性的建模变化。
+                        <p align="justify"> 
+                         </p>
+                        <br>
+    
+    
+    
+                        <p align="justify">
+                            考虑到VLP的多模态特性，我们分别衡量了VLP模型的视觉模态偏见、文本模态偏见和多模态的共同偏见。
+                        </p>
+    
+                        <br>
+                        <p align="justify"> 
+                        </p> 
+    
+                        <font face="helvetica" style="font-size:15px">
+                            <center>
+                                <img src="./CSAN/f2.png" height="300">
+                                <br> <strong>图二</strong> CounterBias对三种偏见类型的衡量
+                            </center>
+                        </font>
+    
+                    </font>
+    
+    
+    
+
+
+
+
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">偏见衡量结果</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        由于目前还没有现成的数据集专门用于分析VLP模型中的社会偏见，我们提出了VL-Bias数据集，用于本工作以及社区对VLP模型中的社会偏见的理解。VL-Bias包含24K图文对，其中目标属性包含52个动作和13个职业。
+                        我们基于VL-Bias数据集衡量了单流VLP（ViLT[3]）和双流VLP（ALBEF[1]和TCL[2]）模型中包含的社会偏见。
+                    </p>
+                    <p style="padding-bottom:1px"></p>                <p style="padding-bottom:1px"></p>
+                    <font face="helvetica" style="font-size:18px">
+                        <p align="justify">
+                            基于CounterBias，我们调查了典型的VLP模型结构，得到的结论有以下三点：（1）VLP模型普遍存在社会偏见；（2）VLP模型中的性别偏见与人类的刻板印象基本一致；（3）单流和双流模型中两个模态方向的协调性不一致。
+
+                            （1）VLP模型普遍存在社会偏见。下表总结了我们对三个VLP模型衡量得到的社会偏见，其中V表示视觉模态，L表示语言模态，V-L表示两模态的协作。可以看到：全部的三个模型都包括显著的性别偏见，以ALBEF再Activity中的多模态偏见为例，10.56%意味着修改输入中的性别信息，模型对Activity的预测将产生平均10.56%的变化。其次，视觉模态的性别偏见普遍比语言模态更为严重，我们猜测这是由于图像中提供了比文本更丰富的信息导致的。最后，我们还发现偏见衡量对于文本模板的选择敏感，使用多个模板得到的平均值（表二中的Avg）更具有普遍意义。
+                           
+                </p>
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f4.png" height="300">
+                            <br> <strong>表一</strong> VLP模型中包含的社会偏见（以性别为例）
+                        </center>
+                    </font>
+
+                <p align="justify">
+                    （2）VLP模型中的性别偏见与人类的刻板印象基本一致。通过AMT调查了人类的刻板影响，并将人类刻板影响和VLP模型中表现出的社会偏见进行了对比，观察到VLP模型中的社会偏见与人类刻板影响基本一致。
+                </p>
+
+
+                <font face="helvetica" style="font-size:15px">
+                    <center>
+                        <img src="./CSAN/f5.png" height="300">
+                        <br> <strong>图三</strong> 人类刻板印象（左）和VLP模型的社会偏见（右）
+                    </center>
+                </font>
+
+
+                <br>
+                （3）单流和双流模型中两个模态方向的协调性不一致。 以VILT和ALBEF为例，我们发现ALBEF在两个模态上的偏见方向几乎一致，而VILT在两个模态上的偏见方法几乎是混淆的状态。我们分析原因如下：单流模型中没有使用跨模态的对齐，这导致了两个模型可能学习到了模态独有的偏见。而双流模型通过对齐模态，也潜在对齐了模态的偏见。
+                <p align="justify"> 
+                 </p>
+                <br>
+                
+
+                    <br>
+                    <p align="justify">
+                    </p>
+                    <p align="justify">
+                        在论文中，我们还提供了更详细的衡量结果，请参阅我们的论文。
+                    </p>
+
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">反事实偏见消除</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        我们继承了反事实衡量偏见的思路，提出了反事实消除社会偏见方法FairVLP。
+
+
+
+
+
+具体地说，我们的消除分为两个模块：1.反事实样本生成 ，2。最小化真实样本和反事实样本间对目标概念建模的差距。
+对于模块一，我们使用了上一节中所描述的对偏见概念的反事实样本生成。对于模块二，我们应用了Kullback-Leibler(KL)距离来衡量真实样本和反事实样本之间对目标概念建模的差距，并最小化KL距离。
+                    </p>
+
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f3.png" height="300">
+                            <br> <strong>图四</strong> 反事实数据增强消除VLP模型的社会偏见（FairVLP）
+                        </center>
+                    </font>
+                    <br>
+
+
+                    因为尚未有对VLP中社会偏见的消除方法，我们也将对单模态社会偏见消除的方法迁移到了VLP的偏见消除任务中。表二展示了我们方法和基线方法的去偏见效果，结果表明我们的方法取得了最显著的去偏见效果。
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f6.png" height="300">
+                            <br> <strong>表二</strong> 对VLP模型的去偏见效果
+                        </center>
+                    </font>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">讨论和总结</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:18px">
+                        <p align="justify">
+                            视觉语言训练的模型旨在解决特定下游任务的数据缺乏, 所以下游任务性能的关键是在预训练模型中学习可靠的跨模态知识。在揭示VLP模型中的社会偏见外，我们提出的CounterBias还可为VLP模型中知识的不透明表示提供了新的见解。 以ALBEF为例，我们可以使用CounterBias来发现VLP模型中所建模的动物概念(如马和牛)和背景概念(如草和地面)之间的相关性。如图八所示，事实和反事实的图文对之间的MLM预测差异反映了在ALBEF中学习到的动物和背景的相关性，表明模型学习了马与草、牛与草之间的虚假相关性。因此，CounterBias不仅仅可作为衡量社会偏见的工具，在对VLP模型的解释上也有用武之地。
+                        </p>
+    
+    
+                        <font face="helvetica" style="font-size:15px">
+                            <center>
+                                <img src="./CSAN/f7.png" height="300">
+                                <br> <strong>图五</strong> CounterBias可以发现社会偏见之外的虚假相关性
+                            </center>
+                        </font>
+                        <br>
+    
+    
+                        总结:本文提出通过比较真实样本和具有不同偏见概念的反事实样本在建模目标信息时候的差距来衡量VLP模型中的社会偏见。并且提出了VL-Bias数据集用于研究VLP模型中的社会偏见。以性别为例，我们发现VLP模型中普遍存在社会偏见。为了消除社会偏见，我们提出了FairVLP通过反事实数据增强来消除社会偏见。
+
+                        <br>
+                    <h2><font face="helvetica" style="font-size:24px">Code and Dataset</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+                        <div>
+                            <a href="" style="text-decoration: none;">
+                                <img src="./CSAN/download_button.jpg" height="30px">
+                            </a>
+                            <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                                <a href="https://github.com/VL-Bias/VL-Bias">Code and dataset are available at Github</a>
+                                <br>
+                                
+                            </div>
+                        </div>
+
+                        <br>
+                    </font></font></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="clear"></div>
+    <div class="footer">
+        <div class="footer-box">
+            <!-- <div class="left"><img
+                    src="data:image/png;base64,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"
+                    alt=""></div> -->
+            <p>Copyright © 2021 ADaM. All Rights Reserved.</p>
+            <ul class="right">
+                <!-- <li class="footer_wechat"><a href="javascript:void(0);"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAkCAMAAADFCSheAAAAeFBMVEUAAABfY2hfZGlgZGpgY2lgY2hhZWtjam1gY2lgZGlgZGlkZmt2dopgY2hgZGlfZGlkZWlsbG9gY2lfY2hgZGhfZGlfZGhkaG9gZGhgZGhhZGlgZWlhZWpgZGlhZGhhZGtmd3dgZGlgZGhgY2lgZGlhamxgY2lfY2j4pgKsAAAAJ3RSTlMA+vVI4s84GYl0WSME13lkKgzryr2gjxOYfl9UMJJpUAfFrqSEHrTAcFJPAAABdElEQVQ4y42T6baCMAyE05Z9EWQXRHHN+7/hBWIVWqr3+zWnzAlpJ4EPblvmFueWXSYhfEcUuKDoIjBytFHBPoIBn6EGO8AmDW5SbrVSoYEKNM5oJACFvUUf7rXzUpfwcSWV7RXzgc7jUSYkU4AaiZ1ijuk4H2VA8gEwMJIWrHDwRQe1/X4FT56msKRFicWlyrK5scZvhau3rJPt3L3YVWV/CBb+fsvK/UEU7J18MsikUcdO03z9nzOZO92b7xOunjVz9KHmjesT6txgolCnzRG4hQeUxIqe8s9EeKXwUxoDNg14lK/NoS8LubNwAKit59z16jYXoBwbgOMszjILVs8Pwpatua/W721MwSY+Xw6sWNQ+OWhAjqDzcXfmXeiB+Cx38rPyMFVmsucfSybG3EQUBl75rMA2eFlNZo/7EUh8g/kKxMNVNliHEtQRhuttsz11JvR5rsCMsikYw1doByU8gu9M231r7kHoegwd+Ddp0cLIH4duiLZID23xAAAAAElFTkSuQmCC"></a>
+                </li>
+                <li class="footer_email"><a href="mailto:ailab@tencent.com"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAgCAMAAABemGpIAAAAdVBMVEUAAABgZGhqc4Bobm5fZGlgY2lfY2hhZWpjZ2xmaW5fY2hgY2lgZGlgZGlkZHNgZGlgZGlgZGlgY2hgZGlgZGlgZGlhZWtgY2lfZGhgY2lgZGliZ21jZWthaGtfZGhfZGlhZGhfZGlhY2lhZWhhZWpgZGlfY2gi7z+FAAAAJnRSTlMA+gcM8+vLQx0V3NeXhxDBvK2gj2JTNHnjs3EvKSbh0WlmXkw6erPR6wkAAAFwSURBVDjLhZKJsoIwDEVTbBFLURBUVveX///Ed1t3KHBmGAZ6oE1uCCRazKITenBXPIu6E4hWuOI5N46IVhEZ3RKt02k3XRO1R0Oa5ZIoMFOuCYiWkjUJZnEmolqMqaLG8tl6kEGOx5v0u/KGxZyBk0G1IGpKn1s2RIuKPzI42XLDoRvaZp34V2a1xx+yvpthx73ivsxyZ8P8dW1sO8kDGRywVHw9iwIvDsxembe2n+qdsO3/lv0y2CCpTrNDd0h2w+OyWNLLwHfYRkzIVwLY+3EicB2Xa/w2dFW5WkP0rR6TE/x0Y2+OBEcJcPPLBm71SOKVTwXb+OSMiLbPjJsmfDYTL7OhnAZ2tgbk2C7ty7aYP/aAUhfhrxxjuC7s5YJxjL/lY4SBEX5ZYMCi40dWXT+sfqydeslyj6GVY+5nHbL7slU8gWrtzpC1O1PJk5SuJk2mcNVO47pVGApcH2dBDlBdQvO4hMEqj8UscY6D/AMQB5GcWnbVDgAAAABJRU5ErkJggg=="></a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./huang_files/manifest.a046e764a7f89ee70324.js"></script>
+<script type="text/javascript" src="./huang_files/vendor.bf6c914e1185a8f804a7.js"></script>
+<script type="text/javascript" src="./huang_files/app.fd4ed8c6867ac0aa97f6.js"></script>
+<style>
+    ol {
+        counter-reset: sectioncounter;
+        display: block;
+        list-style-type: decimal;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding-inline-start: 40px;
+
+    }
+
+
+    h1 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+
+    }
+
+    table {
+        margin-top: 4%
+    }
+
+    h2, b {
+        margin-top: 1%;
+        margin-bottom: 1.5%
+    }
+
+    b {
+        line-height: 5vh;
+    }
+
+    .tb_button {
+        padding: 1px;
+        cursor: pointer;
+        border-right: 1px solid #8b8b8b;
+        border-left: 1px solid #FFF;
+        border-bottom: 1px solid #fff;
+    }
+
+    .tb_button.hover {
+        borer: 2px outset #def;
+        background-color: #f8f8f8 !important;
+    }
+
+    .ws_toolbar {
+        z-index: 100000
+    }
+
+    .ws_toolbar .ws_tb_btn {
+        cursor: pointer;
+        border: 1px solid #555;
+        padding: 3px
+    }
+
+    .tb_highlight {
+        background-color: yellow
+    }
+
+    .tb_hide {
+        visibility: hidden
+    }
+
+    .ws_toolbar img {
+        padding: 2px;
+        margin: 0px
+    }
+
+    #container {
+        display: block;
+        overflow: hidden;
+        width: 830px;
+        margin: 0 auto;
+    }
+
+
+    #container li {
+
+        float: left;
+        height: 96px;
+        list-style: none outside none;
+        margin: 6px;
+        position: relative;
+        width: 125px;
+
+        -moz-box-shadow: 0 0 5px #000;
+        -webkit-box-shadow: 0 0 5px #000;
+        box-shadow: 0 0 5px #000;
+    }
+
+    #container ul {
+        overflow: hidden;
+    }
+
+    #container ul.hidden {
+        display: none;
+    }
+</style>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+</body>
+
+</html>

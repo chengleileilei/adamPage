@@ -1,0 +1,342 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            A Generalization Theory based on Independent and Task-Identically Distributed Assumption
+    </h1>
+
+
+    <br>
+    <div>
+        <div>
+                    <a href="" style="text-decoration: none;">
+                        <img src="./ITID/download_button.jpg" height="30px">
+                    </a>
+                    <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                        <a href="https://arxiv.org/pdf/1911.12603.pdf">Paper Available</a>
+                    </div>
+                </div>
+                <br>
+
+                <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        Existing generalization theories analyze the generalization performance mainly based on the
+                        model complexity and training process. The ignorance of the task properties, which results
+                        from the widely used IID assumption, makes these theories fail to interpret many generalization
+                        phenomena or guide practical learning tasks. In this paper, we propose a new Independent and
+                        Task-Identically Distributed (ITID) assumption, to consider the task properties into the data
+                        generating process. The derived generalization bound based on the ITID assumption identifies
+                        the significance of hypothesis invariance in guaranteeing generalization performance. Based on
+                        the new bound, we introduce a practical invariance enhancement algorithm from the perspective
+                        of modifying data distributions. Finally, we verify the algorithm and theorems in the context
+                        of image classification task on both toy and real-world datasets. The experimental results
+                        demonstrate the reasonableness of the ITID assumption and the effectiveness of new generalization
+                        theory in improving practical generalization performance.
+                    </p>
+
+                    <p>
+                        <b>The main contributions of this work can be summarized in four-fold: </b>
+                    </p>
+                    <ol style="margin-top:-7px">
+                        <li>
+                            Data generating assumption: we introduce a new ITID assumption to the data generating process,
+                            which enjoys two advantages: (1) it is more realistic to fit most real-world tasks;
+                            (2) it well considers the task property and provides prescriptive guidance for generalization improvement.
+                        </li>
+                        <li>
+                            Theoretical generalization bound: we derive taskrelated generalization bound based on the ITID assumption in both special and general cases.
+                            The new generalization bound well explains many phenomena conflicting with the existing generalization theories.
+                        </li>
+                        <li>
+                            Algorithmic prescriptive guidance: we design a data augmentation algorithm with a theoretical
+                            guarantee to improve the generalization capability by enhancing model invariance. The algorithm
+                            serves as one inspiring example to leverage the proposed ITIDbased theory to improve generalization
+                            performance in practical tasks.
+                        </li>
+                        <li>
+                            Extensive experimental validation: we conduct experiments on both the toy data and the real-world
+                            Cifar-10 dataset to validate the derived task-based generalization bound as well as the
+                            effectiveness of the invariance enhancement algorithm in improving generalization performance.
+                            </li>
+                    </ol>
+
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">Motivation</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:20px">
+
+
+                    <h3>The IID assumption suffers from two recognized issues: (1) it does not hold in most cases due to the poor coverage of training data and the complexity of real-world tasks. [1] demonstrated through experiments that most of the existing datasets are non-identically distributed. [2] found that high correlations exist in both temporal and spatial samples. Applying IID-based theories on these nonIID tasks has demonstrated devastated performance [1]. (2) The IID assumption derives a task-free generalization bound which fails to guide the practical learning tasks. One example comes from data augmentation, which demonstrates its effectiveness in improving generalization performance while adds unrealistic data and inevitably changes the distribution of the training set [3] [4]. Traditional IID-based generalization theories fail to explain the improved generalization from changed data distribution or theoretically guide the new design of data augmentation solutions.
+                        <br><br>
+                        Our new generalization theory provides a solution to both problems: (1) The new data generating assumption is addressing more general tasks and expected to be satisfied in most cases. We evaluate the generalization performance based on model capability instead of on the deviated data distribution, making it fitting to different data generating scenarios. (2) By introducing task-correlated generative variables into the data generating process, we succeed to examine the correlation between generalization performance and task properties. The derived generalization bound is related to both the task complexity and model invariance capability. Furthermore, based on the task-related generalization bound, we provide prescriptive guidance to improve generalization performance in practical tasks.
+                        </h3>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Main Theoretical Results</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:20px">
+                        <center>
+                            <img src="./ITID/figure1.png" width="900">
+                            <br>
+                            <strong>Fig.1</strong> Examples of (Top row): images belonging to the same category; and (Bottom row): generative variables controlling
+                            the image generating process.
+                        </center>
+                        <center>
+                            <img src="./ITID/figure2.png" width="900">
+                            <br>
+                            <strong>Fig.2</strong>  Data generating process on: (a) original instance space (b) generative variables; (c) task-correlated and -uncorrelated
+                            generative variables.
+                        </center>
+                        <br>
+                        <center>
+                            <img src="./ITID/thm1.png" width="480">
+                            <img src="./ITID/thm2.png" width="480">
+                            <br>
+                        </center>
+                        <center>
+                            <img src="./ITID/thm3.png" width="480">
+                            <img src="./ITID/thm4.png" width="480">
+                            <br>
+                        </center>
+                        <center>
+                            <img src="./ITID/thm5.png" width="500">
+                            <br>
+                        </center>
+                        <br>
+                    </font>
+
+                    <h2><font face="helvetica" style="font-size:24px"> EXPERIMENTAL VALIDATION
+                        </font>
+                    </h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:20px">
+                        The application of the proposed generalization theory involves with three key conclusions:
+                         (1) Influence measure. Theorem 4 proves that the conditional entropy in the training dataset <img src="./ITID/hyg.png" height="20">
+                         can be used to measure the influence of <img src="./ITID/Gu.png" height="20">   on model predictions. (2) Invariance acquisition.
+                         Theorem 5 proves to obtain model invariance over generative variables by balancing the distribution
+                         of the training set. (3) Generalization improvement. Theorem 2 and Theorem 3 together prove that
+                         model will have a lower generalization bound by enhancing invariance over task-uncorrelated
+                         generative variables. In this section, we design experiments on both toy data and a real-world image
+                         dataset to validate these conclusions as well as demonstrate the effectiveness of the proposed theory
+                         in improving generalization performance.
+
+                    </font>
+                    <h2><font face="helvetica" style="font-size:24px">Influence Measure</font></h2>
+                        <h3>As shown in Fig.3, we construct
+                        a toy dataset satisfying the proposed ITID assumption: the
+                        testing instances are sampled from different distributions
+                        but maintain the same marginal distribution over the task-correlated generative variables.</h3>
+
+                        <center>
+                            <img src="./ITID/ITID.png" height="350">
+                            <br>
+                            <strong>Fig.3</strong> Illustration to generate a toy dataset satisfying ITID
+                            assumption.
+                        </center>
+                        <br>
+                        <h3>Fig.4(a) compares the estimated ranks (y-axis) to the
+                            ground-truth influence ranks (x-axis). It can be seen the
+                            estimated influence rank curve is close to the reference line
+                            y = x, which means that <img src="./ITID/hyg.png" height="20">  accurately approximates the real influence of task-uncorrelated generative
+                            variables. Note that the estimated-influence rank slightly
+                            deviates from the reference line when the influence rank
+                            is lower than 8. This result is possibly due to the very small
+                            influence of these input features (the influence weights are
+                            generally between [0, 0.8] for rank 8 ∼ 10), which makes
+                            their relative ranks unstable in different toy datasets.</h3>
+                        <br>
+
+                            <center>
+                                <img src="./ITID/figure4.png" width="1000">
+                                <br>
+                                <strong>Fig.4</strong> Validation experimental results averaged over 100 runs: (a) the estimated influence ranks by <img src="./ITID/hyg.png" height="20"> (y-axis) v.s.
+                                the ground-truth influence ranks by the absolute weight values; (b) the changes of the absolute weight values before and
+                                after Balance operation; (c) test accuracy before and after Balance operation.
+                            </center>
+                        <br>
+                    <h2><font face="helvetica" style="font-size:24px">Invariance acquisition </font></h2>
+                    <h3>Fig.4(b) shows the absolute weight values learned in
+                        models before and after balancing modification (annotated
+                        as horiginal and hbalanced, respectively). To guarantee a
+                        consistent experimental discussion, we keep the x-axis as the
+                        same in Fig.4(a). It is shown that in spite of the very different
+                        weight values in the original model, all task-uncorrelated
+                        generative variables obtain the model weight of almost 0
+                        after balanced modification. This validates Theorem 5 that
+                        the Balance operation can help model acquire invariance
+                        over target generative variables.
+                        </h3>
+                    <h2><font face="helvetica" style="font-size:24px">Generalization improvement </font></h2>
+                    <h3>According to Theorem 2 and Theorem 3, a model will have
+                        lower generalization bound when enhancing invariance
+                        over task-uncorrelated generative variables. To validate
+                        this, following the same settings in the above experiments,
+                        we examine and compare the performance of the trained
+                        horiginal and hbalanced in the testing dataset. The result is
+                        shown in Fig.4(c). It can be seen that after balancing the
+                        task-uncorrelated generative variables, the learned models
+                        achieve consistently improved testing performance. Moreover, the more influence the task-uncorrelated generative
+                        variable (with higher influence rank), the more improvement hbalanced can achieve after enhancing the variance</h3>
+                    <h2><font face="helvetica" style="font-size:24px"> Improvement for Data Augmentation </font></h2>
+                    <h3>Note that the proposed generalization theory is based on the ITID assumption, which requires a unique marginal distribution
+                        over the task-correlated generative variables. However, many data augmentation solutions like random erasing are potential
+                        to change the distribution of task-correlated generative variables, which decrease the generalization performance.
+                        The probability density curves of M0 and M1 are shown in Fig.5(a). It is obvious that
+                        the erasing following M0 will appear more at the periphery,
+                        while erasing the following M1 will appear more at the
+                        center of images and have a higher probability to change
+                        the marginal distribution of task-correlated generative variables</h3>
+
+                    <center>
+                        <img src="./ITID/figure5.png" width="1000">
+                        <br>
+                        <strong>Fig.5</strong> Test errors of different random-erasing settings
+                    </center>
+                        <p style="padding-bottom:1px"></p>
+                    <h3>Fig.5(b)-(d) show the test error in four experimental settings: (1) raw, the original training set without data
+                        augmentation; (2) uniform, the random erasing method with traditional uniform distribution on the erasing position;
+                        (3) periphery, the random erasing method with position parameters following M0; and (4) center, the random erasing method
+                        with position parameters following M1. As can be seen, when restricting the erasing positions near the periphery area,
+                        the performance of periphery consistently outperforms the other random erasing settings. While, center achieves inferior
+                        performance than uniform, further validating that affecting the distribution of task-correlated generative variables will
+                        violate the ITID assumption and tends to deteriorate the generalization performance.</h3>
+
+                    <h2><font face="helvetica" style="font-size:24px">Reference</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <h3>[1] M. Swaminathan, P. K. Yadav, O. Piloto, T. Sjoblom, and I. Cheong, ¨ “A new distance measure for non-identical
+                        data with application to image classification,” Pattern Recognition, vol. 63, pp. 384–396, 2017. </h3>
+                    <h3>Y. Shi, W. Li, Y. Gao, L. Cao, and D. Shen, “Beyond iid: Learning to combine non-iid metrics for vision tasks,”
+                         in Thirty-First AAAI Conference on Artificial Intelligence, 2017. </h3>
+                    <h3>H. Zhang, M. Cisse, Y. N. Dauphin, and D. Lopez-Paz, “mixup: Beyond empirical risk minimization,” 2018. </h3>
+                    <h3>Z. Zhong, L. Zheng, G. Kang, S. Li, and Y. Yang, “Random erasing data augmentation,” arXiv preprint arXiv:1708.04896, 2017.</h3>
+                        <br>
+                    </font></font></td>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

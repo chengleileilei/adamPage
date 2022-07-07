@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            Beyond Literal Visual Modeling: Understanding Image Metaphor based on Literal-Implied Concept Mapping
+    </h1>
+
+
+    <br>
+    <div>
+        <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        Existing multimedia content understanding tasks focus on modeling the literal semantics
+                        of multimedia documents. This study explores the possibility of understanding the implied
+                        meaning behind the literal semantics. Inspired by human’s implied imagination process, we
+                        introduce a three-step solution framework based on the mapping from literal to implied concepts
+                        by integrating external knowledge. Experiments on self-collected metaphor image dataset validate
+                        the effectiveness in identifying accurate implied concepts for further metaphor understanding in
+                        controlled environment.
+                    </p>
+
+                    <p>
+                        <b>The main contributions of this work can be summarized in two-fold:</b>
+                    </p>
+                    <ol style="margin-top:-7px">
+                        <li>
+                            For the first time, we positioned the problem of image metaphor understanding, which
+                            extends visual modeling from literal semantics to implied domain.
+                        </li>
+                        <li>
+                            A two-stage solution is introduced for the task of <i>literal-implied concept mapping</i>.
+                            Experimental results on self-collected dataset validate its effectiveness in the
+                            controlled environment.
+                        </li>
+                    </ol>
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f1.png" height="200">
+                            <br> <strong>Fig.1</strong> Example metaphor image (a), and literal-implied concept mapping illustration (b).
+                        </center>
+                    </font>
+                    <br>
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f2.png" height="400">
+                            <br> <strong>Fig.2</strong> The three steps in automatic image metaphor understanding.
+                        </center>
+                    </font>
+
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">Motivation</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+
+
+                    <p align="justify">
+                        The core problem in <i>literal-implied concept mapping</i> is to select for each metaphorical
+                        concept which implied concept to activate. The basic idea behind is that: given a particular
+                        image, the activated implied concept should be compatible with other concepts (including both
+                        contextual concepts and the implied concepts of other metaphorical concepts) and collectively
+                        contributes to a coherent metaphor description.
+                    </p>
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f3.png" height="300">
+                            <br> <strong>Fig.3</strong> (a) The metaphorical and contextual concepts. (b) Nodes in
+                            reference graph construction.
+                        </center>
+                    </font>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Reference Graph Construction</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/f4.png" height="350">
+                            <strong>Fig.4</strong>  Examples of edge construction between metaphorical implied concepts
+                            in the reference graph: (a) KG-based edge extraction; (b) Embedding-based edge weight estimation.
+                            The dotted lines denote the correspondence between the metaphorical concept and its implied concepts,
+                            which are not included in the derived reference graph.
+                        </center>
+                        <br>
+                    </font>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Dataset</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+                        <div>
+                            <a href="" style="text-decoration: none;">
+                                <img src="./CSAN/download_button.jpg" height="30px">
+                            </a>
+                            <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                                <a href="https://github.com/ADaM-BJTU/Metaphor-Image-Dataset">Metaphor Image Dataset</a>
+                                <br>
+                                A small metaphor image dataset with 54 images.
+                            </div>
+                        </div>
+
+                        <br>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Paper</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+                        <div>
+                            <a href="" style="text-decoration: none;">
+                                <img src="./CSAN/paper-plane-fill.png" height="30px">
+                            </a>
+                            <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-030-37731-1_10">https://link.springer.com/chapter/10.1007/978-3-030-37731-1_10</a>
+                                <br>
+                            </div>
+                        </div>
+
+                        <br>
+                    </font></font></td>
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

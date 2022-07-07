@@ -1,0 +1,292 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            CSAN: Contextual Self-Attention Network
+            for User Sequential Recommendation
+    </h1>
+
+
+    <br>
+    <div>
+        <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+        <hr style="margin-top:-10px; margin-bottom:13px">
+        <font face="helvetica" style="font-size:18px">
+            <p align="justify">
+                The sequential recommendation is an important task for online user-oriented services,
+                such as purchasing products, watching videos, and social media consumption.
+                Recent work usually used RNN-based methods to derive an overall embedding of the whole
+                behavior
+                sequence,
+                which fails to discriminate the significance of individual user behaviors and thus decreases
+                the
+                recommendation performance.
+                Besides, RNN-based encoding has fixed size and makes further recommendation application
+                inefficient and inflexible.
+                The online sequential behaviors of a user are generally heterogeneous, polysemous, and
+                dynamically context-dependent.
+                In this paper, we propose a unified Contextual Self-Attention Network (CSAN)
+                to address the three properties. Heterogeneous user behaviors are considered in our model
+                that
+                are projected into a common latent semantic space.
+                Then the output is fed into the feature-wise self-attention network to capture the polysemy
+                of
+                user behaviors.
+                In addition, the forward and backward position encoding matrices are proposed to model
+                dynamic
+                contextual dependency.
+                Through extensive experiments on two real-world datasets, we demonstrate the superior
+                performance of the proposed model compared with other state-of-the-art algorithms.
+            </p>
+
+            <p>
+                <b>Compared with existing sequential recommendation methods, the main contributions of our
+                    proposed CSAN can be summarized as follows:</b>
+            </p>
+            <ol style="margin-top:-7px">
+                <li>
+                    We propose a novel contextual self-attention network for the sequential recommendation,
+                    which can leverage user historical behaviors in a more effective manner and have high
+                    computational efficiency.
+                </li>
+                <li>
+                    We propose to employ embedding network, self-attention mechanism and position encoding
+                    to
+                    deal with the heterogeneity, polysemy, and dynamic contextual dependency of user
+                    sequential
+                    behaviors. This can accurately capture the user's interests and critical information for
+                    the
+                    sequential &nbsp&nbsp recommendation.
+                </li>
+                <li>
+                    Extensive experimental results on both singe-type behavior dataset and multi-type
+                    multi-modal behavior dataset demonstrate the superior performance of the proposed model
+                    compared with other state-of-the-art algorithms. In addition, we introduce a multi-type
+                    and
+                    multi-modal behaviors dataset.
+                </li>
+            </ol>
+
+        </font>
+
+        <p style="padding-bottom:1px"></p>
+
+
+        <h2><font face="helvetica" style="font-size:24px">Motivation</font></h2>
+        <hr style="margin-top:-10px; margin-bottom:13px">
+        <font face="helvetica" style="font-size:15px">
+
+            <h3>User behaviors are inherently heterogeneous, polysemous, and dynamically
+                context-dependent:</h3>
+
+            <font face="helvetica" style="font-size:15px">
+                <figure data-am-widget="figure" class="am am-figure am-figure-default "
+                        data-am-figure="{  pureview: 'true' }">
+
+
+                    <img src="./CSAN/introduction-new-eps-converted-to.png">
+                    <figcaption class="am-figure-capition-btm">
+                    </figcaption>
+
+                </figure>
+
+
+                <br> <strong>Fig.1</strong> A schematic diagram of the behavior sequence of two users.
+                Text
+                describes the content topics of user actions at different timestamps.
+                Red rectangles show the two users' different attentions on the same article due to their
+                different contextual behaviors.
+
+            </font>
+            <br>
+            <p style="padding-bottom:1px"></p>
+
+
+            <h2><font face="helvetica" style="font-size:24px">Framework</font></h2>
+            <hr style="margin-top:-10px; margin-bottom:13px">
+            <font face="helvetica" style="font-size:15px">
+                <figure data-am-widget="figure" class="am am-figure am-figure-default "
+                        data-am-figure="{  pureview: 'true' }">
+
+
+                    <img src="./CSAN/workflow-eps-converted-to.png">
+                    <figcaption class="am-figure-capition-btm">
+                    </figcaption>
+
+                </figure>
+                <strong>Fig.2</strong> The schematic illustration of the sequence modeling architecture.
+
+                <br>
+            </font>
+
+            <h2><font face="helvetica" style="font-size:24px">Proposed Contextual Self-Attention
+                Network</font>
+            </h2>
+            <hr style="margin-top:-10px; margin-bottom:13px">
+            <font face="helvetica" style="font-size:15px">
+                <figure data-am-widget="figure" class="am am-figure am-figure-default "
+                        data-am-figure="{  pureview: 'true' }">
+
+
+                    <img src="./CSAN/approach-new-eps-converted-to.png">
+                    <figcaption class="am-figure-capition-btm">
+                    </figcaption>
+
+                </figure>
+                <br>
+                <strong>Fig.3</strong> Illustration of the Contextual Self-Attention Network (CSAN)
+                model.
+
+            </font>
+            <p style="padding-bottom:1px"></p>
+
+
+            <h2><font face="helvetica" style="font-size:24px">Dataset</font></h2>
+            <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+            <font face="helvetica" style="font-size:15px">
+
+                <div>
+
+                    <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                        <a href="https://pan.baidu.com/s/1_QZnwb9w99XwGTTPbfAuyA">Zhihu Dataset
+                            (All_users)</a>
+                        5.87 GB<br>
+                        The dataset includes 17723 users' dynamic activities for one year.
+                    </div>
+                </div>
+                <br>
+                <div>
+
+                    <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                        <a href="https://pan.baidu.com/s/1jSzVpkmbGkWFPco6kML9Ow">Zhihu Dataset
+                            (Selected_users)</a> 5.47GB<br>
+                        The dataset includes 10458 users' dynamic activities for one year.
+                        These users are filtered. Each user contains more than 10 dynamic behaviors.
+                    </div>
+                </div>
+                <br>
+            </font></font>
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

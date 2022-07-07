@@ -1,0 +1,344 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <title>BJTU-ADAM Lab - 北京交通大学ADAM人工智能实验室官网</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/css/amazeui.css">
+</head>
+<body>
+
+<header data-am-widget="header"
+        class="am-header am-header-default">
+    <div class="am-header-left am-header-nav ">
+        <a href="../../index.html">
+
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div>
+
+    <h1 class="am-header-title">
+        <a href="../../index.html">
+            ADAM Lab
+        </a>
+    </h1>
+    <!--    <div class="am-header-right am-header-nav">-->
+    <!--        <a href="#right-link">-->
+
+    <!--            <i class="am-header-icon am-icon-bars"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
+</header>
+<section>
+
+    <h1>
+            Towards Predictable Feature Attribution: Revisiting and Improving Guided BackPropagation
+    </h1>
+
+
+    <br>
+    <div>
+        <br>
+                <div>
+                    <a href="" style="text-decoration: none;">
+                        <img src="./TRGBP/download_button.jpg" height="30px">
+                    </a>
+                    <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
+                        <a href="https://openreview.net/forum?id=uXpTNpkXFLB">Paper Available</a>
+                    </div>
+                </div>
+                <h2><font face="helvetica" style="font-size:24px">Introduction</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:18px">
+                    <p align="justify">
+                        Recently, backpropagation(BP)-based feature attribution methods have been widely adopted to interpret the
+                        internal mechanisms of convolutional neural networks (CNNs), and expected to be human-understandable (lucidity)
+                        and faithful to decision-making processes (fidelity). In this paper, we introduce a novel property for feature
+                        attribution: predictability, which means users can forecast behaviors of the interpretation methods. With the
+                        evidence that many attribution methods have unexpected and harmful phenomena like class-insensitivity, the
+                        predictability is critical to avoid over-trust and misuse from users. Observing that many intuitive improvements
+                        for lucidity and fidelity tend to sacrifice predictability, we propose a new visual explanation method called
+                        TR-GBP (Theoretical Refinements of Guided BackPropagation) which revisits and improves GBP from theoretical
+                        perspective rather than solely optimizing the attribution performance. Qualitative and quantitative experiments
+                        show that TR-GBP is more visually sharpened, gets rid of the fidelity problems in GBP, and effectively predicts
+                        the possible behaviors so that we can easily discriminate some prediction errors from interpretation errors.
+                    </p>
+
+                    <p>
+                        <b>Our main contributions can be summarized three-fold:</b>
+                    </p>
+                    <ol style="margin-top:-7px">
+                        <li>
+                            In addition to lucidity and fidelity, we introduce a novel and critical property predictability
+                            for BP-based feature attributions.
+                        </li>
+                        <li>
+                            We propose a new predictable feature attribution method TR-GBP, by addressing two fundamental
+                            issues in the reconstruction theory of GBP.
+                        </li>
+                        <li>
+                            Qualitative and quantitative experiments are performed and show that TR-GBP can obtain sharper visualizations,
+                            get rid of the fidelity problems of GBP, and enables us to discriminate some prediction errors from
+                            interpretation errors.
+                        </li>
+                    </ol>
+
+                </font>
+
+                <p style="padding-bottom:1px"></p>
+
+
+                <h2><font face="helvetica" style="font-size:24px">Motivation</font></h2>
+                <hr style="margin-top:-10px; margin-bottom:13px">
+                <font face="helvetica" style="font-size:20px">
+
+
+                    <h3>Predictability means that humans can understand and foresee the outcome of an execution,
+                        for example, over three metres high, and one would be afraid to jump down, even if one has
+                         never done it before. Considering that it would be too late if one did jump directly from
+                         a high building, we cannot always mend the problem after it has arisen. Reliable and trustworthy
+                         gradient attribution methods therefore require predictability. However, existing ideas for
+                         improvement sacrifice predictability, so improved methods require a supporting theoretical
+                         explanation. Here we will improve the reconstruction theory that accompanies the GBP in order
+                         to achieve improvements to the GBP.</h3>
+                    <br>
+                    <p style="padding-bottom:1px"></p>
+
+
+                    <h2><font face="helvetica" style="font-size:24px">Reconstruction theory of GBP</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:20px">
+                        <h3>As our proposed method is based on the reconstruction theory (Nie et al., 2018),
+                            we introduce its main conclusions before further discussions.</h3>
+                        <center>
+                            <img src="./TRGBP/Theorem1.png" width="950">
+                        </center>
+                        <center>
+                            <img src="./TRGBP/Proposition1.png" width="950">
+                        </center>
+                        <br>
+                    </font>
+
+                    <h2><font face="helvetica" style="font-size:24px">Addressing the Limitations of Reconstruction Theory</font>
+                    </h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <font face="helvetica" style="font-size:20px">
+                        <center>
+                            <img src="./TRGBP/pipeline.png" width="1000">
+                            <br>
+                            <strong>Fig.1</strong>  Pipeline of TR-GBP. The forward propagation treats the bias as input maps fullfilled with
+                            1, and the back propagation procedure also attribute to the middle inputs. Then we aggregate these
+                            middle input with upsampling, and minus the mean values of top5 results.
+                        </center>
+                        <h3>We find two limitations:</h3>
+                        <h3><strong>(1) The missing of bias terms:</strong> as reconstruction theory does not take the widely adopted
+                            bias terms into consideration, its conclusions cannot be directly applied to traditional
+                            networks. As bias terms also contribute to decision-making processes, the missing of bias
+                            terms will make attribution results incomplete and ignore the high-layer changes. That
+                            is why GBP failed the sanity checks (Adebayo et al., 2018). </h3>
+                        <br>
+                        <h3><strong>Our solution:</strong></h3>
+                        <center>
+                            <img src="./TRGBP/treatment1.png" width="950">
+                        </center>
+                        <h3><strong>(2) The similarity of V:</strong> according to the central limited theorem and the Proposition 1,
+                            the backpropagation results might have similar distributions for different classes, and so that GBP
+                            is class-insensitive. </h3>
+                        <br>
+                        <h3><strong>Our solution:</strong></h3>
+                        <center>
+                            <img src="./TRGBP/treatment2.png" width="950">
+                        </center>
+
+                    </font>
+                    <p style="padding-bottom:1px"></p>
+
+                    <h2><font face="helvetica" style="font-size:24px">Experimental results</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+                    <h2><font face="helvetica" style="font-size:24px">Lucidity</font></h2>
+                    <font face="helvetica" style="font-size:20px">
+                        <h3>We perform qualitative visual evaluation for TR-GBP along with baselines on validation
+                            set of ImageNet: saliency, GBP, GIG, GradCAM, FullGrad, CAMERAS. These methods are the
+                            newest or the most classical attribution methods of three kinds of attributions.
+                            Furthermore, we use the commonly used pretrained models: VGG16 and ResNet50 from torchvision
+                            model zoo. The results are shown in Figs.2, it can be seen that saliency is full of noise,
+                            GBP and GIG highlight the edges and FullGrad, GradCAM, TR-GBP shed light on a complete region.
+                            This is not surprising that TR-GBP is more complete than GBP and more tightly confined to object
+                            regions than GradCAM, FullGrad, CAMERAS, because we supplement the bias attributions for GBP and
+                            theoretical guarantee low noise level</h3>
+                            <center>
+                                <img src="./TRGBP/lucidity.png" width="1000">
+                                <br>
+                                <strong>Fig.2</strong>  Visualization results on VGG16 and ResNet50 of
+                                saliency, GBP, GIG, FullGrad, GradCAM, CAMERAS and our method TR-GBP.
+                            </center>
+                        <br>
+                    </font>
+                    <h2><font face="helvetica" style="font-size:24px">Fidelity</font></h2>
+                    <font face="helvetica" style="font-size:20px">
+                        <h3>We solve two fidelity problem of GBP:</h3>
+                        <h3><strong>(1) Class-insensitivity:</strong>Figs. 3 shows our results on cat and dog image for ResNet50.
+                            The top1 class of output is ’bull mastiff’ and the top2 class is ’tiger cat’. It is evident
+                            that our method can distinguish different classes, and provide entire objects
+                            except for the tail of the cat. Such results are reasonable as we remove the
+                            reconstruction shared by different categories.</h3>
+                            <center>
+                                <img src="./TRGBP/fidelity1.png" width="800">
+                                <br>
+                                <strong>Fig.3</strong>  Class discriminative results for TRGBP. The middle heatmap is obtained from the
+                                class ‘bull mastiff’, and the right heatmap is obtained from the class ‘tiger cat’.
+                            </center>
+                        <br>
+                        <h3><strong>(2) Sanity checks:</strong>Adebayo et al. (2018) point out that some attribution methods are
+                            not able to show the differences between different models, just like special edge detectors.
+                            Specifically, they randomize some layers of model, and find that some attribution results,
+                            especially GBP, almost remain unchanged. We also perform a sanity check of TR-GBP and present
+                            the results in Figs. 4. As can be seen, our method is sensitive to model parameters and can
+                            efficiently reflect the differences between models before and after randomization. Moreover,
+                            the attribution results of TR-GPB converge to uniform with weak boundaries and random noises.</h3>
+                            <center>
+                                <img src="./TRGBP/fidelity2.png" width="1000">
+                                <br>
+                                <strong>Fig.4</strong> Sanity checks for different layers on ResNet50. From left to right, it reflect the cascade
+                                randomization of model.
+                            </center>
+                    </font>
+                    <h2><font face="helvetica" style="font-size:24px">Predictability</font></h2>
+                    <font face="helvetica" style="font-size:20px">
+                        <h3>Let us look closely at the results of Figs.4, the changes of fc layer lead to high scores in
+                            boundaries. As we have predicted that the boundaries of attribution must be weaker,
+                            if there are high scores in boundary pixels of TR-GBP, it must originate from model
+                            prediction errors. Note that such boundary dependencies are also shown by previous methods,
+                            like CAMERAS in Figs.4. Therefore, we attempt to conduct validation experiments to make sure
+                            such boundary dependencies in our method are actually a prediction errors but others not.
+                            Specifically, we use a metric which is similar to EBPG to represent the intensities of boundary
+                            dependencies (IBD):</h3>
+                            <center>
+                                <img src="./TRGBP/IBD.png" width="500">
+                                <br>
+                            </center>
+                            <h3>where boundary is the 16-pixel boundary regions: height, width &lt 16 or height, width &gt 224-16.
+                                We discard half data in ImageNet validation set with the minimal IBD to obtain attribution
+                                results with salient boundary dependencies. Note that the dependency originates from
+                                prediction errors must have capacities to show the correctness of predictions, so we use
+                                traditional AUC (Area Under Curve) values of ROC curve to measure whether IBD can be used
+                                as a valid indicator to judge the correctness of model predictions. The results are shown
+                                in Table 1. TR-GBP has remarkable advance performance, which means that the boundary
+                                dependencies in TR-GBP are actually derived from prediction errors while other methods not,
+                                so TR-GBP succeeds in disentangling prediction errors from interpretation errors with the
+                                help of predictability.</h3>
+                                <br>
+                            <center>
+                                <img src="./TRGBP/predictability.png" width="1000">
+                                <br>
+                                <strong>Table 1</strong> Comparative evaluation on AUC of IBD (higher is better).
+
+                            </center>
+                        <br>
+                    </font>
+
+                    <h2><font face="helvetica" style="font-size:24px">Reference</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+
+                    <font face="helvetica" style="font-size:15px">
+
+                       <h2>Weili Nie, Yang Zhang, and Ankit Patel. A theoretical explanation
+                           for perplexing behaviors of backpropagation-based visualizations. In International
+                           Conference on Machine Learning, pp. 3809–3818. PMLR, 2018.</h2>
+                        <h2>Julius Adebayo, Justin Gilmer, Michael Muelly, Ian Goodfellow, Moritz Hardt, and
+                            Been Kim. Sanity checks for saliency maps. arXiv preprint arXiv:1810.03292, 2018.</h2>
+                        <br>
+                    </font></font></td>
+    </div>
+</section>
+</body>
+
+
+<!--在这里编写你的代码-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcdn.net/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+
+</html>
+<style>
+    h1{
+        font-weight: bold;
+    }
+    .title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    .ahref {
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    @keyframes flow {
+        from {
+            filter: hue-rotate(0deg);
+        }
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    img {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .am-header-default {
+        background-color: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        animation: flow 12s linear infinite;
+
+    }
+</style>

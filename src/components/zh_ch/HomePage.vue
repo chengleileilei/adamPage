@@ -85,7 +85,7 @@
             <div class="trend-content lr-padding">
               <p>{{ trendData.introduction }}</p>
               <div>
-                <a :href="trendData.link" class="trend-paper-link">
+                <a :href="trendData.link" class="trend-paper-link" :disabled="flag">
                   <p>Paper</p>
                   <img src="@/assets/icon/fas-fa-paper-plane.svg" alt="" />
                 </a>
@@ -526,6 +526,9 @@ export default {
   color: rgba(24, 93, 166, 100);
   border: 1px solid rgba(24, 93, 166, 100);
   margin: 15px 15px 25px 15px;
+}
+.forbidden{
+  /* cursor: */
 }
 
 .trend-paper-link > p {
