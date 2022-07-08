@@ -15,7 +15,9 @@
     <script src="./huang_files/segment.js"></script>
     <link href="./huang_files/app.b56908a4ef7f7c7df6627f70cc26fc81.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" async="" src="./huang_files/9.691b19c55c2987dd0cf3.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
 </head>
+
 
 <body _c_t_common="1" style="zoom: 1;" _c_t_j1="1" data-new-gr-c-s-check-loaded="14.1033.0" data-gr-ext-installed="">
 <div class="wrap wrap2 wrap_detial">
@@ -50,9 +52,9 @@
                 <center>
                     <h1>
                         <font face="helvetica" style="font-size:87%">
-                            Counterfactually Measuring and Eliminating Social Bias in
+                            Counterexample Contrastive Learning for Spurious Correlation Elimination
                             <br>
-                            Vision-Language Pre-training Models
+                            基于反例对比学习的虚假相关性消除
                         </font>
                     </h1>
                 </center>
@@ -62,224 +64,241 @@
                 <h2><font face="helvetica" style="font-size:24px">概述</font></h2>
                 <hr style="margin-top:-10px; margin-bottom:13px">
                 <font face="helvetica" style="font-size:18px">
-                    <p align="justify">
-                        近几年来，视觉-语言预训练（Vision-Language Pre-training, VLP）模型发展十分迅速，多种跨模态下游任务通过对VLP 模型的微调取得了state-of-the-art的表现。在准确率之外，算法公平/算法中的社会偏见也是VLP模型的可信赖设计和部署中的关键议题[1]。然而，对于VLP模型中的社会偏见尚未有完善的研究。
-在本工作中，我们针对VLP模型的多模态特性，基于反事实样本生成衡量了各个模态的社会偏见以及多模态融合的社会偏见。衡量预训练模型中的社会偏见本质上是衡量偏见概念（比如，性别等社会属性）和目标概念之间的相关性。VLP模型中信息的跨模态交互为偏见衡量提出了两个挑战。第一项挑战是如何在VLP模型中建模偏见概念和目标概念。受到Masked Language Modeling（MLM）预训练任务的启发，我们提出了prompt-based query去探测模型对偏见概念和目标概念的建模。如图1，要建模的概念在输入到VLP模型前就被屏蔽（替换为[MASK] token），MLM任务在[MASK] token位置上的预测结果P([MASK]=”shopping”)体现了VLP模型对输入图文对中[MASK]概念的建模。
+                    <p align="justify" style="text-indent:2em;">
+                        机器学习模型在计算机视觉和自然语言处理领域取得了显著成绩。然而，许多工作表明，观测的数据分布中存在的偏见将导致模型学习与标签高度相关的偏见特征[1]。这种学习到的虚假相关性会使模型失败，尤其是在测试数据与训练数据分布不一致的时候。以金发识别的二分类任务为例（如图1（a）所示），如果观测的数据集中的女性图像大多为金发，而男性图像大多为非金发，则模型倾向于学习性别和头发颜色之间的虚假相关性，从而将性别作为预测发色的判别特征。在这种情况下，如果测试集包含显着数量的金发男性图像或非金发女性图像，则模型性能将显着下降。
                     </p>
-
-
 
                     <font face="helvetica" style="font-size:15px">
                         <center>
-                            <img src="./CSAN/f1.png" height="400">
-                            <br> <strong>图一</strong> 基于反事实的VLP模型偏见衡量
+                            <img src="./CSAN/fig1_v3.bmp" height="500">
+                            <br> <strong>图 1</strong> 虚假相关性问题、反事实数据增强去偏方法和本工作去偏方法的示意图
                         </center>
                     </font>
-                    <br>
-
-                    <br>
-                    第二项挑战是量化偏见概念和目标概念之间的联系。 考虑到不同图文对之间存在较大差异，无法通过直接比较“偏见概念不同”的图文对中对“目标概念”MLM任务的预测概率来统计VLP模型中偏见概念和目标概念的联系（见第二章的具体讨论）。我们提出了基于反事实的偏见衡量方法CounterBias，如图一所示，对每个样本都生成偏见属性上的反事实样本（在图一中，将女性反事实修改为男性），之后使用反事实前后模型对目标属性的建模变化来衡量偏见概念和目标概念的联系。
-                    <p align="justify"> 
-                     </p>
-                    <br>
                     
-                    由于目前还没有现成的数据集专门用于分析VLP模型中的社会偏见，我们提出了VL-Bias数据集，用于本工作以及社区对VLP模型中的社会偏见的理解。VL-Bias包含24K图文对，其中目标属性包含52个动作和13个职业。在VL-Bias数据集上，使用CounterBias，我们测试了两种典型的VLP结构，单流VLP和双流VLP。关键的观测结果包括：（1）测试的VLP模型中存在社会偏见，视觉模态和文本模态中都存在；（2）包含在VLP模型中的社会偏见与人类刻板影响基本一致；（3）测试的单流架构VLP和双流架构VLP在两个模态中的偏见表现出不同的一致性；（4）测试的VLP模型表现出比BERT更强的性别偏见。
-                    <p align="justify"> 
-                     </p>
-                    <br>
-
-
-                    继承了CounterBias中的反事实思路，我们提出了一个简单但有效的方法FiarVLP消除VLP模型中的社会偏见。具体来说，我们首先在视觉和语言模态中分别生成偏见概念的反事实样本。再将MLM任务对事实和反事实的预测的概率差异最小化，从而防止模型学习偏差和目标概念之间的关联。实验结果证明了FairVLP的有效性。
-                    <p align="justify"> 
-                     </p>
-                    <br>
-
-
-
-
-                    <h2><font face="helvetica" style="font-size:24px">社会偏见的反事实衡量</font></h2>
-                    <hr style="margin-top:-10px; margin-bottom:13px">
-                    <font face="helvetica" style="font-size:18px">
-                        <p align="justify">
-                            MLM预训练任务已经被认识到是本质是最大化了[MASK] token和图文输入之间互信息[1]，这提供了我们基于[MASK] token的预测概率来探测模型对概念建模的理论基础。具体的说，我们为VLP模型的输入经过[MASK]的图文对，其中文本的目标概念被修改为[MASK] token，比如“the woman is shopping”被修改为“the woman is [MASK]”。之后将修改后的文本和图像一起输入到VLP模型。模型对[MASK] token的概率建模可以看作模型对目标概念的建模。
-                        </p>
-    
-    
-
-    
-                        <br>
-                        为了实现样本之间，除了偏见属性外，其他信息都完全一致，我们提出了对样本中的偏见概念进行反事实编辑，生成反事实样本。之后分别使用MLM任务去探测VLP模型对真实样本和反事实样本中目标属性的建模。
-对于图像的反事实样本生成，我们使用了Model-specific adversarial attacks。同样利用MLM任务去建模模型对图像中偏见属性的建模，之后为图像施加微小的改动来修改模型对图像中偏见属性的建模。具体的说，我们创建了一个偏见属性提取模板，“a [MASK] is in the picture”,作为文本输入，让模型通过MLM任务重建[MASK]预测图像中的性别信息。相似于传统的对抗攻击[4][5]，我们使用介于P(B|V)和反事实偏见属性B‘之间的交叉熵损失，寻找对抗扰动来最小化此交叉熵。
-                        <p align="justify"> 
-                         </p>
-                        <br>
-                        
-                        对于文本模态的偏见信息修改，我们手动地替换文本输入中的偏见相关词汇，比如将“woman”替换为“man”。在衡量偏见之前，我们还注意到反事实样本中对偏见信息的改变并不是二值化的，而是连续的（比如P(B|V)是连续值）。我们在衡量偏见时，还需要考虑偏见信息的变化量。最后，VLP模型中社会偏见可以表示为单位偏见信息的变化带来VLP模型对目标属性的建模变化。
-                        <p align="justify"> 
-                         </p>
-                        <br>
-    
-    
-    
-                        <p align="justify">
-                            考虑到VLP的多模态特性，我们分别衡量了VLP模型的视觉模态偏见、文本模态偏见和多模态的共同偏见。
-                        </p>
-    
-                        <br>
-                        <p align="justify"> 
-                        </p> 
-    
-                        <font face="helvetica" style="font-size:15px">
-                            <center>
-                                <img src="./CSAN/f2.png" height="300">
-                                <br> <strong>图二</strong> CounterBias对三种偏见类型的衡量
-                            </center>
-                        </font>
-    
-                    </font>
-    
-    
-    
-
-
-
-
-
-                <p style="padding-bottom:1px"></p>
-
-
-                <h2><font face="helvetica" style="font-size:24px">偏见衡量结果</font></h2>
-                <hr style="margin-top:-10px; margin-bottom:13px">
-                <font face="helvetica" style="font-size:18px">
-                    <p align="justify">
-                        由于目前还没有现成的数据集专门用于分析VLP模型中的社会偏见，我们提出了VL-Bias数据集，用于本工作以及社区对VLP模型中的社会偏见的理解。VL-Bias包含24K图文对，其中目标属性包含52个动作和13个职业。
-                        我们基于VL-Bias数据集衡量了单流VLP（ViLT[3]）和双流VLP（ALBEF[1]和TCL[2]）模型中包含的社会偏见。
+                    <p align="justify" style="text-indent:2em;">
+                        为了消除虚假相关性，一种常见且有效的方法是反事实数据增强。通过通常掩盖或替换原始图像中的关键对象生成新样本，以削弱偏见特征和任务标签之间的相关性。图1（b）展示了这样一个例子：通过增加金发男性和非金发女性图像的反事实样本，男性和女性图像在每个任务子集（金发/非金发）中的数量都更加平衡了。这使得模型避免学习了虚假相关性，并更多地依赖任务特征。沿着这条研究路线取得了实质性进展，然而生成反事实样本时具有以下实际问题：（1）高人工标注成本和时间成本； (2) 模型性能对生成样本的质量和真实性高度敏感。    
                     </p>
-                    <p style="padding-bottom:1px"></p>                <p style="padding-bottom:1px"></p>
-                    <font face="helvetica" style="font-size:18px">
-                        <p align="justify">
-                            基于CounterBias，我们调查了典型的VLP模型结构，得到的结论有以下三点：（1）VLP模型普遍存在社会偏见；（2）VLP模型中的性别偏见与人类的刻板印象基本一致；（3）单流和双流模型中两个模态方向的协调性不一致。
 
-                            （1）VLP模型普遍存在社会偏见。下表总结了我们对三个VLP模型衡量得到的社会偏见，其中V表示视觉模态，L表示语言模态，V-L表示两模态的协作。可以看到：全部的三个模型都包括显著的性别偏见，以ALBEF再Activity中的多模态偏见为例，10.56%意味着修改输入中的性别信息，模型对Activity的预测将产生平均10.56%的变化。其次，视觉模态的性别偏见普遍比语言模态更为严重，我们猜测这是由于图像中提供了比文本更丰富的信息导致的。最后，我们还发现偏见衡量对于文本模板的选择敏感，使用多个模板得到的平均值（表二中的Avg）更具有普遍意义。
-                           
-                </p>
+                    <p align="justify" style="text-indent:2em;">
+                        除了求助于额外生成的样本之外，我们认为原始数据集中实际上存在有价值的样本，其消除虚假相关性的潜力没有得到很好的探索。我们将那些与大多数样本具有不一致的偏见-标签对应关系的观测样本称为反例。例如，错误分类的金发男性图像是大多数样本金发女性和非金发男性图像的反例。反例具有和反事实样本相似的特点。这促使我们探索如何利用原始数据集中的这些反例来消除虚假相关。
+                    </p>
 
+                    <p>
+                        <b>我们的主要贡献总结如下:</b>
+                    </p>
+                    <ol style="margin-top:-7px">
+                        <li>
+                            我们引入反例这一新概念来讨论在不引入额外数据的情况下对模型进行去偏的可能性。反例分析研究了反例何时以及如何帮助模型规避虚假相关性。
+                        </li>
+                        <li>
+                            我们提出了使用 CounterCL 来利用有限的观测到的反例来约束特征表示。它与其他解决方案兼容，并且可以作为基于反事实数据增强的解决方案的补充。定量和定性实验验证了有效性。
+                        </li>
+                    </ol>
 
-                    <font face="helvetica" style="font-size:15px">
-                        <center>
-                            <img src="./CSAN/f4.png" height="300">
-                            <br> <strong>表一</strong> VLP模型中包含的社会偏见（以性别为例）
-                        </center>
-                    </font>
-
-                <p align="justify">
-                    （2）VLP模型中的性别偏见与人类的刻板印象基本一致。通过AMT调查了人类的刻板影响，并将人类刻板影响和VLP模型中表现出的社会偏见进行了对比，观察到VLP模型中的社会偏见与人类刻板影响基本一致。
-                </p>
-
-
-                <font face="helvetica" style="font-size:15px">
-                    <center>
-                        <img src="./CSAN/f5.png" height="300">
-                        <br> <strong>图三</strong> 人类刻板印象（左）和VLP模型的社会偏见（右）
-                    </center>
                 </font>
 
-
-                <br>
-                （3）单流和双流模型中两个模态方向的协调性不一致。 以VILT和ALBEF为例，我们发现ALBEF在两个模态上的偏见方向几乎一致，而VILT在两个模态上的偏见方法几乎是混淆的状态。我们分析原因如下：单流模型中没有使用跨模态的对齐，这导致了两个模型可能学习到了模态独有的偏见。而双流模型通过对齐模态，也潜在对齐了模态的偏见。
-                <p align="justify"> 
-                 </p>
-                <br>
-                
-
-                    <br>
-                    <p align="justify">
-                    </p>
-                    <p align="justify">
-                        在论文中，我们还提供了更详细的衡量结果，请参阅我们的论文。
-                    </p>
-
-
                 <p style="padding-bottom:1px"></p>
 
 
-                <h2><font face="helvetica" style="font-size:24px">反事实偏见消除</font></h2>
+                <h2><font face="helvetica" style="font-size:24px">分析</font></h2>
                 <hr style="margin-top:-10px; margin-bottom:13px">
                 <font face="helvetica" style="font-size:18px">
+                    
+                    <p align="justify" style="text-indent:2em;">
+                        为了研究反例对消除虚假相关性的潜力并启发我们的解决方案，我们对反例进行分析以回答两个问题：（1）反例何时有可能帮助模型避免虚假相关性？ 以及（2）反例如何帮助模型避免虚假相关性？
+                    </p>
+
+                    <p>
+                        <b>反例的定义</b>
+                    </p>
+                    
+                    <p align="justify" style="text-indent:2em;">
+                        已知数据集`{(x_i,y_i)}`，我们将x_i分解为`(t_i,b_i)`，其中`t_i`表示任务特征，`b_i`表示偏见特征。则反例定义如下：如果`y_i=y_j,b_i≠b_j`，则`(x_i,y_i)`是`(x_j,y_j)`的正反例；如果`y_i≠y_j,b_i=b_j`，则`(x_i,y_i)`是`(x_j,y_j)`的负反例。可以看出，`(x_i,y_i)`和`(x_j,y_j)`其实互为对方的反例。为了便于表达，下文中的反例特指数据中偏见-标签对应关系占少数的样本。如图1中，我们将占少数的非金发女性称为反例，且它既是非金发男性的正反例又是金发女性的负反例。
+                    </p>
+
+                    <p>
+                        <b>反例何时有可能帮助模型避免虚假相关性？</b>
+                    </p>
+
+                    <p align="justify" style="text-indent:2em;">
+                        为了了解反例在消除虚假相关性方面的潜力，我们首先讨论反例如何在人类做判断时发挥作用。如图2（a）所示，仅给定两类样本进行分类而没有告知类标签的具体含义，很难确定任务是判断性别还是判断发色。但是，如果训练样本中也包含很少的反例（如图 2（b）所示），人类很容易确定分类目标并使用与类别真正相关的任务特征判断类别。这里的反例实际上对帮助人类理解分类任务旨在区分什么提供了重要的帮助。在这种情况下，即使测试数据偏离了训练分布，人做判断时仍然可以可靠地依赖于任务特征，而不会依赖于虚假相关性。
+                    </p>
+
+                    
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            
+                            <table>
+                            <tr>
+                                <td><img src="./CSAN/human_a.bmp" height="200"></td>
+                                <td><img src="./CSAN/human_b.bmp" height="200"></td>
+                            </tr>
+                            <tr>
+                                <td><center>(a) 没有反例的数据集</center></td>
+                                <td><center>(b) 含有反例的数据集</center></td>
+                            </tr>
+                            </table>
+                            <br> <strong>图 2</strong> 人类根据少量反例调整决策的示意图
+                        </center>
+                    </font>
+
+                    <p align="justify" style="text-indent:2em;">
+                        而对于模型来说，上面的例子表明，认识到并强调反例在模型学习中的作用有可能解决去偏问题。所以，我们设计了一个实验来分析在什么情况下反例可以帮助模型避免虚假相关性。为了反映模型依赖虚假相关的程度，我们对不同级别的不平衡训练集采用不同的实验设置，并构建了一个与训练集中大多数样本偏见-任务对应关系不一致的测试集。具体来说，我们在CelebA上进行了实验，并基于标准的训练方法训练了头发颜色为任务目标、性别为偏见特征的二分类模型。如图3所示，在训练集中，金发女性图像和非金发男性图像时占多数的偏见-任务对应关系的样本，金发男性图像和非金发女性图像时占少数的偏见-任务对应关系的样本，即反例。测试集由金发男性图像和非金发女性图像组成，它们的偏见-任务对应关系与虚假相关性冲突（相反）。进一步，为了实验结果的可比性，我们保证训练样本总数不变，逐步增加反例在训练集中的比例ρ。准确率如图4所示。我们可以看到，随着反例比例的增加，准确率不断提高。实验结果表明，基于标准训练方法，当反例比例较低时，反例对虚假相关性消除的贡献有限；而随着其比例的增加，反例逐渐帮助模型避免虚假相关性。
+                    </p>
+                    
+                    
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/fig.3a.bmp" height="300">
+                            <br> <strong>图 3</strong> 实验设置
+                        </center>
+                    </font>
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/fig4.png" height="300">
+                            <br> <strong>图 4</strong> 不同反例比例实验的准确率。不同颜色的柱子的长度表示不同样本的比例。
+                        </center>
+                    </font>
+
+                    <p>
+                        <b>反例如何帮助模型避免虚假相关性？</b>
+                    </p>
+
+                    <p align="justify" style="text-indent:2em;">
+                        上一小节观察到，随着反例比例的增加，反例有助于模型避免虚假相关性。在本小节中，我们将进一步研究这一观察背后的机制。如之前的实验所示，错误分类的金发男性图像表明训练模型倾向于将反例视为与错误类别更相似样本。为了量化反例和正确类样本的相似程度，我们计算反例在特征空间中与正确类中心和错误类中心的相对位置。具体来说，给定类别`c`，我们将Relative Counterexample Affinity (RCA) 定义如下：
+                    </p>
+
+                    <p>
+                        <center>`RCA(c)=\frac{\frac{1}{N}\sum_{i \in CE(c)}dis(e_{i}\ ,\ e_{\bar{c}})}{\frac{1}{N}\sum_{i \in CE(c)}(dis(e_{i}\ ,\ e_{c}) + dis(e_{i}\ ,\ e_{\bar{c}}))}`</center>
+                    </p>
+
                     <p align="justify">
-                        我们继承了反事实衡量偏见的思路，提出了反事实消除社会偏见方法FairVLP。
+                        其中`dis(∙,∙)`是欧氏距离的计算函数，`CE(c)`是类别`c`中反例的索引集，`N=|CE(c)|`是反例的数量，`e_i`是反例的嵌入表示，`e_c`和`e_{\bar{c}}`是类别`c`的类中心表示以及平均其他类的类中心表示。较高的 RCA 值表明反例与其所属的类中心之间的相对距离较近，反之亦然。 我们在上述实验中计算了两类的 RCA。非金发女性图像是非金发类的反例，金发男性图像是金发类的反例。如图5所示，无论哪种类型的反例，RCA都随着反例比例的增加而不断增加。这意味着反例通过鼓励其表示接近来自同一类的大多数样本的表示来帮助模型避免虚假相关性。受此启发，在反例数量固定的前提下，我们提出了反例对比学习（CounterCL），它直接调节反例的特征表示来模仿上述反例比例增加的结果。    
+                    </p>
 
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/curve.png" height="300">
+                            <br> <strong>图 5</strong> RCA随反例比例增加的变化趋势
+                        </center>
+                    </font>
 
+                    <h2><font face="helvetica" style="font-size:24px">反例对比学习</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
 
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/fig5.bmp" height="300">
+                            <br> <strong>图 6</strong> 反例对比学习的模型图。在特征空间中，CounterCL损失拉近正反例对并推远负反例对。
+                        </center>
+                    </font>
 
+                    <p align="justify" style="text-indent:2em;">
+                        上述分析实验表明，反例通过鼓励其表示接近同一类的大多数样本的表示，从而有助于消除虚假相关性。受自监督对比学习的启发[2]，我们定义Counterexample Contrastive Learning (CounterCL) 损失，以此调整反例在特征空间的表示。如图6所示，我们以三元组`(x_{o ri}, x_{pos}, x_{n eg})`为例，`x_{pos}`是`x_{o ri}`的正反例，`x_{n eg}`是`x_{o ri}`的负反例。上述样本通过一次随机的变化（旋转或裁剪等）后，通过主干网络得到其特征空间的表示。这些表示可以分别计算分类任务的交叉熵损失和去偏的CounterCL损失。CounterCL损失形式化的定义如下：    
+                    </p>
 
-具体地说，我们的消除分为两个模块：1.反事实样本生成 ，2。最小化真实样本和反事实样本间对目标概念建模的差距。
-对于模块一，我们使用了上一节中所描述的对偏见概念的反事实样本生成。对于模块二，我们应用了Kullback-Leibler(KL)距离来衡量真实样本和反事实样本之间对目标概念建模的差距，并最小化KL距离。
+                    <p>
+                        <center>`L_{CounterCL}=-\frac{1}{2N}\sum_{i\in\tilde{I}}\frac{1}{|J(i)|}\sum_{j\in J(i)}log\frac{exp({z_i\cdot z_{j}}/\tau)}{\sum_{\alpha\in J(i)\cup K(i)}\ exp({z_i\cdot z_{\alpha}}/\tau)}`</center>
                     </p>
 
 
-                    <font face="helvetica" style="font-size:15px">
-                        <center>
-                            <img src="./CSAN/f3.png" height="300">
-                            <br> <strong>图四</strong> 反事实数据增强消除VLP模型的社会偏见（FairVLP）
-                        </center>
-                    </font>
-                    <br>
+                    <p align="justify">
+                        其中，`J(i)`是样本`x_i`的正反例的索引集合，`K(i)`是样本`x_i`的负反例的索引集合，其他部分与自监督对比学习的定义一致。    
+                    </p>
 
 
-                    因为尚未有对VLP中社会偏见的消除方法，我们也将对单模态社会偏见消除的方法迁移到了VLP的偏见消除任务中。表二展示了我们方法和基线方法的去偏见效果，结果表明我们的方法取得了最显著的去偏见效果。
-                    <font face="helvetica" style="font-size:15px">
-                        <center>
-                            <img src="./CSAN/f6.png" height="300">
-                            <br> <strong>表二</strong> 对VLP模型的去偏见效果
-                        </center>
-                    </font>
-                    <br>
-                    <p style="padding-bottom:1px"></p>
-
-
-                    <p style="padding-bottom:1px"></p>
-
-
-                    <h2><font face="helvetica" style="font-size:24px">讨论和总结</font></h2>
-                    <hr style="margin-top:-10px; margin-bottom:13px">
-                    <font face="helvetica" style="font-size:18px">
-                        <p align="justify">
-                            视觉语言训练的模型旨在解决特定下游任务的数据缺乏, 所以下游任务性能的关键是在预训练模型中学习可靠的跨模态知识。在揭示VLP模型中的社会偏见外，我们提出的CounterBias还可为VLP模型中知识的不透明表示提供了新的见解。 以ALBEF为例，我们可以使用CounterBias来发现VLP模型中所建模的动物概念(如马和牛)和背景概念(如草和地面)之间的相关性。如图八所示，事实和反事实的图文对之间的MLM预测差异反映了在ALBEF中学习到的动物和背景的相关性，表明模型学习了马与草、牛与草之间的虚假相关性。因此，CounterBias不仅仅可作为衡量社会偏见的工具，在对VLP模型的解释上也有用武之地。
-                        </p>
-    
-    
-                        <font face="helvetica" style="font-size:15px">
-                            <center>
-                                <img src="./CSAN/f7.png" height="300">
-                                <br> <strong>图五</strong> CounterBias可以发现社会偏见之外的虚假相关性
-                            </center>
-                        </font>
-                        <br>
-    
-    
-                        总结:本文提出通过比较真实样本和具有不同偏见概念的反事实样本在建模目标信息时候的差距来衡量VLP模型中的社会偏见。并且提出了VL-Bias数据集用于研究VLP模型中的社会偏见。以性别为例，我们发现VLP模型中普遍存在社会偏见。为了消除社会偏见，我们提出了FairVLP通过反事实数据增强来消除社会偏见。
-
-                        <br>
-                    <h2><font face="helvetica" style="font-size:24px">Code and Dataset</font></h2>
+                    <h2><font face="helvetica" style="font-size:24px">实验</font></h2>
                     <hr style="margin-top:-10px; margin-bottom:13px">
 
+                    <p align="justify" style="text-indent:2em;">
+                        我们在CelebA和UTKFace数据集上验证了方法的有效性。
+                    </p>
+
+                    <p>
+                        <b>比较结果</b>
+                    </p>
 
                     <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <strong>表 1</strong> CelebA数据集的实验结果。加粗为最优结果，下划线为次优结果。
+                            <br><img src="./CSAN/table1.png" height="300">
+                        </center>
+                    </font>
 
-                        <div>
-                            <a href="" style="text-decoration: none;">
-                                <img src="./CSAN/download_button.jpg" height="30px">
-                            </a>
-                            <div style="margin-left: 10px; margin-top: 20px; display: inline-block;">
-                                <a href="https://github.com/VL-Bias/VL-Bias">Code and dataset are available at Github</a>
-                                <br>
-                                
-                            </div>
-                        </div>
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <strong>表 2</strong> UTKFace数据集的实验结果
+                            <br><img src="./CSAN/table2.png" height="200">
+                        </center>
+                    </font>
 
+                    <p align="justify" style="text-indent:2em;">
+                        CelebA 和 UTKFace 的定量实验结果见表1和表2。在 CelebA 上，CounterCL 在所有任务中都达到了最好或次优的准确度。在 UTKFace 上，CounterCL 在两种偏见设置上都明显优于其他方法。这些结果验证了我们的方法在消除虚假相关方面的有效性。
+                    </p>
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/fig_umap_a.png" height="300">
+                            <br> （a）Vanilla
+                        </center>
+                    </font>
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <img src="./CSAN/fig_umap_b.png" height="300">
+                            <br> （b）CounterCL
+                            <br> <strong>图 7</strong> 样本在特征空间的可视化
+                        </center>
+                    </font>
+
+                    <p align="justify" style="text-indent:2em;">
+                        在图7中，我们通过 UMAP可视化了CelebA 中 BlondHair 分类任务的样本的表示。不同颜色的点代表具有不同偏见或不同标签的样本。我们可以看到，Vanilla 获得的表示无论是发色还是性别都表现出更强的可分性。头发颜色和性别之间的分布一致性表明模型严重依赖偏见。而 CounterCL 获得的男性和女性图像的表示均匀地分散在特征空间中。头发颜色和性别之间明显的分布差异表明我们的方法使模型没有将偏见特征作为判别特征。
+                    </p>
+
+                    <p>
+                        <b>兼容性评估</b>
+                    </p>
+
+                    <font face="helvetica" style="font-size:15px">
+                        <center>
+                            <strong>表 3</strong> 在UTKFace数据集上其他去偏方法结合CounterCL的实验结果
+                            <br><img src="./CSAN/table3.png" height="150">
+                        </center>
+                    </font>
+
+                    <p align="justify" style="text-indent:2em;">
+                        CounterCL作为正则化项可以灵活地与其他方法结合使用。如表3所示，与原始方法相比，CounterCL可以提高大多数去偏方法的性能。具体来说，结合 CounterCL的LNL 和 EnD 可以显着提高至接近SoTA的性能。值得注意的是，一些结合 CounterCL 的方法可以比 CounterCL 更好地发挥反例的潜力。除了在不引入额外数据的情况下与其他方法结合之外，CounterCL 还可以轻松扩展以与现有的基于数据增强的方法结合。未来，我们正在努力探索融合增强的外部数据和内部反例以消除虚假相关性的可能性。
+                    </p>
+
+                    <h2><font face="helvetica" style="font-size:24px">结论</font></h2>
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+                    <p align="justify" style="text-indent:2em;">
+                        在这项工作中，我们引入反例这一概念来讨论在不引入额外数据的情况下对模型进行去偏的可能性。通过分析实验来研究反例何时以及如何帮助模型避免虚假相关性，我们提出 CounterCL 来利用有限的观测到的反例来调整特征表示。它与其他解决方案兼容，并且可以作为基于反事实数据增强的解决方案的补充。定量和定性实验验证了有效性。
+                    </p>
+
+                    <p align="justify" style="text-indent:2em;">
+                        除了将反例与增强的外部数据整合外，未来我们还将朝着以下两个方向努力：（1）以修改损失以外的方法利用反例，并且去除偏见标注的要求以提高实用性； (2) 探索反例在重训练之外的场景中的应用，例如，使用主动挑选的反例进行在线调试。
+                    </p>
+                    <br>
+
+                    <hr style="margin-top:-10px; margin-bottom:13px">
+
+                    <p>
+                        <b>参考文献</b>
+                    </p>
+
+                    <p align="justify">
+                        [1] Aishwarya Agrawal, Dhruv Batra, Devi Parikh, and Aniruddha Kembhavi. 2018. Don’t just assume; look and answer: Overcoming priors for visual question answering. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 4971–4980.
                         <br>
-                    </font></font></td>
+                        [2] Ting Chen, Simon Kornblith, Mohammad Norouzi, and Geoffrey Hinton. 2020. A simple framework for contrastive learning of visual representations. In International conference on machine learning. PMLR, 1597–1607.
+                    </p>
+
+
+
+
+                    
         </tr>
         </tbody>
     </table>

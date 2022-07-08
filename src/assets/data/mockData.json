@@ -65,7 +65,7 @@
                 "d": 3
             },
             "title": {
-                "zh_cn": "ACM MM 2022：反例对比学习消除杂散相关",
+                "zh_cn": "ACM MM 2022：基于反例对比学习的虚假相关性消除",
                 "en": "ACM MM 2022: Counterexample Contrastive Learning for Spurious Correlation Elimination"
             },
             "introduction": "本文提出了反例对比学习（CounterCL），其利用有限的观测到的反例来调整特征表示。具体来说，CounterCL 设法将反例拉近同一类中具有不同偏见特征的样本，同时将它们推离不同类别中具有相同偏见特征的样本。这样的约束有助于避免模型学习偏见和标签之间的虚假相关性。",
@@ -76,7 +76,7 @@
                 }, {
                     "type": "image",
                     "img_src": "jinqiang/1.png",
-                    "img_title": "图1  基于反事实的偏见衡量方法"
+                    "img_title": "图1  虚假相关性问题、反事实数据增强去偏方法和本工作去偏方法的示意图"
                 }, {
                     "type": "text",
                     "text": "除了求助于额外生成的样本之外，我们认为原始数据集中实际上存在有价值的样本，其消除虚假相关性的潜力没有得到很好的探索。我们将这些与大多数样本具有不一致的偏见-标签对应关系的观测样本称为反例。因此，本文提出了反例对比学习（CounterCL），其利用有限的观测到的反例来调整特征表示。具体来说，CounterCL 设法将反例拉近同一类中具有不同偏见特征的样本，同时将它们推离不同类别中具有相同偏见特征的样本。这样的约束有助于避免模型学习偏见和标签之间的虚假相关性。"
@@ -84,7 +84,7 @@
                 {
                     "type": "image",
                     "img_src": "jinqiang/2.png",
-                    "img_title": "图2  CounterBias对三种偏见的衡量"
+                    "img_title": "图2  反例对比学习模型框架"
                 }
             ]
         }, {
@@ -137,14 +137,14 @@
             }, {
                 "type": "image",
                 "img_src": "zhangjiaming/1.png",
-                "img_title": "图1  基于反事实的偏见衡量方法"
+                "img_title": "图1  示例图"
             }, {
                 "type": "text",
                 "text": "为了实现更有效的多模态攻击，需要在攻击时加强两个攻击之间的交互，使两个攻击形成“合力”。于是，我们提出了一种协同对抗攻击（Collaborative Attack, Co-Attack）针对VLP模型。对于攻击Multimodal Embedding，Co-Attack试图协同地扰乱输入文本和输入图像，这促使被扰乱的Multimodal Embedding偏离原始的Multimodal Embedding。如图2(a)所示，如果不考虑这两种攻击之间的一致性，文本模态的噪声δ_t和图像模态的噪声δ_i所形成的合力噪声δ_(i&t)的模长相对较小，两者的夹角β大致处于正交状态。而与此相反，Co-Attack协同进行文本模态的扰动和图像模态的扰动，实现更强的合力噪声δ_(i&t)和更小的夹角β。对于Unimodal Embedding，如图2(b)所示，Co-Attack是通过使两个模态的噪声δ_t和δ_i之间的夹角γ增大来实现的，进而使δ_(i&t)的模长增大，实现更强的攻击效果。"
             }, {
                 "type": "image",
                 "img_src": "zhangjiaming/2.png",
-                "img_title": "图2  CounterBias对三种偏见的衡量"
+                "img_title": "图2  Co-Attack示意图"
             }]
         }, {
             "time": {
@@ -534,6 +534,26 @@
         "sex": "男",
         "grade": "准研一",
         "rsearch_direction": "算法测试"
+    }, {
+        "name": "朱彦谞",
+        "sex": "女",
+        "grade": "准研一",
+        "rsearch_direction": "信息抽取"
+    }, {
+        "name": "孔庆杨",
+        "sex": "男",
+        "grade": "准研一",
+        "rsearch_direction": "信息抽取"
+    }, {
+        "name": "李嘉威",
+        "sex": "男",
+        "grade": "准研一",
+        "rsearch_direction": ""
+    }, {
+        "name": "刘学中",
+        "sex": "男",
+        "grade": "准研一",
+        "rsearch_direction": ""
     }],
     "undergraduate_student": [{
         "name": "本科生1",
